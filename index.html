@@ -83,8 +83,9 @@ body{font-family:Arial}
   flex-direction:column;
   align-items:center;
   text-align:center;
-  padding: clamp(10px, 3vw, 20px) clamp(10px, 3vw, 15px);
-  justify-content: space-between;
+  padding: clamp(20px, 4vw, 40px) clamp(12px, 2.5vw, 20px);
+  justify-content: center;
+  gap: clamp(18px, 3.5vw, 40px);
   overflow:hidden;
 }
 @keyframes bgSlide {
@@ -93,19 +94,47 @@ body{font-family:Arial}
   100%{background-position:100% 0}
 }
 
+/* Анимация появления при прокрутке */
+.screen2 .title,
+.screen2 .info,
+.screen2 .calendar-wrapper,
+.screen2 .bottom{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen2.visible .title{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+.screen2.visible .info{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+.screen2.visible .calendar-wrapper{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+.screen2.visible .bottom{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.7s;
+}
+
 .screen2 .title{
   font-family:'Great Vibes', cursive;
-  font-size: clamp(32px, 8vw, 58px);
+  font-size: clamp(42px, 9vw, 72px);
   font-weight:400;
   line-height:1.1;
-  margin-top: clamp(5px, 2vw, 10px);
   word-break: break-word;
   color:#111;
 }
 .screen2 .info{
-  margin-top: clamp(30px, 5vw, 45px);
   font-family:'Cormorant Garamond';
-  font-size: clamp(15px, 3.5vw, 26px);
+  font-size: clamp(20px, 4vw, 32px);
   line-height:1.45;
   padding: 0 10px;
   color:#111;
@@ -113,7 +142,6 @@ body{font-family:Arial}
 .screen2 .calendar-wrapper{
   width:100%;
   max-width:620px;
-  margin-top: clamp(25px, 5vw, 60px);
   flex-shrink: 0;
 }
 .screen2 .month-title{
@@ -122,7 +150,7 @@ body{font-family:Arial}
   gap: clamp(12px, 3vw, 25px);
   justify-content:center;
   font-family:'Cormorant Garamond';
-  font-size: clamp(26px, 6vw, 45px);
+  font-size: clamp(32px, 7vw, 52px);
   color:#111;
 }
 .screen2 .month-title:before,
@@ -135,7 +163,7 @@ body{font-family:Arial}
 .screen2 .calendar{
   position:relative;
   margin-top: clamp(10px, 2vw, 15px);
-  height: clamp(140px, 28vw, 220px);
+  height: clamp(160px, 30vw, 240px);
   border-top:1px solid #777;
   border-bottom:1px solid #777;
 }
@@ -157,56 +185,68 @@ body{font-family:Arial}
   border:none;
 }
 .screen2 .week{
-  font-size: clamp(14px, 3vw, 25px);
+  font-size: clamp(16px, 3.5vw, 28px);
   margin-bottom: clamp(10px, 2.5vw, 25px);
   word-break: break-word;
   color:#111;
 }
 .screen2 .number{
-  font-size: clamp(40px, 9vw, 85px);
+  font-size: clamp(48px, 10vw, 90px);
   color: #bbb;
 }
 .screen2 .middle .number{
   color:#000;
-  font-size: clamp(55px, 13vw, 115px);
+  font-size: clamp(65px, 14vw, 130px);
   line-height:1;
 }
+
+/* Обводка — крупнее, половинки */
 .screen2 .draw-circle{
   position:absolute;
-  width: clamp(110px, 23vw, 190px);
-  height: clamp(110px, 23vw, 190px);
+  width: clamp(150px, 28vw, 240px);
+  height: clamp(150px, 28vw, 240px);
   left:50%;
-  top: clamp(18px, 4vw, 40px);
+  top: clamp(10px, 3vw, 25px);
   transform:translateX(-50%);
   border-radius:50%;
-  animation: pulse 2s ease-in-out infinite;
   pointer-events: none;
 }
+
+/* Голубая половинка (правая) */
 .screen2 .blue{
-  border: clamp(2px, 0.4vw, 3px) solid #00a9d8;
-  transform: translateX(-52%) rotate(-15deg);
+  border: clamp(3px, 0.5vw, 4px) solid transparent;
+  border-top-color: #00a9d8;
+  border-right-color: #00a9d8;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: translateX(-50%) rotate(45deg);
+  animation: pulseBlue 2s ease-in-out infinite;
 }
+
+/* Розовая половинка (левая) */
 .screen2 .pink{
-  border: clamp(2px, 0.4vw, 3px) solid #df5aa5;
-  transform: translateX(-48%) rotate(12deg);
-  animation-delay: 1s;
+  border: clamp(3px, 0.5vw, 4px) solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: #df5aa5;
+  border-left-color: #df5aa5;
+  transform: translateX(-50%) rotate(45deg);
+  animation: pulsePink 2s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
-@keyframes pulse {
-  0%,100%{box-shadow:0 0 0 0 rgba(0,169,216,.4)}
-  50%{box-shadow:0 0 0 clamp(6px,1.5vw,12px) rgba(0,169,216,0)}
-}
-.screen2 .pink{
-  animation-name: pulsePink;
+
+@keyframes pulseBlue {
+  0%,100%{box-shadow:0 0 0 0 rgba(0,169,216,.5)}
+  50%{box-shadow:0 0 0 clamp(10px,2vw,18px) rgba(0,169,216,0)}
 }
 @keyframes pulsePink {
-  0%,100%{box-shadow:0 0 0 0 rgba(223,90,165,.4)}
-  50%{box-shadow:0 0 0 clamp(6px,1.5vw,12px) rgba(223,90,165,0)}
+  0%,100%{box-shadow:0 0 0 0 rgba(223,90,165,.5)}
+  50%{box-shadow:0 0 0 clamp(10px,2vw,18px) rgba(223,90,165,0)}
 }
+
 .screen2 .bottom{
-  margin-top: clamp(25px, 5vw, 55px);
-  margin-bottom: clamp(10px, 3vw, 20px);
   font-family:'Cormorant Garamond';
-  font-size: clamp(16px, 3.5vw, 28px);
+  font-size: clamp(20px, 4vw, 32px);
   line-height:1.5;
   padding: 0 10px;
   color:#111;
@@ -285,6 +325,23 @@ body{font-family:Arial}
   </div>
 
 </div>
+
+<script>
+// Анимация появления текста при прокрутке ко второму экрану
+const screen2 = document.getElementById('screen2');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      screen2.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+observer.observe(screen2);
+</script>
 
 </body>
 </html>
