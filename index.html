@@ -83,10 +83,10 @@ body{font-family:Arial}
   flex-direction:column;
   align-items:center;
   text-align:center;
-  padding: clamp(20px, 4vw, 40px) clamp(12px, 2.5vw, 20px);
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 3vw, 24px);
   justify-content: center;
-  gap: clamp(18px, 3.5vw, 40px);
-  overflow:hidden;
+  gap: clamp(22px, 4vw, 45px);
+  overflow-x:hidden;
 }
 @keyframes bgSlide {
   0%{background-position:100% 0}
@@ -104,31 +104,11 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen2.visible .title{
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.1s;
-}
-.screen2.visible .info{
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-.screen2.visible .calendar-wrapper{
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.35s;
-}
-.screen2.visible .time-block{
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.5s;
-}
-.screen2.visible .bottom{
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.65s;
-}
+.screen2.visible .title{opacity:1;transform:translateY(0);transition-delay:0.1s}
+.screen2.visible .info{opacity:1;transform:translateY(0);transition-delay:0.2s}
+.screen2.visible .calendar-wrapper{opacity:1;transform:translateY(0);transition-delay:0.35s}
+.screen2.visible .time-block{opacity:1;transform:translateY(0);transition-delay:0.5s}
+.screen2.visible .bottom{opacity:1;transform:translateY(0);transition-delay:0.65s}
 
 .screen2 .title{
   font-family:'Great Vibes', cursive;
@@ -216,7 +196,6 @@ body{font-family:Arial}
   transform:translateX(-50%);
   pointer-events: none;
 }
-
 .screen2 .circle-wrapper svg{
   width:100%;
   height:100%;
@@ -224,20 +203,14 @@ body{font-family:Arial}
   animation: breathe 3s ease-in-out infinite;
   transform-origin: center center;
 }
-
 @keyframes breathe {
-  0%,100%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.06);
-  }
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
 }
-
 .rough-ellipse{
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: url(#rough);
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:url(#rough);
 }
 
 /* Блок времени */
@@ -246,38 +219,31 @@ body{font-family:Arial}
   max-width: 500px;
   position: relative;
   flex-shrink: 0;
-  margin-top: clamp(10px, 2vw, 20px);
 }
-
 .screen2 .decor-lines{
   width: 100%;
-  height: clamp(120px, 18vw, 180px);
+  height: clamp(100px, 16vw, 160px);
   position: relative;
 }
-
 .screen2 .line{
   position: absolute;
   width: 100%;
-  height: 50%;
+  left: 0;
 }
-
 .screen2 .line.top{
   top: 0;
 }
-
 .screen2 .line.bottom{
   bottom: 0;
   transform: rotate(180deg);
 }
-
 .screen2 .line path{
   fill: none;
-  stroke: #555;
+  stroke: #666;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
 .screen2 .time-text{
   position: absolute;
   top: 50%;
@@ -286,26 +252,23 @@ body{font-family:Arial}
   text-align: center;
   z-index: 2;
 }
-
 .screen2 .time-label{
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 34px);
+  font-size: clamp(22px, 4vw, 36px);
   color: #111;
-  line-height: 1.2;
-  margin-bottom: clamp(4px, 1vw, 10px);
+  line-height: 1.3;
+  margin-bottom: clamp(2px, 0.8vw, 8px);
+  white-space: nowrap;
 }
-
 .screen2 .time-value{
   font-family: 'Ms Madi', cursive;
-  font-size: clamp(55px, 11vw, 100px);
+  font-size: clamp(50px, 10vw, 95px);
   line-height: 1;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
-
 .screen2 .time-value .blue{
   color: #00a9d8;
 }
-
 .screen2 .time-value .pink{
   color: #df5aa5;
 }
@@ -381,36 +344,18 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- 2 круга: половина розовая, половина голубая -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
           <defs>
             <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.03"
-                numOctaves="2"
-                result="noise"/>
-              <feDisplacementMap
-                in="SourceGraphic"
-                in2="noise"
-                scale="2"
-                xChannelSelector="R"
-                yChannelSelector="G"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
             </filter>
           </defs>
-
-          <!-- Круг 1: внешний -->
-          <path class="rough-ellipse" d="M100 6 A94 94 0 0 0 100 194"
-            fill="none" stroke="#df5aa5" stroke-width="3"/>
-          <path class="rough-ellipse" d="M100 6 A94 94 0 0 1 100 194"
-            fill="none" stroke="#00a9d8" stroke-width="3"/>
-
-          <!-- Круг 2: внутренний -->
-          <path class="rough-ellipse" d="M100 22 A78 78 0 0 0 100 178"
-            fill="none" stroke="#df5aa5" stroke-width="3"/>
-          <path class="rough-ellipse" d="M100 22 A78 78 0 0 1 100 178"
-            fill="none" stroke="#00a9d8" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 6 A94 94 0 0 0 100 194" fill="none" stroke="#df5aa5" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 6 A94 94 0 0 1 100 194" fill="none" stroke="#00a9d8" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 22 A78 78 0 0 0 100 178" fill="none" stroke="#df5aa5" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 22 A78 78 0 0 1 100 178" fill="none" stroke="#00a9d8" stroke-width="3"/>
         </svg>
       </div>
     </div>
