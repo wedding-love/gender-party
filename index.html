@@ -228,9 +228,10 @@ body{font-family:Arial}
   }
 }
 
-/* Небрежный фильтр — как в примере */
-.screen2 .circle-wrapper .rough-ellipse{
+/* Маркерный стиль */
+.marker-ellipse{
   stroke-linecap: round;
+  stroke-linejoin: round;
   filter: url(#rough);
 }
 
@@ -305,7 +306,7 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- Обводка с фильтром rough -->
+      <!-- 3 круга: маркерные, небрежные -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
           <defs>
@@ -324,28 +325,28 @@ body{font-family:Arial}
             </filter>
           </defs>
 
-          <!-- Круг 1: внешний — левая розовая + правая голубая -->
-          <ellipse class="rough-ellipse" cx="100" cy="100" rx="94" ry="94"
-            fill="none" stroke="#df5aa5" stroke-width="3"
+          <!-- Круг 1: внешний, толстый как маркер -->
+          <ellipse class="marker-ellipse" cx="100" cy="100" rx="94" ry="94"
+            fill="none" stroke="#df5aa5" stroke-width="4"
             stroke-dasharray="0 295 0 0"/>
-          <ellipse class="rough-ellipse" cx="100" cy="100" rx="94" ry="94"
-            fill="none" stroke="#00a9d8" stroke-width="3"
+          <ellipse class="marker-ellipse" cx="100" cy="100" rx="94" ry="94"
+            fill="none" stroke="#00a9d8" stroke-width="4"
             stroke-dasharray="0 0 0 295"/>
 
-          <!-- Круг 2: средний — левая розовая + правая голубая -->
-          <ellipse class="rough-ellipse" cx="100" cy="100" rx="82" ry="82"
-            fill="none" stroke="#df5aa5" stroke-width="3"
+          <!-- Круг 2: средний -->
+          <ellipse class="marker-ellipse" cx="100" cy="100" rx="82" ry="82"
+            fill="none" stroke="#df5aa5" stroke-width="4"
             stroke-dasharray="0 257 0 0"/>
-          <ellipse class="rough-ellipse" cx="100" cy="100" rx="82" ry="82"
-            fill="none" stroke="#00a9d8" stroke-width="3"
+          <ellipse class="marker-ellipse" cx="100" cy="100" rx="82" ry="82"
+            fill="none" stroke="#00a9d8" stroke-width="4"
             stroke-dasharray="0 0 0 257"/>
 
-          <!-- Круг 3: внутренний — левая розовая + правая голубая -->
-          <ellipse class="rough-ellipse" cx="100" cy="100" rx="70" ry="70"
-            fill="none" stroke="#df5aa5" stroke-width="3"
+          <!-- Круг 3: внутренний -->
+          <ellipse class="marker-ellipse" cx="100" cy="100" rx="70" ry="70"
+            fill="none" stroke="#df5aa5" stroke-width="4"
             stroke-dasharray="0 220 0 0"/>
-          <ellipse class="rough-ellipse" cx="100" cy="100" rx="70" ry="70"
-            fill="none" stroke="#00a9d8" stroke-width="3"
+          <ellipse class="marker-ellipse" cx="100" cy="100" rx="70" ry="70"
+            fill="none" stroke="#00a9d8" stroke-width="4"
             stroke-dasharray="0 0 0 220"/>
         </svg>
       </div>
