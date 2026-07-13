@@ -78,9 +78,9 @@ body{font-family:Arial}
   min-height:100vh;
   min-height:100dvh;
   width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 50%, #d4f0ff 100%);
-  background-size: 100% 300%;
-  animation: tripleBg 10s ease-in-out infinite;
+  background: linear-gradient(160deg, #d4f0ff 0%, #ffe0ec 35%, #c8e8ff 50%, #ffd6e8 70%, #d4f0ff 100%);
+  background-size: 400% 400%;
+  animation: rainbowBg 12s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -90,10 +90,12 @@ body{font-family:Arial}
   gap: clamp(14px, 2.5vw, 28px);
   overflow-x:hidden;
 }
-@keyframes tripleBg {
-  0%{background-position:0% 0%}
-  50%{background-position:0% 100%}
-  100%{background-position:0% 0%}
+@keyframes rainbowBg {
+  0%{background-position:0% 50%}
+  25%{background-position:100% 0%}
+  50%{background-position:100% 100%}
+  75%{background-position:0% 100%}
+  100%{background-position:0% 50%}
 }
 
 .screen2 .title,
@@ -330,9 +332,9 @@ body{font-family:Arial}
   min-height: 40vh;
   min-height: 40dvh;
   width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 50%, #d4f0ff 100%);
-  background-size: 100% 300%;
-  animation: tripleBg 10s ease-in-out infinite;
+  background: linear-gradient(160deg, #d4f0ff 0%, #ffe0ec 35%, #c8e8ff 50%, #ffd6e8 70%, #d4f0ff 100%);
+  background-size: 400% 400%;
+  animation: rainbowBg 12s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -407,12 +409,12 @@ body{font-family:Arial}
   min-height: clamp(38px, 6.5vw, 58px);
 }
 
-/* ===== ДЕТАЛИ + АНКЕТА (общий фон) ===== */
+/* ===== ДЕТАЛИ + АНКЕТА ===== */
 .shared-bg{
   width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 50%, #d4f0ff 100%);
-  background-size: 100% 300%;
-  animation: tripleBg 10s ease-in-out infinite;
+  background: linear-gradient(160deg, #d4f0ff 0%, #ffe0ec 35%, #c8e8ff 50%, #ffd6e8 70%, #d4f0ff 100%);
+  background-size: 400% 400%;
+  animation: rainbowBg 12s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -423,12 +425,12 @@ body{font-family:Arial}
 .screen4{
   padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
   justify-content: center;
-  gap: clamp(18px, 3vw, 35px);
+  gap: clamp(20px, 3.5vw, 38px);
 }
 
 .screen4 .details-title{
   font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
+  font-size: clamp(44px, 9vw, 74px);
   font-weight:400;
   line-height:1.1;
   color:#111;
@@ -440,11 +442,11 @@ body{font-family:Arial}
 
 .screen4 .details-text{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3.5vw, 28px);
+  font-size: clamp(20px, 3.8vw, 30px);
   font-weight:500;
   line-height:1.7;
   color:#111;
-  max-width: 650px;
+  max-width: 680px;
   padding: 0 10px;
   opacity: 0;
   transform: translateY(30px);
@@ -454,15 +456,15 @@ body{font-family:Arial}
 .screen4 .details-text:last-child{transition-delay:0.5s}
 
 .screen4 .divider{
-  width: 120px;
+  width: 140px;
   height: 1px;
   background: rgba(0,0,0,0.12);
-  margin: clamp(8px, 1.5vw, 16px) 0;
+  margin: clamp(10px, 2vw, 20px) 0;
 }
 
 .screen4 .form-title{
   font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
+  font-size: clamp(44px, 9vw, 74px);
   font-weight:400;
   line-height:1.1;
   color:#111;
@@ -474,11 +476,11 @@ body{font-family:Arial}
 
 .screen4 .form-subtitle{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3.5vw, 28px);
+  font-size: clamp(20px, 3.8vw, 30px);
   font-weight:500;
   line-height:1.5;
   color:#111;
-  max-width: 650px;
+  max-width: 680px;
   padding: 0 10px;
   opacity: 0;
   transform: translateY(30px);
@@ -488,10 +490,10 @@ body{font-family:Arial}
 
 .screen4 .form-container{
   width: 100%;
-  max-width: 550px;
+  max-width: 580px;
   display: flex;
   flex-direction: column;
-  gap: clamp(14px, 2.5vw, 22px);
+  gap: clamp(16px, 2.8vw, 24px);
   text-align: left;
   opacity: 0;
   transform: translateY(30px);
@@ -502,106 +504,121 @@ body{font-family:Arial}
 .screen4 .form-field{
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .screen4 .form-label{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.8vw, 22px);
+  font-size: clamp(20px, 3.2vw, 26px);
   font-weight:600;
   color:#111;
 }
 
-/* Поле ввода — сквозное, обводка голубая, скруглённые углы */
+/* Поле ввода */
 .screen4 .form-input{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2.5vw, 20px);
-  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2vw, 18px);
+  font-size: clamp(18px, 2.8vw, 22px);
+  padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
   border: 1.5px solid #47a5c8;
   border-radius: 14px;
   background: transparent;
   color:#111;
   outline: none;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 .screen4 .form-input:focus{
   border-color: #2b8aaa;
-  background: rgba(71,165,200,0.04);
 }
 
-/* Radio — без обводок */
+/* Radio */
 .screen4 .radio-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(6px, 1.2vw, 10px);
+  gap: clamp(8px, 1.5vw, 12px);
 }
 .screen4 .radio-option{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
+  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 10px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+.screen4 .radio-option:has(input:checked){
+  background: rgba(71,165,200,0.08);
 }
 .screen4 .radio-option input[type="radio"]{
   accent-color: #47a5c8;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 .screen4 .radio-option span{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(18px, 2.8vw, 22px);
   color:#111;
 }
 
-/* Checkbox — без обводок */
+/* Checkbox */
 .screen4 .checkbox-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(6px, 1.2vw, 10px);
+  gap: clamp(8px, 1.5vw, 12px);
 }
 .screen4 .checkbox-option{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
+  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 10px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+.screen4 .checkbox-option:has(input:checked){
+  background: rgba(71,165,200,0.08);
 }
 .screen4 .checkbox-option input[type="checkbox"]{
   accent-color: #47a5c8;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 .screen4 .checkbox-option span{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(18px, 2.8vw, 22px);
   color:#111;
 }
 
 .screen4 .alcohol-text{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(15px, 2.3vw, 18px);
+  font-size: clamp(17px, 2.6vw, 20px);
   color: #555;
   line-height: 1.5;
   padding: 0 5px;
   margin-bottom: 4px;
 }
 
-/* Кнопка — сквозная, обводка голубая, текст голубой */
+/* Кнопка Отправить */
 .screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: clamp(20px, 3.5vw, 28px);
   font-weight:700;
   color: #47a5c8;
   background: transparent;
-  border: 1.5px solid #47a5c8;
+  border: 1.5px solid #df5aa5;
   border-radius: 50px;
-  padding: clamp(12px, 2vw, 16px) clamp(30px, 5vw, 45px);
+  padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
   cursor: pointer;
   transition: all 0.3s ease;
   align-self: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 .screen4 .submit-btn:hover{
-  background: rgba(71,165,200,0.08);
+  background: rgba(223,90,165,0.06);
   transform: scale(1.03);
 }
 .screen4 .submit-btn:active{
@@ -736,7 +753,7 @@ body{font-family:Arial}
 
 </div>
 
-<!-- ===== ДЕТАЛИ + АНКЕТА (общий фон) ===== -->
+<!-- ===== ДЕТАЛИ + АНКЕТА ===== -->
 <div class="shared-bg screen4" id="screen4">
 
   <div class="details-title">Детали</div>
