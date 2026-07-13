@@ -531,25 +531,25 @@ body{font-family:Arial}
 </div>
 
 <script>
-// ===== JSONBIN.IO =====
+// ===== JSONBIN.IO КОНФИГ =====
 const BIN_ID = '6a552313da38895dfe581807';
-const API_KEY = '$2a$10$fFAiFDQNx50Kojz3lEzxBeU6ndcYX7vHXsHv1pho9h8jb2VsQy00';
-const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-const HEADERS = {
-  'X-Master-Key': API_KEY
-};
-
+const API_KEY = '$2a$10$WibF/5IT56IT/vosdea0N.7tG5QnJ14lDLs4wdo9/km9fLG7i/57m';
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
+
 let votes = { girl: 0, boy: 0 };
 
 async function loadVotes() {
   try {
-    const res = await fetch(API_URL, { headers: HEADERS });
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': API_KEY }
+    });
     if (res.ok) {
       const data = await res.json();
       return data.record;
     }
-  } catch(e) {}
+  } catch(e) {
+    console.log('Ошибка загрузки:', e);
+  }
   const s = localStorage.getItem('gender_reveal_votes');
   return s ? JSON.parse(s) : { girl: 0, boy: 0 };
 }
@@ -557,12 +557,17 @@ async function loadVotes() {
 async function saveVotes(v) {
   localStorage.setItem('gender_reveal_votes', JSON.stringify(v));
   try {
-    await fetch(API_URL, {
+    await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
       method: 'PUT',
-      headers: { ...HEADERS, 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': API_KEY
+      },
       body: JSON.stringify(v)
     });
-  } catch(e) {}
+  } catch(e) {
+    console.log('Ошибка сохранения:', e);
+  }
 }
 
 function updateDisplay() {
@@ -570,14 +575,14 @@ function updateDisplay() {
   document.getElementById('count-boy').textContent = votes.boy;
 }
 
-async function vote(t) {
-  const m = localStorage.getItem(MY_VOTE_KEY);
-  if (m === 'girl') votes.girl = Math.max(0, votes.girl - 1);
-  if (m === 'boy') votes.boy = Math.max(0, votes.boy - 1);
-  
-  if (t === 'girl') { votes.girl++; localStorage.setItem(MY_VOTE_KEY, 'girl'); }
-  else if (t === 'boy') { votes.boy++; localStorage.setItem(MY_VOTE_KEY, 'boy'); }
-  
+async function vote(type) {
+  const myVote = localStorage.getItem(MY_VOTE_KEY);
+  if (myVote === 'girl') votes.girl = Math.max(0, votes.girl - 1);
+  if (myVote === 'boy') votes.boy = Math.max(0, votes.boy - 1);
+
+  if (type === 'girl') { votes.girl++; localStorage.setItem(MY_VOTE_KEY, 'girl'); }
+  else if (type === 'boy') { votes.boy++; localStorage.setItem(MY_VOTE_KEY, 'boy'); }
+
   await saveVotes(votes);
   updateDisplay();
 }
@@ -585,13 +590,14 @@ async function vote(t) {
 async function init() {
   votes = await loadVotes();
   updateDisplay();
+
   setInterval(async () => {
     const fresh = await loadVotes();
     if (fresh.girl !== votes.girl || fresh.boy !== votes.boy) {
       votes = fresh;
       updateDisplay();
     }
-  }, 3000);
+  }, 5000);
 }
 
 init();
