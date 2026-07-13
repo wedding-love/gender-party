@@ -501,18 +501,13 @@ body{font-family:Arial}
 }
 .screen4.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.8s}
 
-.screen4 .form-field{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.screen4 .form-field{display:flex;flex-direction:column;gap:10px}
 .screen4 .form-label{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.2vw, 26px);
   font-weight:600;
   color:#111;
 }
-
 .screen4 .form-input{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 2.8vw, 22px);
@@ -524,168 +519,83 @@ body{font-family:Arial}
   outline: none;
   transition: border-color 0.3s ease;
 }
-.screen4 .form-input:focus{
-  border-color: #2b8aaa;
-}
+.screen4 .form-input:focus{border-color:#2b8aaa}
 
-.screen4 .radio-group{
-  display: flex;
-  flex-direction: column;
-  gap: clamp(10px, 1.8vw, 14px);
-}
-.screen4 .radio-option{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
+.screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
+.screen4 .radio-option{display:flex;align-items:center;gap:12px;cursor:pointer}
 .screen4 .radio-option input[type="radio"]{
-  appearance: none;
-  -webkit-appearance: none;
-  width: 22px;
-  height: 22px;
-  border: 2px solid #47a5c8;
-  border-radius: 50%;
-  flex-shrink: 0;
-  position: relative;
-  cursor: pointer;
-  background: transparent;
+  appearance:none;-webkit-appearance:none;
+  width:22px;height:22px;border:2px solid #47a5c8;border-radius:50%;
+  flex-shrink:0;position:relative;cursor:pointer;background:transparent;
 }
 .screen4 .radio-option input[type="radio"]:checked::after{
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #47a5c8;
+  content:'';position:absolute;top:3px;left:3px;width:12px;height:12px;
+  border-radius:50%;background:#47a5c8;
 }
 .screen4 .radio-option span{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);
-  color:#111;
+  font-size: clamp(18px, 2.8vw, 22px);color:#111;
 }
 
-.screen4 .checkbox-group{
-  display: flex;
-  flex-direction: column;
-  gap: clamp(10px, 1.8vw, 14px);
-}
-.screen4 .checkbox-option{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
+.screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
+.screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
 .screen4 .checkbox-option input[type="checkbox"]{
-  appearance: none;
-  -webkit-appearance: none;
-  width: 22px;
-  height: 22px;
-  border: 2px solid #47a5c8;
-  border-radius: 5px;
-  flex-shrink: 0;
-  position: relative;
-  cursor: pointer;
-  background: transparent;
+  appearance:none;-webkit-appearance:none;
+  width:22px;height:22px;border:2px solid #47a5c8;border-radius:5px;
+  flex-shrink:0;position:relative;cursor:pointer;background:transparent;
 }
 .screen4 .checkbox-option input[type="checkbox"]:checked::after{
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 6px;
-  width: 6px;
-  height: 12px;
-  border: solid #47a5c8;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  content:'';position:absolute;top:2px;left:6px;width:6px;height:12px;
+  border:solid #47a5c8;border-width:0 2px 2px 0;transform:rotate(45deg);
 }
 .screen4 .checkbox-option span{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);
-  color:#111;
+  font-size: clamp(18px, 2.8vw, 22px);color:#111;
 }
 
 .screen4 .alcohol-text{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.6vw, 20px);
-  color: #555;
-  line-height: 1.5;
-  padding: 0 5px;
-  margin-bottom: 4px;
+  font-size: clamp(17px, 2.6vw, 20px);color:#555;line-height:1.5;padding:0 5px;margin-bottom:4px;
 }
 
 .screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.5vw, 28px);
-  font-weight:700;
-  color: #47a5c8;
-  background: transparent;
-  border: 1.5px solid #df5aa5;
-  border-radius: 50px;
+  font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
+  background:transparent;border:1.5px solid #df5aa5;border-radius:50px;
   padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: center;
-  margin-top: 12px;
+  cursor:pointer;transition:all 0.3s ease;align-self:center;margin-top:12px;
 }
-.screen4 .submit-btn:hover{
-  background: rgba(223,90,165,0.06);
-  transform: scale(1.03);
-}
-.screen4 .submit-btn:active{
-  transform: scale(0.97);
-}
+.screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
+.screen4 .submit-btn:active{transform:scale(0.97)}
 
 /* ===== КОНТАКТЫ ===== */
 .screen4 .contacts-title{
   font-family:'Great Vibes', cursive;
-  font-size: clamp(44px, 9vw, 74px);
-  font-weight:400;
-  line-height:1.1;
-  color:#111;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  font-size: clamp(44px, 9vw, 74px);font-weight:400;line-height:1.1;color:#111;
+  opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease;
 }
 .screen4.visible .contacts-title{opacity:1;transform:translateY(0);transition-delay:0.9s}
 
 .screen4 .contacts-info{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);
-  font-weight:500;
-  line-height:1.6;
-  color:#111;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
+  opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease;
 }
 .screen4.visible .contacts-info{opacity:1;transform:translateY(0);transition-delay:1s}
 
 .screen4 .contacts-phone{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 34px);
-  font-weight:600;
-  color:#111;
-  letter-spacing: 0.5px;
+  font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
 
 /* ===== ЗВЁЗДОЧКИ ===== */
 .screen4 .stars-row{
-  display: flex;
-  gap: clamp(12px, 2.5vw, 22px);
-  justify-content: center;
-  margin-top: clamp(5px, 1vw, 10px);
+  display:flex;gap:clamp(12px,2.5vw,22px);justify-content:center;margin-top:clamp(5px,1vw,10px);
 }
 .screen4 .star-big{
-  width: clamp(28px, 5vw, 42px);
-  height: clamp(28px, 5vw, 42px);
+  width:clamp(28px,5vw,42px);height:clamp(28px,5vw,42px);
 }
-.screen4 .star-big svg{
-  width: 100%;
-  height: 100%;
-}
+.screen4 .star-big svg{width:100%;height:100%}
 </style>
 </head>
 <body>
@@ -815,7 +725,7 @@ body{font-family:Arial}
 
 </div>
 
-<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ ===== -->
+<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ЗВЁЗДОЧКИ ===== -->
 <div class="shared-bg screen4" id="screen4">
 
   <div class="details-title">Детали</div>
@@ -914,20 +824,20 @@ body{font-family:Arial}
   <div class="stars-row">
     <div class="star-big">
       <svg viewbox="0 0 24 24">
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1" stroke-dasharray="0 30 0 0"/>
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1" stroke-dasharray="0 0 0 30"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.5" stroke-dasharray="0 30 0 0"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.5" stroke-dasharray="0 0 0 30"/>
       </svg>
     </div>
     <div class="star-big">
       <svg viewbox="0 0 24 24">
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1" stroke-dasharray="0 30 0 0"/>
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1" stroke-dasharray="0 0 0 30"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.5" stroke-dasharray="0 30 0 0"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.5" stroke-dasharray="0 0 0 30"/>
       </svg>
     </div>
     <div class="star-big">
       <svg viewbox="0 0 24 24">
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1" stroke-dasharray="0 30 0 0"/>
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1" stroke-dasharray="0 0 0 30"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.5" stroke-dasharray="0 30 0 0"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.5" stroke-dasharray="0 0 0 30"/>
       </svg>
     </div>
   </div>
