@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Girl or Boy</title>
+<link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{position:relative;background:#000;font-family:Arial}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.star{position:absolute;width:20px;height:20px}
+.star svg{width:100%;height:100%}
+.title{position:absolute;left:50%;bottom:25%;transform:translateX(-50%) rotate(-9deg);font-family:'Ms Madi',cursive;font-size:clamp(72px,10vw,140px);color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(255,255,255,.15);font-weight:100;letter-spacing:6px;-webkit-text-stroke:0.5px white}
+
+.arrow{position:absolute;left:50%;bottom:25px;transform:translateX(-50%);animation:b 1.8s infinite}
+.arrow svg{width:28px;height:28px;display:block}
+@keyframes b{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}</style>
+</head><body>
+<video autoplay="" loop="" muted="" playsinline="">
+<source src="видео.mp4" type="video/mp4"/>
+</video>
+<div class="overlay"></div>
+
+<!-- Звёздочки — 15 шт, без той что у Girl -->
+<div class="star" style="left:3%;top:4%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:92%;top:6%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:82%;top:20%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:5%;top:38%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:90%;top:36%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:18%;top:8%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:78%;top:10%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+
+<div class="star" style="left:2%;top:60%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:94%;top:56%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:10%;top:75%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:88%;top:72%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+
+<div class="star" style="left:6%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:86%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:30%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<div class="star" style="left:70%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+
+<h1 class="title">Girl or Boy</h1>
+<div class="arrow">
+  <svg viewbox="0 0 24 24" fill="none">
+    <path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+</body></html>
