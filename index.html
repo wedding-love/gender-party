@@ -409,7 +409,7 @@ body{font-family:Arial}
   min-height: clamp(38px, 6.5vw, 58px);
 }
 
-/* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ ===== */
+/* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
 .shared-bg{
   width:100%;
   background: linear-gradient(160deg, #d4f0ff 0%, #ffe0ec 35%, #c8e8ff 50%, #ffd6e8 70%, #d4f0ff 100%);
@@ -595,7 +595,7 @@ body{font-family:Arial}
   justify-content: center;
   gap: clamp(18px, 3.5vw, 35px);
   margin-top: clamp(16px, 3vw, 28px);
-  margin-bottom: clamp(8px, 1.5vw, 14px);
+  margin-bottom: clamp(4px, 1vw, 10px);
 }
 .star-5-final{
   width: clamp(30px, 5.5vw, 46px);
@@ -609,15 +609,53 @@ body{font-family:Arial}
   font-weight:400;
   line-height:1.1;
   color:#111;
-  margin-top: clamp(14px, 2.5vw, 24px);
+  margin-top: clamp(8px, 1.5vw, 14px);
 }
 .screen4 .waiting-subtitle{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);
-  font-weight:500;
-  line-height:1.5;
-  color:#111;
-  margin-top: clamp(4px, 1vw, 10px);
+  font-size: clamp(18px, 3.2vw, 26px);
+  font-weight:400;
+  color: #555;
+  margin-top: clamp(2px, 0.5vw, 6px);
+}
+
+/* ===== ТАЙМЕР ===== */
+.timer-block{
+  display: flex;
+  gap: clamp(12px, 2.5vw, 26px);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: clamp(16px, 3vw, 30px);
+}
+.timer-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4px, 0.8vw, 10px);
+}
+.timer-circle{
+  width: clamp(60px, 12vw, 95px);
+  height: clamp(60px, 12vw, 95px);
+  border-radius: 50%;
+  border: 2px solid #47a5c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.timer-number{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight:700;
+  color: #df5aa5;
+  line-height: 1;
+}
+.timer-label{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(12px, 2vw, 17px);
+  font-weight:300;
+  color: #777;
+  letter-spacing: 0.5px;
 }
 </style>
 </head>
@@ -748,7 +786,7 @@ body{font-family:Arial}
 
 </div>
 
-<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ЗВЁЗДОЧКИ + ЖДЁМ ВАС ===== -->
+<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ЗВЁЗДОЧКИ + ЖДЁМ ВАС + ТАЙМЕР ===== -->
 <div class="shared-bg screen4" id="screen4">
 
   <div class="details-title">Детали</div>
@@ -843,7 +881,7 @@ body{font-family:Arial}
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
-  <!-- 3 звездочки в ряд -->
+  <!-- 3 звездочки -->
   <div class="stars-row-bottom">
     <svg class="star-5-final" viewBox="0 0 24 24">
       <defs>
@@ -873,6 +911,28 @@ body{font-family:Arial}
 
   <!-- Ждём Вас -->
   <div class="waiting-title">Ждём Вас</div>
+  <div class="waiting-subtitle">через...</div>
+
+  <!-- Таймер -->
+  <div class="timer-block">
+    <div class="timer-item">
+      <div class="timer-circle"><span class="timer-number" id="days">00</span></div>
+      <span class="timer-label" id="days-label">дней</span>
+    </div>
+    <div class="timer-item">
+      <div class="timer-circle"><span class="timer-number" id="hours">00</span></div>
+      <span class="timer-label" id="hours-label">часов</span>
+    </div>
+    <div class="timer-item">
+      <div class="timer-circle"><span class="timer-number" id="minutes">00</span></div>
+      <span class="timer-label" id="minutes-label">минут</span>
+    </div>
+    <div class="timer-item">
+      <div class="timer-circle"><span class="timer-number" id="seconds">00</span></div>
+      <span class="timer-label" id="seconds-label">секунд</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- Firebase SDK -->
@@ -913,6 +973,50 @@ async function vote(type) {
   await votesRef.set(current);
 }
 
+// ===== ТАЙМЕР ОБРАТНОГО ОТСЧЁТА =====
+const targetDate = new Date('2026-08-28T18:00:00');
+
+function pluralize(n, forms) {
+  const m = Math.abs(n) % 100;
+  const m1 = m % 10;
+  if (m > 10 && m < 20) return forms[2];
+  if (m1 > 1 && m1 < 5) return forms[1];
+  if (m1 === 1) return forms[0];
+  return forms[2];
+}
+
+function updateTimer() {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    document.getElementById('days').textContent = '0';
+    document.getElementById('hours').textContent = '0';
+    document.getElementById('minutes').textContent = '0';
+    document.getElementById('seconds').textContent = '0';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = days;
+  document.getElementById('hours').textContent = hours;
+  document.getElementById('minutes').textContent = minutes;
+  document.getElementById('seconds').textContent = seconds;
+
+  document.getElementById('days-label').textContent = pluralize(days, ['день', 'дня', 'дней']);
+  document.getElementById('hours-label').textContent = pluralize(hours, ['час', 'часа', 'часов']);
+  document.getElementById('minutes-label').textContent = pluralize(minutes, ['минута', 'минуты', 'минут']);
+  document.getElementById('seconds-label').textContent = pluralize(seconds, ['секунда', 'секунды', 'секунд']);
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+
+// Анимации
 const s2 = document.getElementById('screen2');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
