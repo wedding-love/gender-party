@@ -375,7 +375,7 @@ body{font-family:Arial}
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(12px, 2vw, 18px);
+  gap: clamp(8px, 1.5vw, 12px);
   cursor: pointer;
   background: none;
   border: none;
@@ -396,6 +396,14 @@ body{font-family:Arial}
   object-fit: cover;
   display: block;
 }
+.screen3 .vote-label{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(14px, 2.2vw, 20px);
+  font-weight:600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 .screen3 .vote-count{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(32px, 6vw, 50px);
@@ -403,15 +411,50 @@ body{font-family:Arial}
   color: #fff;
   min-height: clamp(38px, 6.5vw, 58px);
 }
-.screen3 .vote-label{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(14px, 2.2vw, 20px);
-  font-weight:300;
-  color: rgba(255,255,255,0.85);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  min-height: clamp(18px, 3vw, 26px);
+
+/* ===== ЭКРАН 4: Детали ===== */
+.screen4{
+  min-height: 100vh;
+  min-height: 100dvh;
+  width:100%;
+  background: linear-gradient(135deg, #ffb3d1 0%, #ff9ec4 25%, #b3e5ff 60%, #ffe0c8 85%, #fff3e0 100%);
+  background-size: 300% 300%;
+  animation: bgSlide 10s ease-in-out infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: clamp(30px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(30px, 5vw, 45px);
+  justify-content: center;
+  gap: clamp(20px, 3.5vw, 40px);
+  overflow-x:hidden;
 }
+
+.screen4 .details-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(42px, 9vw, 72px);
+  font-weight:400;
+  line-height:1.1;
+  color:#111;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen4.visible .details-title{opacity:1;transform:translateY(0);transition-delay:0.1s}
+
+.screen4 .details-text{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3.5vw, 28px);
+  font-weight:500;
+  line-height:1.7;
+  color:#111;
+  max-width: 650px;
+  padding: 0 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.3s}
 </style>
 </head>
 <body>
@@ -525,18 +568,35 @@ body{font-family:Arial}
         <div class="vote-photo">
           <img src="цветок.png" alt="Девочка" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=width:100%;height:100%;background:%23ffb3c6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:45px>🌸</div>'">
         </div>
+        <span class="vote-label">Девочка</span>
         <span class="vote-count" id="count-girl">0</span>
-        <span class="vote-label" id="label-girl"></span>
       </button>
 
       <button class="vote-btn" onclick="vote('boy')">
         <div class="vote-photo">
           <img src="мяч.png" alt="Мальчик" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=width:100%;height:100%;background:%235c9ce6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:45px>⚽</div>'">
         </div>
+        <span class="vote-label">Мальчик</span>
         <span class="vote-count" id="count-boy">0</span>
-        <span class="vote-label" id="label-boy"></span>
       </button>
     </div>
+  </div>
+
+</div>
+
+<!-- ===== ЭКРАН 4: Детали ===== -->
+<div class="screen4" id="screen4">
+
+  <div class="details-title">Детали</div>
+
+  <div class="details-text">
+    Мы хотим, чтобы все гости чувствовали себя комфортно и не ограничивали себя ни в чём.<br>
+    Поэтому по завершению мероприятия мы будем вызывать всем такси домой.
+  </div>
+
+  <div class="details-text" style="transition-delay: 0.5s;">
+    В программе — природа, баня, ароматные шашлыки, весёлые конкурсы, громкий смех и отличное настроение.<br>
+    Одевайтесь удобно и будьте готовы веселиться от души!
   </div>
 
 </div>
@@ -552,21 +612,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const votesRef = db.ref('votes');
-
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
 
 votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
   document.getElementById('count-boy').textContent = data.boy || 0;
-  updateLabels();
 });
-
-function updateLabels() {
-  const myVote = localStorage.getItem(MY_VOTE_KEY);
-  document.getElementById('label-girl').textContent = myVote === 'girl' ? 'девочка' : '';
-  document.getElementById('label-boy').textContent = myVote === 'boy' ? 'мальчик' : '';
-}
 
 async function vote(type) {
   const snapshot = await votesRef.once('value');
@@ -587,12 +639,16 @@ async function vote(type) {
   await votesRef.set(current);
 }
 
-updateLabels();
-
+// Анимации
 const s2 = document.getElementById('screen2');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
 }, { threshold: 0.1 }).observe(s2);
+
+const s4 = document.getElementById('screen4');
+new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) s4.classList.add('visible'); });
+}, { threshold: 0.1 }).observe(s4);
 </script>
 
 </body>
