@@ -409,7 +409,7 @@ body{font-family:Arial}
   min-height: clamp(38px, 6.5vw, 58px);
 }
 
-/* ===== ДЕТАЛИ + АНКЕТА ===== */
+/* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ ===== */
 .shared-bg{
   width:100%;
   background: linear-gradient(160deg, #d4f0ff 0%, #ffe0ec 35%, #c8e8ff 50%, #ffd6e8 70%, #d4f0ff 100%);
@@ -529,7 +529,7 @@ body{font-family:Arial}
   border-color: #2b8aaa;
 }
 
-/* Radio */
+/* Radio — без обводок, просто кружок */
 .screen4 .radio-group{
   display: flex;
   flex-direction: column;
@@ -540,14 +540,6 @@ body{font-family:Arial}
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 10px;
-  background: transparent;
-  transition: background 0.2s ease;
-}
-.screen4 .radio-option:has(input:checked){
-  background: rgba(71,165,200,0.08);
 }
 .screen4 .radio-option input[type="radio"]{
   accent-color: #47a5c8;
@@ -561,7 +553,7 @@ body{font-family:Arial}
   color:#111;
 }
 
-/* Checkbox */
+/* Checkbox — голубой квадратик без обводки */
 .screen4 .checkbox-group{
   display: flex;
   flex-direction: column;
@@ -572,14 +564,6 @@ body{font-family:Arial}
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 10px;
-  background: transparent;
-  transition: background 0.2s ease;
-}
-.screen4 .checkbox-option:has(input:checked){
-  background: rgba(71,165,200,0.08);
 }
 .screen4 .checkbox-option input[type="checkbox"]{
   accent-color: #47a5c8;
@@ -623,6 +607,39 @@ body{font-family:Arial}
 }
 .screen4 .submit-btn:active{
   transform: scale(0.97);
+}
+
+/* ===== КОНТАКТЫ ===== */
+.screen4 .contacts-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(44px, 9vw, 74px);
+  font-weight:400;
+  line-height:1.1;
+  color:#111;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen4.visible .contacts-title{opacity:1;transform:translateY(0);transition-delay:0.9s}
+
+.screen4 .contacts-info{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.8vw, 30px);
+  font-weight:500;
+  line-height:1.6;
+  color:#111;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen4.visible .contacts-info{opacity:1;transform:translateY(0);transition-delay:1s}
+
+.screen4 .contacts-phone{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight:600;
+  color:#111;
+  letter-spacing: 0.5px;
 }
 </style>
 </head>
@@ -753,7 +770,7 @@ body{font-family:Arial}
 
 </div>
 
-<!-- ===== ДЕТАЛИ + АНКЕТА ===== -->
+<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ ===== -->
 <div class="shared-bg screen4" id="screen4">
 
   <div class="details-title">Детали</div>
@@ -837,6 +854,16 @@ body{font-family:Arial}
 
     <button type="submit" class="submit-btn">Отправить</button>
   </form>
+
+  <div class="divider"></div>
+
+  <div class="contacts-title">Контакты</div>
+
+  <div class="contacts-info">
+    По всем вопросам обращайтесь:<br>
+    <span style="font-weight:600;">Владислав</span><br>
+    <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
+  </div>
 
 </div>
 
