@@ -528,11 +528,10 @@ body{font-family:Arial}
   border-color: #2b8aaa;
 }
 
-/* Radio — просто кружок, без обводок вокруг */
 .screen4 .radio-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.5vw, 12px);
+  gap: clamp(10px, 1.8vw, 14px);
 }
 .screen4 .radio-option{
   display: flex;
@@ -568,11 +567,10 @@ body{font-family:Arial}
   color:#111;
 }
 
-/* Checkbox — просто квадратик, без обводок вокруг */
 .screen4 .checkbox-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.5vw, 12px);
+  gap: clamp(10px, 1.8vw, 14px);
 }
 .screen4 .checkbox-option{
   display: flex;
@@ -603,6 +601,11 @@ body{font-family:Arial}
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+.screen4 .checkbox-option span{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.8vw, 22px);
+  color:#111;
+}
 
 .screen4 .alcohol-text{
   font-family:'Cormorant Garamond', serif;
@@ -613,7 +616,6 @@ body{font-family:Arial}
   margin-bottom: 4px;
 }
 
-/* Кнопка Отправить */
 .screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.5vw, 28px);
@@ -667,6 +669,22 @@ body{font-family:Arial}
   font-weight:600;
   color:#111;
   letter-spacing: 0.5px;
+}
+
+/* ===== ЗВЁЗДОЧКИ ===== */
+.screen4 .stars-row{
+  display: flex;
+  gap: clamp(12px, 2.5vw, 22px);
+  justify-content: center;
+  margin-top: clamp(5px, 1vw, 10px);
+}
+.screen4 .star-big{
+  width: clamp(28px, 5vw, 42px);
+  height: clamp(28px, 5vw, 42px);
+}
+.screen4 .star-big svg{
+  width: 100%;
+  height: 100%;
 }
 </style>
 </head>
@@ -890,6 +908,28 @@ body{font-family:Arial}
     По всем вопросам обращайтесь:<br>
     <span style="font-weight:600;">Владислав</span><br>
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
+  </div>
+
+  <!-- 3 звездочки -->
+  <div class="stars-row">
+    <div class="star-big">
+      <svg viewbox="0 0 24 24">
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1" stroke-dasharray="0 30 0 0"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1" stroke-dasharray="0 0 0 30"/>
+      </svg>
+    </div>
+    <div class="star-big">
+      <svg viewbox="0 0 24 24">
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1" stroke-dasharray="0 30 0 0"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1" stroke-dasharray="0 0 0 30"/>
+      </svg>
+    </div>
+    <div class="star-big">
+      <svg viewbox="0 0 24 24">
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1" stroke-dasharray="0 30 0 0"/>
+        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1" stroke-dasharray="0 0 0 30"/>
+      </svg>
+    </div>
   </div>
 
 </div>
