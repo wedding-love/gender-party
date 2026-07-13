@@ -216,6 +216,7 @@ body{font-family:Arial}
   height:100%;
   overflow:visible;
   animation: breathe 3s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 @keyframes breathe {
@@ -298,17 +299,38 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- Обводка: половинки -->
+      <!-- Обводка: несколько линий -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
-          <!-- Левая половина — розовая -->
-          <path d="M100 4 A96 96 0 0 0 100 196"
-            fill="none" stroke="#df5aa5" stroke-width="3"
+          <!-- Левая сторона — розовые линии -->
+          <!-- Внешняя розовая -->
+          <path d="M100 6 A94 94 0 0 0 100 194"
+            fill="none" stroke="#df5aa5" stroke-width="2.5"
             stroke-linecap="round"/>
-          <!-- Правая половина — голубая -->
-          <path d="M100 4 A96 96 0 0 1 100 196"
-            fill="none" stroke="#00a9d8" stroke-width="3"
+          <!-- Внутренняя розовая -->
+          <path d="M100 14 A86 86 0 0 0 100 186"
+            fill="none" stroke="#df5aa5" stroke-width="1.5"
+            stroke-linecap="round" opacity="0.7"/>
+
+          <!-- Правая сторона — голубые линии -->
+          <!-- Внешняя голубая -->
+          <path d="M100 6 A94 94 0 0 1 100 194"
+            fill="none" stroke="#00a9d8" stroke-width="2.5"
             stroke-linecap="round"/>
+          <!-- Внутренняя голубая -->
+          <path d="M100 14 A86 86 0 0 1 100 186"
+            fill="none" stroke="#00a9d8" stroke-width="1.5"
+            stroke-linecap="round" opacity="0.7"/>
+
+          <!-- Третья линия по центру -->
+          <ellipse cx="100" cy="100" rx="80" ry="80"
+            fill="none" stroke="#df5aa5" stroke-width="1"
+            stroke-dasharray="0 163 0 0" stroke-linecap="round" opacity="0.5"
+            transform="rotate(0, 100, 100)"/>
+          <ellipse cx="100" cy="100" rx="80" ry="80"
+            fill="none" stroke="#00a9d8" stroke-width="1"
+            stroke-dasharray="0 0 0 163" stroke-linecap="round" opacity="0.5"
+            transform="rotate(0, 100, 100)"/>
         </svg>
       </div>
     </div>
