@@ -590,12 +590,11 @@ body{font-family:Arial}
 
 /* ===== ЗВЁЗДОЧКИ ===== */
 .screen4 .stars-row{
-  display:flex;gap:clamp(12px,2.5vw,22px);justify-content:center;margin-top:clamp(5px,1vw,10px);
+  display:flex;gap:clamp(14px,3vw,26px);justify-content:center;margin-top:clamp(8px,1.5vw,14px);
 }
-.screen4 .star-big{
-  width:clamp(28px,5vw,42px);height:clamp(28px,5vw,42px);
+.big-star{
+  width:clamp(30px,5.5vw,46px);height:clamp(30px,5.5vw,46px);
 }
-.screen4 .star-big svg{width:100%;height:100%}
 </style>
 </head>
 <body>
@@ -607,25 +606,25 @@ body{font-family:Arial}
   </video>
   <div class="overlay"></div>
 
-  <div class="star" style="left:3%;top:4%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:92%;top:6%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:82%;top:20%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:5%;top:38%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:90%;top:36%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:18%;top:8%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:78%;top:10%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:2%;top:60%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:94%;top:56%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:10%;top:75%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:88%;top:72%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:6%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:86%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:30%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:70%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:3%;top:4%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:92%;top:6%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:82%;top:20%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:5%;top:38%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:90%;top:36%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:18%;top:8%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:78%;top:10%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:2%;top:60%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:94%;top:56%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:10%;top:75%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:88%;top:72%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:6%;top:88%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:86%;top:90%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:30%;top:90%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:70%;top:88%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
 
   <h1 class="title">Girl or Boy</h1>
   <a href="#screen2" class="arrow">
-    <svg viewbox="0 0 24 24" fill="none"><path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none"><path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </div>
 
@@ -820,26 +819,32 @@ body{font-family:Arial}
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
-  <!-- 3 звездочки -->
+  <!-- 3 звездочки — наполовину розовые, наполовину голубые -->
   <div class="stars-row">
-    <div class="star-big">
-      <svg viewbox="0 0 24 24">
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.5" stroke-dasharray="0 30 0 0"/>
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.5" stroke-dasharray="0 0 0 30"/>
-      </svg>
-    </div>
-    <div class="star-big">
-      <svg viewbox="0 0 24 24">
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.5" stroke-dasharray="0 30 0 0"/>
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.5" stroke-dasharray="0 0 0 30"/>
-      </svg>
-    </div>
-    <div class="star-big">
-      <svg viewbox="0 0 24 24">
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.5" stroke-dasharray="0 30 0 0"/>
-        <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.5" stroke-dasharray="0 0 0 30"/>
-      </svg>
-    </div>
+    <svg class="big-star" viewBox="0 0 24 24">
+      <defs>
+        <clipPath id="left1"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="right1"><rect x="12" y="0" width="12" height="24"/></clipPath>
+      </defs>
+      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.8" clip-path="url(#left1)"/>
+      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.8" clip-path="url(#right1)"/>
+    </svg>
+    <svg class="big-star" viewBox="0 0 24 24">
+      <defs>
+        <clipPath id="left2"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="right2"><rect x="12" y="0" width="12" height="24"/></clipPath>
+      </defs>
+      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.8" clip-path="url(#left2)"/>
+      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.8" clip-path="url(#right2)"/>
+    </svg>
+    <svg class="big-star" viewBox="0 0 24 24">
+      <defs>
+        <clipPath id="left3"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="right3"><rect x="12" y="0" width="12" height="24"/></clipPath>
+      </defs>
+      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.8" clip-path="url(#left3)"/>
+      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.8" clip-path="url(#right3)"/>
+    </svg>
   </div>
 
 </div>
