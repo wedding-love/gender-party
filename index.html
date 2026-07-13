@@ -531,12 +531,44 @@ body{font-family:Arial}
 </div>
 
 <script>
-// ===== JSONBIN.IO КОНФИГ =====
+// ===== JSONBIN.IO =====
 const BIN_ID = '6a552313da38895dfe581807';
 const API_KEY = '$2a$10$WibF/5IT56IT/vosdea0N.7tG5QnJ14lDLs4wdo9/km9fLG7i/57m';
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
-
 let votes = { girl: 0, boy: 0 };
+
+// Создать Bin если не существует
+async function ensureBin() {
+  try {
+    // Пробуем прочитать
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': API_KEY }
+    });
+    if (res.ok) return true;
+    
+    // Если не найден — создаём новый
+    if (res.status === 404) {
+      const createRes = await fetch('https://api.jsonbin.io/v3/b', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Master-Key': API_KEY,
+          'X-Bin-Name': 'gender-reveal-votes',
+          'X-Bin-Private': 'false'
+        },
+        body: JSON.stringify({ girl: 0, boy: 0 })
+      });
+      if (createRes.ok) {
+        console.log('Bin создан успешно');
+        return true;
+      }
+    }
+    return false;
+  } catch(e) {
+    console.log('Ошибка при создании Bin:', e);
+    return false;
+  }
+}
 
 async function loadVotes() {
   try {
@@ -550,6 +582,7 @@ async function loadVotes() {
   } catch(e) {
     console.log('Ошибка загрузки:', e);
   }
+  // fallback
   const s = localStorage.getItem('gender_reveal_votes');
   return s ? JSON.parse(s) : { girl: 0, boy: 0 };
 }
@@ -557,14 +590,20 @@ async function loadVotes() {
 async function saveVotes(v) {
   localStorage.setItem('gender_reveal_votes', JSON.stringify(v));
   try {
-    await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'X-Master-Key': API_KEY
+        'X-Master-Key': API_KEY,
+        'X-Bin-Versioning': 'false'
       },
       body: JSON.stringify(v)
     });
+    if (res.ok) {
+      console.log('Сохранено на сервер:', v);
+    } else {
+      console.log('Ошибка сохранения, статус:', res.status);
+    }
   } catch(e) {
     console.log('Ошибка сохранения:', e);
   }
@@ -576,6 +615,10 @@ function updateDisplay() {
 }
 
 async function vote(type) {
+  // Сначала загружаем актуальные данные с сервера
+  const fresh = await loadVotes();
+  votes = fresh;
+
   const myVote = localStorage.getItem(MY_VOTE_KEY);
   if (myVote === 'girl') votes.girl = Math.max(0, votes.girl - 1);
   if (myVote === 'boy') votes.boy = Math.max(0, votes.boy - 1);
@@ -588,16 +631,18 @@ async function vote(type) {
 }
 
 async function init() {
+  await ensureBin();
   votes = await loadVotes();
   updateDisplay();
 
+  // Обновление каждые 3 секунды
   setInterval(async () => {
     const fresh = await loadVotes();
     if (fresh.girl !== votes.girl || fresh.boy !== votes.boy) {
       votes = fresh;
       updateDisplay();
     }
-  }, 5000);
+  }, 3000);
 }
 
 init();
