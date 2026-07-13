@@ -85,9 +85,9 @@ body{font-family:Arial}
   flex-direction:column;
   align-items:center;
   text-align:center;
-  padding: clamp(40px, 8vw, 70px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
+  padding: clamp(30px, 6vw, 55px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
   justify-content: center;
-  gap: clamp(14px, 2.5vw, 28px);
+  gap: clamp(12px, 2vw, 24px);
   overflow-x:hidden;
 }
 @keyframes bgSlide {
@@ -96,7 +96,6 @@ body{font-family:Arial}
   100%{background-position:100% 0}
 }
 
-/* Анимация появления при прокрутке */
 .screen2 .title,
 .screen2 .info,
 .screen2 .calendar-wrapper,
@@ -116,16 +115,15 @@ body{font-family:Arial}
 
 .screen2 .title{
   font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
+  font-size: clamp(38px, 8vw, 66px);
   font-weight:400;
   line-height:1.1;
-  word-break: break-word;
   color:#111;
-  padding-top: clamp(30px, 5vw, 50px);
+  padding-top: clamp(20px, 4vw, 40px);
 }
 .screen2 .info{
   font-family:'Cormorant Garamond';
-  font-size: clamp(20px, 4vw, 32px);
+  font-size: clamp(18px, 3.5vw, 28px);
   font-weight:600;
   line-height:1.45;
   padding: 0 10px;
@@ -133,16 +131,16 @@ body{font-family:Arial}
 }
 .screen2 .calendar-wrapper{
   width:100%;
-  max-width:620px;
+  max-width:600px;
   flex-shrink: 0;
 }
 .screen2 .month-title{
   display:flex;
   align-items:center;
-  gap: clamp(12px, 3vw, 25px);
+  gap: clamp(10px, 2.5vw, 20px);
   justify-content:center;
   font-family:'Cormorant Garamond';
-  font-size: clamp(32px, 7vw, 52px);
+  font-size: clamp(28px, 6vw, 46px);
   font-weight:700;
   color:#111;
 }
@@ -155,8 +153,8 @@ body{font-family:Arial}
 }
 .screen2 .calendar{
   position:relative;
-  margin-top: clamp(10px, 2vw, 15px);
-  height: clamp(160px, 30vw, 240px);
+  margin-top: clamp(8px, 1.5vw, 12px);
+  height: clamp(140px, 26vw, 210px);
   border-top:2px solid #111;
   border-bottom:2px solid #111;
 }
@@ -172,35 +170,34 @@ body{font-family:Arial}
   align-items:center;
   justify-content:center;
   font-family:'Cormorant Garamond';
-  padding: clamp(5px, 2vw, 10px);
+  padding: clamp(3px, 1.5vw, 8px);
 }
 .screen2 .cell:last-child{border:none}
 .screen2 .week{
-  font-size: clamp(16px, 3.5vw, 28px);
+  font-size: clamp(12px, 2.5vw, 22px);
   font-weight:600;
-  margin-bottom: clamp(10px, 2.5vw, 25px);
-  word-break: break-word;
+  margin-bottom: clamp(6px, 1.5vw, 18px);
+  white-space: nowrap;
   color:#111;
 }
 .screen2 .number{
-  font-size: clamp(48px, 10vw, 90px);
+  font-size: clamp(42px, 9vw, 80px);
   font-weight:700;
   color: #bbb;
 }
 .screen2 .middle .number{
   color:#000;
-  font-size: clamp(65px, 14vw, 130px);
+  font-size: clamp(55px, 12vw, 115px);
   font-weight:700;
   line-height:1;
 }
 
-/* Обводка — 2 круга */
 .screen2 .circle-wrapper{
   position:absolute;
-  width: clamp(160px, 30vw, 250px);
-  height: clamp(160px, 30vw, 250px);
+  width: clamp(140px, 26vw, 220px);
+  height: clamp(140px, 26vw, 220px);
   left:50%;
-  top: clamp(5px, 2vw, 15px);
+  top: clamp(4px, 1.5vw, 10px);
   transform:translateX(-50%);
   pointer-events: none;
 }
@@ -223,14 +220,13 @@ body{font-family:Arial}
 
 .screen2 .bottom{
   font-family:'Cormorant Garamond';
-  font-size: clamp(20px, 4vw, 32px);
+  font-size: clamp(18px, 3.5vw, 28px);
   font-weight:600;
   line-height:1.5;
   padding: 0 10px;
   color:#111;
 }
 
-/* Блок времени */
 .screen2 .time-block{
   width: 100%;
   max-width: 550px;
@@ -239,7 +235,7 @@ body{font-family:Arial}
 }
 .screen2 .decor-lines{
   width: 100%;
-  height: clamp(280px, 42vw, 420px);
+  height: clamp(240px, 36vw, 360px);
   position: relative;
 }
 .screen2 .line{
@@ -248,13 +244,8 @@ body{font-family:Arial}
   left: 0;
   height: auto;
 }
-.screen2 .line.top{
-  top: 0;
-}
-.screen2 .line.bottom{
-  bottom: 0;
-  transform: rotate(180deg);
-}
+.screen2 .line.top{top: 0;}
+.screen2 .line.bottom{bottom: 0; transform: rotate(180deg);}
 .screen2 .line path{
   fill: none;
   stroke: #666;
@@ -272,27 +263,21 @@ body{font-family:Arial}
 }
 .screen2 .time-label{
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, 5vw, 44px);
+  font-size: clamp(24px, 4.5vw, 40px);
   font-weight:600;
   color: #111;
   line-height: 1.3;
-  margin-bottom: clamp(12px, 2.5vw, 22px);
-  white-space: nowrap;
+  margin-bottom: clamp(10px, 2vw, 18px);
 }
 .screen2 .time-value{
   font-family: 'Ms Madi', cursive;
-  font-size: clamp(70px, 14vw, 130px);
+  font-size: clamp(60px, 12vw, 120px);
   line-height: 1;
   letter-spacing: 5px;
 }
-.screen2 .time-value .blue{
-  color: #00a9d8;
-}
-.screen2 .time-value .pink{
-  color: #df5aa5;
-}
+.screen2 .time-value .blue{color: #00a9d8;}
+.screen2 .time-value .pink{color: #df5aa5;}
 
-/* Блок локации */
 .screen2 .location-block{
   width: 100%;
   max-width: 550px;
@@ -300,20 +285,20 @@ body{font-family:Arial}
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(14px, 2.5vw, 25px);
+  gap: clamp(10px, 2vw, 20px);
 }
 .screen2 .location-title{
   font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
+  font-size: clamp(38px, 8vw, 66px);
   font-weight:400;
   line-height:1.1;
   color:#111;
 }
 .screen2 .location-address{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3.5vw, 26px);
+  font-size: clamp(16px, 3vw, 24px);
   font-weight:600;
-  line-height:1.6;
+  line-height:1.5;
   color:#111;
   padding: 0 10px;
 }
@@ -322,18 +307,17 @@ body{font-family:Arial}
   text-transform: uppercase;
   letter-spacing: 1px;
   display: block;
-  margin-bottom: clamp(8px, 1.5vw, 14px);
+  margin-bottom: clamp(6px, 1vw, 10px);
+  white-space: nowrap;
 }
 .screen2 .location-details{
   font-weight:600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 .screen2 .map-container{
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-width: 380px;
-  border-radius: 16px;
+  max-width: 280px;
+  border-radius: 14px;
   overflow: hidden;
 }
 .screen2 .map-container iframe{
@@ -347,106 +331,103 @@ body{font-family:Arial}
   min-height:100vh;
   min-height:100dvh;
   width:100%;
-  background: linear-gradient(135deg, #b2ebf2 0%, #f8bbd0 30%, #c8e6c9 60%, #fff9c4 100%);
+  background: linear-gradient(135deg, #4dd0e1 0%, #26c6da 30%, #80deea 60%, #b2ebf2 100%);
   background-size: 300% 300%;
-  animation: bgSlide3 10s ease-in-out infinite;
+  animation: bgSlide3 8s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
-  padding: clamp(30px, 6vw, 60px) clamp(16px, 3vw, 24px) clamp(40px, 6vw, 60px);
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 3vw, 24px);
   justify-content: center;
-  gap: clamp(25px, 5vw, 50px);
+  gap: clamp(20px, 4vw, 40px);
   overflow-x:hidden;
 }
 @keyframes bgSlide3 {
   0%{background-position:0% 0%}
-  25%{background-position:100% 0%}
   50%{background-position:100% 100%}
-  75%{background-position:0% 100%}
   100%{background-position:0% 0%}
 }
 
 .screen3 .vote-container{
-  background: #00b8a9;
-  border-radius: 30px;
-  padding: clamp(30px, 5vw, 50px) clamp(25px, 5vw, 50px);
-  max-width: 600px;
+  background: #00acc1;
+  border-radius: 25px;
+  padding: clamp(20px, 4vw, 35px) clamp(20px, 4vw, 35px);
+  max-width: 420px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(25px, 4vw, 45px);
+  gap: clamp(18px, 3vw, 30px);
 }
 .screen3 .vote-title{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(26px, 5vw, 42px);
+  font-size: clamp(22px, 4vw, 34px);
   font-weight:700;
   color: #fff;
   line-height: 1.3;
 }
 .screen3 .vote-buttons{
   display: flex;
-  gap: clamp(30px, 6vw, 70px);
+  gap: clamp(20px, 4vw, 50px);
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 .screen3 .vote-btn{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(12px, 2vw, 20px);
+  gap: clamp(8px, 1.5vw, 14px);
   cursor: pointer;
   background: none;
   border: none;
   color: #fff;
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3vw, 28px);
+  font-size: clamp(16px, 2.5vw, 22px);
   font-weight:700;
   transition: transform 0.2s ease;
-  padding: clamp(10px, 2vw, 20px);
+  padding: clamp(8px, 1.5vw, 15px);
 }
-.screen3 .vote-btn:hover{
-  transform: scale(1.1);
-}
-.screen3 .vote-btn:active{
-  transform: scale(0.95);
-}
+.screen3 .vote-btn:hover{transform: scale(1.1);}
+.screen3 .vote-btn:active{transform: scale(0.95);}
 .screen3 .vote-icon{
-  width: clamp(60px, 10vw, 90px);
-  height: clamp(60px, 10vw, 90px);
+  width: clamp(50px, 8vw, 70px);
+  height: clamp(50px, 8vw, 70px);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter 0.2s ease;
 }
-.screen3 .vote-icon svg{
+.screen3 .vote-icon img{
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  display: none;
+}
+.screen3 .vote-icon img.show{
+  display: block;
 }
 .screen3 .vote-label{
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 .screen3 .vote-count{
-  font-size: clamp(24px, 4vw, 38px);
+  font-size: clamp(20px, 3.5vw, 30px);
   font-weight:700;
-  min-height: clamp(32px, 5vw, 48px);
+  min-height: clamp(26px, 4vw, 38px);
 }
 .screen3 .vote-total{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2.5vw, 22px);
+  font-size: clamp(14px, 2.5vw, 20px);
   color: rgba(255,255,255,0.8);
   font-weight:500;
 }
 .screen3 .reset-btn{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(14px, 2vw, 18px);
-  color: rgba(255,255,255,0.7);
+  font-size: clamp(13px, 2vw, 17px);
+  color: rgba(255,255,255,0.8);
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.3);
-  padding: clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 30px);
+  padding: clamp(6px, 1.2vw, 10px) clamp(18px, 3vw, 25px);
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -484,9 +465,7 @@ body{font-family:Arial}
 
   <h1 class="title">Girl or Boy</h1>
   <a href="#screen2" class="arrow">
-    <svg viewbox="0 0 24 24" fill="none">
-      <path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <svg viewbox="0 0 24 24" fill="none"><path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </div>
 
@@ -505,20 +484,10 @@ body{font-family:Arial}
     <div class="month-title">АВГУСТ</div>
     <div class="calendar">
       <div class="days">
-        <div class="cell">
-          <div class="week">ПЯТНИЦА</div>
-          <div class="number">28</div>
-        </div>
-        <div class="cell middle">
-          <div class="week">СУББОТА</div>
-          <div class="number">29</div>
-        </div>
-        <div class="cell">
-          <div class="week">ВОСКРЕСЕНЬЕ</div>
-          <div class="number">30</div>
-        </div>
+        <div class="cell"><div class="week">ПЯТНИЦА</div><div class="number">28</div></div>
+        <div class="cell middle"><div class="week">СУББОТА</div><div class="number">29</div></div>
+        <div class="cell"><div class="week">ВОСКРЕСЕНЬЕ</div><div class="number">30</div></div>
       </div>
-
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
           <defs>
@@ -541,7 +510,6 @@ body{font-family:Arial}
     и хотим разделить это счастье с Вами!
   </div>
 
-  <!-- Блок времени -->
   <div class="time-block">
     <div class="decor-lines">
       <svg class="line top" viewBox="0 0 400 120" preserveAspectRatio="none">
@@ -552,66 +520,42 @@ body{font-family:Arial}
       </svg>
       <div class="time-text">
         <div class="time-label">Ждём Вас в</div>
-        <div class="time-value">
-          <span class="blue">18</span>:<span class="pink">00</span>
-        </div>
+        <div class="time-value"><span class="blue">18</span>:<span class="pink">00</span></div>
       </div>
     </div>
   </div>
 
-  <!-- Блок локации -->
   <div class="location-block">
     <div class="location-title">Где?</div>
     <div class="location-address">
       <span class="location-name">Агроусадьба «Хутор у Михалыча»</span>
-      <span class="location-details">Брестская область, д. Заречье,<br>ул. Октябрьская, д. 52</span>
+      <span class="location-details">Брестская область, д. Заречье, ул. Октябрьская, д. 52</span>
     </div>
     <div class="map-container">
-      <iframe src="https://yandex.by/map-widget/v1/org/agrousadba_u_mikhalycha/86193548886/?ll=25.040347%2C52.535838&mode=search&sctx=ZAAAAAgBEAAaKAoSCXmu78NBjjtAES%2F6CtKM80pAEhIJq7TFNT6TzT8RuhKB6h9Etj8iBgABAgMEBSgKOABAnQFIAWoCdWGdAc3MzD2gAQCoAQC9AbDg5E3CAQbW3KSMwQKCApUB0JDQs9GA0L7Rg9GB0LDQtNGM0LHQsCDCq9Cl0YPRgtC%2B0YAg0YMg0JzQuNGF0LDQu9GL0YfQsMK7INCR0YDQtdGB0YLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0LQuINCX0LDRgNC10YfRjNC1LCDRg9C7LiDQntC60YLRj9Cx0YDRjNGB0LrQsNGPLCDQtC4gNTKKAgCSAgYyMDEwODSaAgxkZXNrdG9wLW1hcHM%3D&sll=25.040347%2C52.535838&sspn=0.014441%2C0.005613&text=Агроусадьба%20«Хутор%20у%20Михалыча»%20Брестская%20область%2C%20д.%20Заречье%2C%20ул.%20Октябрьская%2C%20д.%2052&z=16" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://yandex.by/map-widget/v1/org/agrousadba_u_mikhalycha/86193548886/?ll=25.040347%2C52.535838&mode=search&z=16" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
 </div>
 
-<!-- ===== ЭКРАН 3: Голосование ===== -->
+<!-- ===== ЭКРАН 3 ===== -->
 <div class="screen3" id="screen3">
 
   <div class="vote-container">
     <div class="vote-title">Ваши предположения<br>по полу малыша?</div>
 
     <div class="vote-buttons">
-      <!-- Девочка -->
       <button class="vote-btn" onclick="vote('girl')">
         <div class="vote-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <!-- Цветок -->
-            <circle cx="32" cy="24" r="6" fill="#ff8fab"/>
-            <circle cx="26" cy="20" r="4.5" fill="#ffb3c6"/>
-            <circle cx="38" cy="20" r="4.5" fill="#ffb3c6"/>
-            <circle cx="24" cy="28" r="4.5" fill="#ffb3c6"/>
-            <circle cx="40" cy="28" r="4.5" fill="#ffb3c6"/>
-            <circle cx="32" cy="32" r="4.5" fill="#ffb3c6"/>
-            <circle cx="32" cy="24" r="3" fill="#ffe5ec"/>
-            <line x1="32" y1="38" x2="32" y2="56" stroke="#8d6e63" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="32" y1="46" x2="24" y2="52" stroke="#8d6e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="32" y1="46" x2="40" y2="52" stroke="#8d6e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <img id="icon-girl" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='20' r='6' fill='%23ff8fab'/%3E%3Ccircle cx='26' cy='16' r='4.5' fill='%23ffb3c6'/%3E%3Ccircle cx='38' cy='16' r='4.5' fill='%23ffb3c6'/%3E%3Ccircle cx='24' cy='24' r='4.5' fill='%23ffb3c6'/%3E%3Ccircle cx='40' cy='24' r='4.5' fill='%23ffb3c6'/%3E%3Ccircle cx='32' cy='28' r='4.5' fill='%23ffb3c6'/%3E%3Ccircle cx='32' cy='20' r='3' fill='%23ffe5ec'/%3E%3Cline x1='32' y1='34' x2='32' y2='56' stroke='%238d6e63' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='32' y1='44' x2='24' y2='50' stroke='%238d6e63' stroke-width='2'/%3E%3Cline x1='32' y1='44' x2='40' y2='50' stroke='%238d6e63' stroke-width='2'/%3E%3C/svg%3E" alt="Девочка" class="show">
         </div>
         <span class="vote-label">Девочка</span>
         <span class="vote-count" id="girl-count">0</span>
       </button>
 
-      <!-- Мальчик -->
       <button class="vote-btn" onclick="vote('boy')">
         <div class="vote-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <!-- Мяч -->
-            <circle cx="32" cy="32" r="18" fill="#5c9ce6"/>
-            <path d="M20 20 L28 28 M18 18 L26 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M44 20 L36 28 M46 18 L38 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M32 50 L32 42 M28 46 L36 46" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="32" cy="32" r="18" fill="none" stroke="#3d7ec4" stroke-width="1.5"/>
-          </svg>
+          <img id="icon-boy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='30' r='18' fill='%235c9ce6'/%3E%3Cpath d='M22 18 L28 24 M20 16 L26 22' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M42 18 L36 24 M44 16 L38 22' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M32 48 L32 40 M28 44 L36 44' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='30' r='18' fill='none' stroke='%233d7ec4' stroke-width='1.5'/%3E%3C/svg%3E" alt="Мальчик" class="show">
         </div>
         <span class="vote-label">Мальчик</span>
         <span class="vote-count" id="boy-count">0</span>
@@ -625,7 +569,7 @@ body{font-family:Arial}
 </div>
 
 <script>
-// Счётчики голосов
+// Голосование
 let girlVotes = 0;
 let boyVotes = 0;
 
@@ -647,17 +591,14 @@ function resetVotes() {
 function updateDisplay() {
   document.getElementById('girl-count').textContent = girlVotes;
   document.getElementById('boy-count').textContent = boyVotes;
-  const total = girlVotes + boyVotes;
-  document.getElementById('vote-total').textContent = 'Всего голосов: ' + total;
+  document.getElementById('vote-total').textContent = 'Всего голосов: ' + (girlVotes + boyVotes);
 }
 
-// Анимация появления второго экрана
+// Анимация второго экрана
 const screen2 = document.getElementById('screen2');
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      screen2.classList.add('visible');
-    }
+    if (entry.isIntersecting) screen2.classList.add('visible');
   });
 }, { threshold: 0.3 });
 observer2.observe(screen2);
