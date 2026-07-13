@@ -73,6 +73,24 @@ body{font-family:Arial}
   50%{transform:translateX(-50%) translateY(8px)}
 }
 
+/* ===== ОБЩИЙ ФОН ДЛЯ ДЕТАЛЕЙ И АНКЕТЫ ===== */
+.shared-bg{
+  width:100%;
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
+  background-size: 100% 300%;
+  animation: tripleBg 10s ease-in-out infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  overflow-x:hidden;
+}
+@keyframes tripleBg {
+  0%{background-position:0% 0%}
+  50%{background-position:0% 100%}
+  100%{background-position:0% 0%}
+}
+
 /* ===== ЭКРАН 2: Приглашение ===== */
 .screen2{
   min-height:100vh;
@@ -89,11 +107,6 @@ body{font-family:Arial}
   justify-content: center;
   gap: clamp(14px, 2.5vw, 28px);
   overflow-x:hidden;
-}
-@keyframes tripleBg {
-  0%{background-position:0% 0%}
-  50%{background-position:0% 100%}
-  100%{background-position:0% 0%}
 }
 
 .screen2 .title,
@@ -407,20 +420,12 @@ body{font-family:Arial}
   min-height: clamp(38px, 6.5vw, 58px);
 }
 
-/* ===== ЭКРАН 4: Детали ===== */
+/* ===== ДЕТАЛИ + АНКЕТА (общий фон) ===== */
 .screen4{
   width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
-  background-size: 100% 300%;
-  animation: tripleBg 10s ease-in-out infinite;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(35px, 6vw, 55px);
+  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(10px, 2vw, 20px);
   justify-content: center;
   gap: clamp(18px, 3vw, 35px);
-  overflow-x:hidden;
 }
 
 .screen4 .details-title{
@@ -450,22 +455,16 @@ body{font-family:Arial}
 .screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.3s}
 .screen4 .details-text:last-child{transition-delay:0.5s}
 
-/* ===== ЭКРАН 5: Анкета ===== */
-.screen5{
-  width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
-  background-size: 100% 300%;
-  animation: tripleBg 10s ease-in-out infinite;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
-  gap: clamp(25px, 4vw, 45px);
-  overflow-x:hidden;
+/* Разделитель */
+.screen4 .divider{
+  width: 120px;
+  height: 1px;
+  background: rgba(0,0,0,0.15);
+  margin: clamp(10px, 2vw, 20px) 0;
 }
 
-.screen5 .form-title{
+/* ===== АНКЕТА ===== */
+.screen4 .form-title{
   font-family:'Great Vibes', cursive;
   font-size: clamp(42px, 9vw, 72px);
   font-weight:400;
@@ -475,9 +474,9 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen5.visible .form-title{opacity:1;transform:translateY(0);transition-delay:0.1s}
+.screen4.visible .form-title{opacity:1;transform:translateY(0);transition-delay:0.6s}
 
-.screen5 .form-subtitle{
+.screen4 .form-subtitle{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 3.5vw, 28px);
   font-weight:500;
@@ -489,9 +488,9 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen5.visible .form-subtitle{opacity:1;transform:translateY(0);transition-delay:0.2s}
+.screen4.visible .form-subtitle{opacity:1;transform:translateY(0);transition-delay:0.7s}
 
-.screen5 .form-container{
+.screen4 .form-container{
   width: 100%;
   max-width: 550px;
   display: flex;
@@ -502,56 +501,101 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen5.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.35s}
+.screen4.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.8s}
 
-.screen5 .form-field{
+.screen4 .form-field{
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.screen5 .form-label{
+.screen4 .form-label{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(17px, 2.8vw, 22px);
   font-weight:600;
   color:#111;
 }
-.screen5 .form-input{
+/* Поля ввода — сквозные, обводка голубая */
+.screen4 .form-input{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(16px, 2.5vw, 20px);
   padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2vw, 18px);
-  border: 1.5px solid #ccc;
+  border: 1.5px solid #47a5c8;
   border-radius: 12px;
-  background: rgba(255,255,255,0.8);
+  background: transparent;
   color:#111;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
-.screen5 .form-input:focus{
-  border-color: #47a5c8;
+.screen4 .form-input:focus{
+  border-color: #2b8aaa;
+  background: rgba(71,165,200,0.05);
 }
-.screen5 .radio-group{
+
+/* Radio — сквозные, обводка голубая */
+.screen4 .radio-group{
   display: flex;
   flex-direction: column;
   gap: clamp(8px, 1.5vw, 14px);
 }
-.screen5 .radio-option{
+.screen4 .radio-option{
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  padding: clamp(8px, 1.2vw, 10px) clamp(12px, 1.8vw, 14px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 10px;
+  background: transparent;
+  transition: background 0.2s ease;
 }
-.screen5 .radio-option input[type="radio"]{
+.screen4 .radio-option:has(input:checked){
+  background: rgba(71,165,200,0.1);
+}
+.screen4 .radio-option input[type="radio"]{
   accent-color: #47a5c8;
   width: 18px;
   height: 18px;
   flex-shrink: 0;
 }
-.screen5 .radio-option span{
+.screen4 .radio-option span{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(16px, 2.5vw, 20px);
   color:#111;
 }
-.screen5 .alcohol-text{
+
+/* Checkbox для напитков */
+.screen4 .checkbox-group{
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 14px);
+}
+.screen4 .checkbox-option{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: clamp(8px, 1.2vw, 10px) clamp(12px, 1.8vw, 14px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 10px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+.screen4 .checkbox-option:has(input:checked){
+  background: rgba(71,165,200,0.1);
+}
+.screen4 .checkbox-option input[type="checkbox"]{
+  accent-color: #47a5c8;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.screen4 .checkbox-option span{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  color:#111;
+}
+
+.screen4 .alcohol-text{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(15px, 2.3vw, 18px);
   color: #555;
@@ -559,25 +603,27 @@ body{font-family:Arial}
   padding: 0 5px;
   margin-bottom: 4px;
 }
-.screen5 .submit-btn{
+
+/* Кнопка — сквозная, обводка розовая, текст голубой */
+.screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 3vw, 24px);
   font-weight:700;
-  color: #fff;
-  background: #47a5c8;
-  border: none;
+  color: #47a5c8;
+  background: transparent;
+  border: 2px solid #df5aa5;
   border-radius: 50px;
   padding: clamp(12px, 2vw, 16px) clamp(30px, 5vw, 45px);
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
   align-self: center;
   margin-top: 10px;
 }
-.screen5 .submit-btn:hover{
-  background: #3a8fa8;
+.screen4 .submit-btn:hover{
+  background: rgba(223,90,165,0.1);
   transform: scale(1.03);
 }
-.screen5 .submit-btn:active{
+.screen4 .submit-btn:active{
   transform: scale(0.97);
 }
 </style>
@@ -709,8 +755,8 @@ body{font-family:Arial}
 
 </div>
 
-<!-- ===== ЭКРАН 4: Детали ===== -->
-<div class="screen4" id="screen4">
+<!-- ===== ДЕТАЛИ + АНКЕТА (общий фон) ===== -->
+<div class="shared-bg screen4" id="screen4">
 
   <div class="details-title">Детали</div>
 
@@ -724,10 +770,7 @@ body{font-family:Arial}
     Одевайтесь удобно и будьте готовы веселиться от души!
   </div>
 
-</div>
-
-<!-- ===== ЭКРАН 5: Анкета ===== -->
-<div class="screen5" id="screen5">
+  <div class="divider"></div>
 
   <div class="form-title">Анкета</div>
 
@@ -736,7 +779,6 @@ body{font-family:Arial}
     Нам важно знать точное количество гостей.
   </div>
 
-  <!-- Formspree форма -->
   <form class="form-container" action="https://formspree.io/f/ТВОЙ_ID" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
@@ -763,33 +805,33 @@ body{font-family:Arial}
         Так как это отдых на природе — будет пиво, вино, крепкий алкоголь (водка, коньяк, виски).<br>
         Но у нас много и не пьющих ребят — выберите, что пьёте:
       </div>
-      <div class="radio-group">
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="none" required>
+      <div class="checkbox-group">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="none">
           <span>Не пью алкоголь</span>
         </label>
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="beer">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="beer">
           <span>Пиво</span>
         </label>
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="wine">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="wine">
           <span>Вино</span>
         </label>
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="vodka">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="vodka">
           <span>Водка</span>
         </label>
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="cognac">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="cognac">
           <span>Коньяк</span>
         </label>
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="whiskey">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="whiskey">
           <span>Виски</span>
         </label>
-        <label class="radio-option">
-          <input type="radio" name="alcohol" value="all">
+        <label class="checkbox-option">
+          <input type="checkbox" name="alcohol" value="all">
           <span>Всё понемногу</span>
         </label>
       </div>
@@ -848,11 +890,6 @@ const s4 = document.getElementById('screen4');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s4.classList.add('visible'); });
 }, { threshold: 0.1 }).observe(s4);
-
-const s5 = document.getElementById('screen5');
-new IntersectionObserver(e => {
-  e.forEach(x => { if (x.isIntersecting) s5.classList.add('visible'); });
-}, { threshold: 0.1 }).observe(s5);
 </script>
 
 </body>
