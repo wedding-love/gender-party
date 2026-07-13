@@ -78,9 +78,14 @@ body{font-family:Arial}
   min-height:100vh;
   min-height:100dvh;
   width:100%;
-  background: linear-gradient(135deg, #ffb3d1 0%, #ff9ec4 25%, #b3e5ff 60%, #ffe0c8 85%, #fff3e0 100%);
-  background-size: 300% 300%;
-  animation: bgSlide 10s ease-in-out infinite;
+  background: linear-gradient(
+    180deg,
+    #ffb3d1 0%,
+    #b3e5ff 50%,
+    #ffe0c8 100%
+  );
+  background-size: 100% 300%;
+  animation: tripleBg 8s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -90,10 +95,12 @@ body{font-family:Arial}
   gap: clamp(14px, 2.5vw, 28px);
   overflow-x:hidden;
 }
-@keyframes bgSlide {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+@keyframes tripleBg {
+  0%{background-position:0% 0%}
+  25%{background-position:0% 30%}
+  50%{background-position:0% 60%}
+  75%{background-position:0% 30%}
+  100%{background-position:0% 0%}
 }
 
 .screen2 .title,
@@ -330,9 +337,14 @@ body{font-family:Arial}
   min-height: 40vh;
   min-height: 40dvh;
   width:100%;
-  background: linear-gradient(135deg, #ff9ec4 0%, #7dd8f5 30%, #ffead4 60%, #ffb0d0 100%);
-  background-size: 300% 300%;
-  animation: bgSlide3 6s ease-in-out infinite;
+  background: linear-gradient(
+    180deg,
+    #ffb3d1 0%,
+    #b3e5ff 50%,
+    #ffe0c8 100%
+  );
+  background-size: 100% 300%;
+  animation: tripleBg 8s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -340,11 +352,6 @@ body{font-family:Arial}
   padding: clamp(35px, 7vw, 60px) clamp(16px, 3vw, 24px);
   justify-content: center;
   overflow-x:hidden;
-}
-@keyframes bgSlide3 {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
 }
 
 .screen3 .vote-container{
@@ -417,9 +424,14 @@ body{font-family:Arial}
   min-height: 100vh;
   min-height: 100dvh;
   width:100%;
-  background: linear-gradient(135deg, #ffb3d1 0%, #ff9ec4 25%, #b3e5ff 60%, #ffe0c8 85%, #fff3e0 100%);
-  background-size: 300% 300%;
-  animation: bgSlide 10s ease-in-out infinite;
+  background: linear-gradient(
+    180deg,
+    #ffb3d1 0%,
+    #b3e5ff 50%,
+    #ffe0c8 100%
+  );
+  background-size: 100% 300%;
+  animation: tripleBg 8s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -455,6 +467,7 @@ body{font-family:Arial}
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.3s}
+.screen4 .details-text:last-child{transition-delay:0.5s}
 </style>
 </head>
 <body>
@@ -594,7 +607,7 @@ body{font-family:Arial}
     Поэтому по завершению мероприятия мы будем вызывать всем такси домой.
   </div>
 
-  <div class="details-text" style="transition-delay: 0.5s;">
+  <div class="details-text">
     В программе — природа, баня, ароматные шашлыки, весёлые конкурсы, громкий смех и отличное настроение.<br>
     Одевайтесь удобно и будьте готовы веселиться от души!
   </div>
