@@ -224,8 +224,16 @@ body{font-family:Arial}
     transform: scale(1);
   }
   50%{
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
+}
+
+/* Небрежные фильтры */
+.wobbly-pink{
+  filter: url(#handdrawn-pink);
+}
+.wobbly-blue{
+  filter: url(#handdrawn-blue);
 }
 
 .screen2 .bottom{
@@ -299,32 +307,61 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- 3 сплошных круга: половина розовая, половина голубая -->
+      <!-- 3 небрежных круга: половина розовая, половина голубая -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
+          <defs>
+            <filter id="handdrawn-pink" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="noise" seed="12"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <filter id="handdrawn-blue" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="noise" seed="7"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+
           <!-- Круг 1: внешний -->
-          <path d="M100 6 A94 94 0 0 0 100 194"
-            fill="none" stroke="#df5aa5" stroke-width="3"
-            stroke-linecap="round"/>
-          <path d="M100 6 A94 94 0 0 1 100 194"
-            fill="none" stroke="#00a9d8" stroke-width="3"
-            stroke-linecap="round"/>
+          <g filter="url(#handdrawn-pink)">
+            <path d="M100 6 A94 94 0 0 0 100 194"
+              fill="none" stroke="#df5aa5" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="120 3 40 2 60 1 30 2 50 3"/>
+          </g>
+          <g filter="url(#handdrawn-blue)">
+            <path d="M100 6 A94 94 0 0 1 100 194"
+              fill="none" stroke="#00a9d8" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="110 2 50 3 35 1 45 2 55 3"/>
+          </g>
 
           <!-- Круг 2: средний -->
-          <path d="M100 18 A82 82 0 0 0 100 182"
-            fill="none" stroke="#df5aa5" stroke-width="3"
-            stroke-linecap="round"/>
-          <path d="M100 18 A82 82 0 0 1 100 182"
-            fill="none" stroke="#00a9d8" stroke-width="3"
-            stroke-linecap="round"/>
+          <g filter="url(#handdrawn-pink)">
+            <path d="M100 18 A82 82 0 0 0 100 182"
+              fill="none" stroke="#df5aa5" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="100 4 35 2 45 1 25 3 55 2"/>
+          </g>
+          <g filter="url(#handdrawn-blue)">
+            <path d="M100 18 A82 82 0 0 1 100 182"
+              fill="none" stroke="#00a9d8" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="95 3 40 1 50 2 30 3 40 2"/>
+          </g>
 
           <!-- Круг 3: внутренний -->
-          <path d="M100 30 A70 70 0 0 0 100 170"
-            fill="none" stroke="#df5aa5" stroke-width="3"
-            stroke-linecap="round"/>
-          <path d="M100 30 A70 70 0 0 1 100 170"
-            fill="none" stroke="#00a9d8" stroke-width="3"
-            stroke-linecap="round"/>
+          <g filter="url(#handdrawn-pink)">
+            <path d="M100 30 A70 70 0 0 0 100 170"
+              fill="none" stroke="#df5aa5" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="80 5 30 2 40 1 20 3 45 2"/>
+          </g>
+          <g filter="url(#handdrawn-blue)">
+            <path d="M100 30 A70 70 0 0 1 100 170"
+              fill="none" stroke="#00a9d8" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="75 4 35 1 45 2 25 3 35 2"/>
+          </g>
         </svg>
       </div>
     </div>
