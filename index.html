@@ -588,18 +588,32 @@ body{font-family:Arial}
   font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
 
-/* ===== ЗВЁЗДОЧКИ ===== */
-.stars-row-bottom{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(18px, 3.5vw, 35px);
+/* ===== ЗВЁЗДОЧКИ ПЕРЕВЁРНУТЫМ ТРЕУГОЛЬНИКОМ ===== */
+.stars-triangle-bottom{
+  position: relative;
+  width: clamp(130px, 22vw, 200px);
+  height: clamp(100px, 16vw, 140px);
   margin-top: clamp(16px, 3vw, 28px);
   margin-bottom: clamp(4px, 1vw, 10px);
 }
 .star-5-final{
-  width: clamp(30px, 5.5vw, 46px);
-  height: clamp(30px, 5.5vw, 46px);
+  position: absolute;
+  width: clamp(28px, 5vw, 44px);
+  height: clamp(28px, 5vw, 44px);
+}
+.star-5-final.top-center{
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.star-5-final.mid-left{
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.star-5-final.bottom-right{
+  bottom: 0;
+  right: 0;
 }
 
 /* ===== ЖДЁМ ВАС ===== */
@@ -639,9 +653,11 @@ body{font-family:Arial}
   border-radius: 50%;
   border: 2px solid #47a5c8;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: transparent;
+  gap: 2px;
 }
 .timer-number{
   font-family:'Cormorant Garamond', serif;
@@ -650,12 +666,13 @@ body{font-family:Arial}
   color: #df5aa5;
   line-height: 1;
 }
-.timer-label{
+.timer-label-inside{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(12px, 2vw, 17px);
+  font-size: clamp(10px, 1.6vw, 13px);
   font-weight:300;
-  color: #777;
-  letter-spacing: 0.5px;
+  color: #999;
+  letter-spacing: 0.3px;
+  line-height: 1;
 }
 </style>
 </head>
@@ -881,9 +898,9 @@ body{font-family:Arial}
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
-  <!-- 3 звездочки -->
-  <div class="stars-row-bottom">
-    <svg class="star-5-final" viewBox="0 0 24 24">
+  <!-- 3 звездочки перевёрнутым треугольником -->
+  <div class="stars-triangle-bottom">
+    <svg class="star-5-final top-center" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s1r"><rect x="12" y="0" width="12" height="24"/></clipPath>
@@ -891,7 +908,7 @@ body{font-family:Arial}
       <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s1l)"/>
       <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s1r)"/>
     </svg>
-    <svg class="star-5-final" viewBox="0 0 24 24">
+    <svg class="star-5-final mid-left" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s2l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s2r"><rect x="12" y="0" width="12" height="24"/></clipPath>
@@ -899,7 +916,7 @@ body{font-family:Arial}
       <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s2l)"/>
       <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s2r)"/>
     </svg>
-    <svg class="star-5-final" viewBox="0 0 24 24">
+    <svg class="star-5-final bottom-right" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s3l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s3r"><rect x="12" y="0" width="12" height="24"/></clipPath>
@@ -916,20 +933,28 @@ body{font-family:Arial}
   <!-- Таймер -->
   <div class="timer-block">
     <div class="timer-item">
-      <div class="timer-circle"><span class="timer-number" id="days">00</span></div>
-      <span class="timer-label" id="days-label">дней</span>
+      <div class="timer-circle">
+        <span class="timer-number" id="days">00</span>
+        <span class="timer-label-inside" id="days-label">дней</span>
+      </div>
     </div>
     <div class="timer-item">
-      <div class="timer-circle"><span class="timer-number" id="hours">00</span></div>
-      <span class="timer-label" id="hours-label">часов</span>
+      <div class="timer-circle">
+        <span class="timer-number" id="hours">00</span>
+        <span class="timer-label-inside" id="hours-label">часов</span>
+      </div>
     </div>
     <div class="timer-item">
-      <div class="timer-circle"><span class="timer-number" id="minutes">00</span></div>
-      <span class="timer-label" id="minutes-label">минут</span>
+      <div class="timer-circle">
+        <span class="timer-number" id="minutes">00</span>
+        <span class="timer-label-inside" id="minutes-label">минут</span>
+      </div>
     </div>
     <div class="timer-item">
-      <div class="timer-circle"><span class="timer-number" id="seconds">00</span></div>
-      <span class="timer-label" id="seconds-label">секунд</span>
+      <div class="timer-circle">
+        <span class="timer-number" id="seconds">00</span>
+        <span class="timer-label-inside" id="seconds-label">секунд</span>
+      </div>
     </div>
   </div>
 
