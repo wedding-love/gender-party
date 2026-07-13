@@ -588,12 +588,30 @@ body{font-family:Arial}
   font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
 
-/* ===== ЗВЁЗДОЧКИ ===== */
-.screen4 .stars-row{
-  display:flex;gap:clamp(14px,3vw,26px);justify-content:center;margin-top:clamp(8px,1.5vw,14px);
+/* ===== ЗВЁЗДОЧКИ ТРЕУГОЛЬНИКОМ ===== */
+.stars-triangle{
+  position: relative;
+  width: clamp(100px, 18vw, 160px);
+  height: clamp(80px, 14vw, 120px);
+  margin-top: clamp(12px, 2.5vw, 22px);
 }
-.big-star{
-  width:clamp(30px,5.5vw,46px);height:clamp(30px,5.5vw,46px);
+.star-5{
+  position: absolute;
+  width: clamp(28px, 5vw, 44px);
+  height: clamp(28px, 5vw, 44px);
+}
+.star-5.top{
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.star-5.left{
+  bottom: 0;
+  left: 0;
+}
+.star-5.right{
+  bottom: 0;
+  right: 0;
 }
 </style>
 </head>
@@ -819,31 +837,31 @@ body{font-family:Arial}
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
-  <!-- 3 звездочки — наполовину розовые, наполовину голубые -->
-  <div class="stars-row">
-    <svg class="big-star" viewBox="0 0 24 24">
+  <!-- 3 звездочки треугольником -->
+  <div class="stars-triangle">
+    <svg class="star-5 top" viewBox="0 0 24 24">
       <defs>
-        <clipPath id="left1"><rect x="0" y="0" width="12" height="24"/></clipPath>
-        <clipPath id="right1"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="st1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="st1r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.8" clip-path="url(#left1)"/>
-      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.8" clip-path="url(#right1)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#st1l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#st1r)"/>
     </svg>
-    <svg class="big-star" viewBox="0 0 24 24">
+    <svg class="star-5 left" viewBox="0 0 24 24">
       <defs>
-        <clipPath id="left2"><rect x="0" y="0" width="12" height="24"/></clipPath>
-        <clipPath id="right2"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="st2l"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="st2r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.8" clip-path="url(#left2)"/>
-      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.8" clip-path="url(#right2)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#st2l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#st2r)"/>
     </svg>
-    <svg class="big-star" viewBox="0 0 24 24">
+    <svg class="star-5 right" viewBox="0 0 24 24">
       <defs>
-        <clipPath id="left3"><rect x="0" y="0" width="12" height="24"/></clipPath>
-        <clipPath id="right3"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="st3l"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="st3r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#df5aa5" stroke-width="1.8" clip-path="url(#left3)"/>
-      <path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="#00a9d8" stroke-width="1.8" clip-path="url(#right3)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#st3l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#st3r)"/>
     </svg>
   </div>
 
