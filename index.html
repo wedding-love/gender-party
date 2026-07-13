@@ -588,30 +588,36 @@ body{font-family:Arial}
   font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
 
-/* ===== ЗВЁЗДОЧКИ ТРЕУГОЛЬНИКОМ ===== */
-.stars-triangle{
-  position: relative;
-  width: clamp(100px, 18vw, 160px);
-  height: clamp(80px, 14vw, 120px);
-  margin-top: clamp(12px, 2.5vw, 22px);
+/* ===== ЗВЁЗДОЧКИ ===== */
+.stars-row-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 3.5vw, 35px);
+  margin-top: clamp(16px, 3vw, 28px);
+  margin-bottom: clamp(8px, 1.5vw, 14px);
 }
-.star-5{
-  position: absolute;
-  width: clamp(28px, 5vw, 44px);
-  height: clamp(28px, 5vw, 44px);
+.star-5-final{
+  width: clamp(30px, 5.5vw, 46px);
+  height: clamp(30px, 5.5vw, 46px);
 }
-.star-5.top{
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+
+/* ===== ЖДЁМ ВАС ===== */
+.screen4 .waiting-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(44px, 9vw, 74px);
+  font-weight:400;
+  line-height:1.1;
+  color:#111;
+  margin-top: clamp(14px, 2.5vw, 24px);
 }
-.star-5.left{
-  bottom: 0;
-  left: 0;
-}
-.star-5.right{
-  bottom: 0;
-  right: 0;
+.screen4 .waiting-subtitle{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.8vw, 30px);
+  font-weight:500;
+  line-height:1.5;
+  color:#111;
+  margin-top: clamp(4px, 1vw, 10px);
 }
 </style>
 </head>
@@ -742,7 +748,7 @@ body{font-family:Arial}
 
 </div>
 
-<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ЗВЁЗДОЧКИ ===== -->
+<!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ЗВЁЗДОЧКИ + ЖДЁМ ВАС ===== -->
 <div class="shared-bg screen4" id="screen4">
 
   <div class="details-title">Детали</div>
@@ -837,34 +843,36 @@ body{font-family:Arial}
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
-  <!-- 3 звездочки треугольником -->
-  <div class="stars-triangle">
-    <svg class="star-5 top" viewBox="0 0 24 24">
+  <!-- 3 звездочки в ряд -->
+  <div class="stars-row-bottom">
+    <svg class="star-5-final" viewBox="0 0 24 24">
       <defs>
-        <clipPath id="st1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
-        <clipPath id="st1r"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="s1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="s1r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#st1l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#st1r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s1l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s1r)"/>
     </svg>
-    <svg class="star-5 left" viewBox="0 0 24 24">
+    <svg class="star-5-final" viewBox="0 0 24 24">
       <defs>
-        <clipPath id="st2l"><rect x="0" y="0" width="12" height="24"/></clipPath>
-        <clipPath id="st2r"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="s2l"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="s2r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#st2l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#st2r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s2l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s2r)"/>
     </svg>
-    <svg class="star-5 right" viewBox="0 0 24 24">
+    <svg class="star-5-final" viewBox="0 0 24 24">
       <defs>
-        <clipPath id="st3l"><rect x="0" y="0" width="12" height="24"/></clipPath>
-        <clipPath id="st3r"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="s3l"><rect x="0" y="0" width="12" height="24"/></clipPath>
+        <clipPath id="s3r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#st3l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#st3r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s3l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s3r)"/>
     </svg>
   </div>
 
+  <!-- Ждём Вас -->
+  <div class="waiting-title">Ждём Вас</div>
 </div>
 
 <!-- Firebase SDK -->
