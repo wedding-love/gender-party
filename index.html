@@ -98,8 +98,8 @@ body{font-family:Arial}
 .screen2 .title,
 .screen2 .info,
 .screen2 .calendar-wrapper,
-.screen2 .time-block,
-.screen2 .bottom{
+.screen2 .bottom,
+.screen2 .time-block{
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -107,8 +107,8 @@ body{font-family:Arial}
 .screen2.visible .title{opacity:1;transform:translateY(0);transition-delay:0.1s}
 .screen2.visible .info{opacity:1;transform:translateY(0);transition-delay:0.2s}
 .screen2.visible .calendar-wrapper{opacity:1;transform:translateY(0);transition-delay:0.35s}
-.screen2.visible .time-block{opacity:1;transform:translateY(0);transition-delay:0.5s}
-.screen2.visible .bottom{opacity:1;transform:translateY(0);transition-delay:0.65s}
+.screen2.visible .bottom{opacity:1;transform:translateY(0);transition-delay:0.5s}
+.screen2.visible .time-block{opacity:1;transform:translateY(0);transition-delay:0.65s}
 
 .screen2 .title{
   font-family:'Great Vibes', cursive;
@@ -167,9 +167,7 @@ body{font-family:Arial}
   font-family:'Cormorant Garamond';
   padding: clamp(5px, 2vw, 10px);
 }
-.screen2 .cell:last-child{
-  border:none;
-}
+.screen2 .cell:last-child{border:none}
 .screen2 .week{
   font-size: clamp(16px, 3.5vw, 28px);
   margin-bottom: clamp(10px, 2.5vw, 25px);
@@ -213,22 +211,32 @@ body{font-family:Arial}
   filter:url(#rough);
 }
 
+.screen2 .bottom{
+  font-family:'Cormorant Garamond';
+  font-size: clamp(20px, 4vw, 32px);
+  line-height:1.5;
+  padding: 0 10px;
+  color:#111;
+}
+
 /* Блок времени */
 .screen2 .time-block{
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   position: relative;
   flex-shrink: 0;
+  margin-top: clamp(10px, 2vw, 20px);
 }
 .screen2 .decor-lines{
   width: 100%;
-  height: clamp(100px, 16vw, 160px);
+  height: clamp(150px, 22vw, 220px);
   position: relative;
 }
 .screen2 .line{
   position: absolute;
   width: 100%;
   left: 0;
+  height: auto;
 }
 .screen2 .line.top{
   top: 0;
@@ -240,7 +248,7 @@ body{font-family:Arial}
 .screen2 .line path{
   fill: none;
   stroke: #666;
-  stroke-width: 1.5;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -254,31 +262,23 @@ body{font-family:Arial}
 }
 .screen2 .time-label{
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 36px);
+  font-size: clamp(24px, 4.5vw, 40px);
   color: #111;
   line-height: 1.3;
-  margin-bottom: clamp(2px, 0.8vw, 8px);
+  margin-bottom: clamp(6px, 1.5vw, 14px);
   white-space: nowrap;
 }
 .screen2 .time-value{
   font-family: 'Ms Madi', cursive;
-  font-size: clamp(50px, 10vw, 95px);
+  font-size: clamp(60px, 12vw, 110px);
   line-height: 1;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 }
 .screen2 .time-value .blue{
   color: #00a9d8;
 }
 .screen2 .time-value .pink{
   color: #df5aa5;
-}
-
-.screen2 .bottom{
-  font-family:'Cormorant Garamond';
-  font-size: clamp(20px, 4vw, 32px);
-  line-height:1.5;
-  padding: 0 10px;
-  color:#111;
 }
 </style>
 </head>
@@ -361,6 +361,11 @@ body{font-family:Arial}
     </div>
   </div>
 
+  <div class="bottom">
+    Мы узнаем пол нашего малыша<br>
+    и хотим разделить это счастье с Вами!
+  </div>
+
   <!-- Блок времени -->
   <div class="time-block">
     <div class="decor-lines">
@@ -377,11 +382,6 @@ body{font-family:Arial}
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="bottom">
-    Мы узнаем пол нашего малыша<br>
-    и хотим разделить это счастье с Вами!
   </div>
 
 </div>
