@@ -449,6 +449,137 @@ body{font-family:Arial}
 }
 .screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.3s}
 .screen4 .details-text:last-child{transition-delay:0.5s}
+
+/* ===== ЭКРАН 5: Анкета ===== */
+.screen5{
+  width:100%;
+  background: linear-gradient(180deg, #e8f8ff 0%, #fff0f5 50%, #e8f8ff 100%);
+  background-size: 100% 300%;
+  animation: tripleBg 10s ease-in-out infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
+  gap: clamp(25px, 4vw, 45px);
+  overflow-x:hidden;
+}
+
+.screen5 .form-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(42px, 9vw, 72px);
+  font-weight:400;
+  line-height:1.1;
+  color:#111;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen5.visible .form-title{opacity:1;transform:translateY(0);transition-delay:0.1s}
+
+.screen5 .form-subtitle{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3.5vw, 28px);
+  font-weight:500;
+  line-height:1.5;
+  color:#111;
+  max-width: 650px;
+  padding: 0 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen5.visible .form-subtitle{opacity:1;transform:translateY(0);transition-delay:0.2s}
+
+.screen5 .form-container{
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.5vw, 22px);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.screen5.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.35s}
+
+.screen5 .form-field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.screen5 .form-label{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(17px, 2.8vw, 22px);
+  font-weight:600;
+  color:#111;
+}
+.screen5 .form-input,
+.screen5 .form-select{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2vw, 18px);
+  border: 1.5px solid #ccc;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.7);
+  color:#111;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.screen5 .form-input:focus,
+.screen5 .form-select:focus{
+  border-color: #47a5c8;
+}
+.screen5 .radio-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 2vw, 20px);
+}
+.screen5 .radio-option{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.screen5 .radio-option input[type="radio"]{
+  accent-color: #47a5c8;
+  width: 18px;
+  height: 18px;
+}
+.screen5 .radio-option span{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  color:#111;
+}
+.screen5 .alcohol-text{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(15px, 2.3vw, 18px);
+  color: #555;
+  line-height: 1.5;
+  padding: 0 5px;
+}
+.screen5 .submit-btn{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight:700;
+  color: #fff;
+  background: #47a5c8;
+  border: none;
+  border-radius: 50px;
+  padding: clamp(12px, 2vw, 16px) clamp(30px, 5vw, 45px);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  align-self: center;
+  margin-top: 10px;
+}
+.screen5 .submit-btn:hover{
+  background: #3a8fa8;
+  transform: scale(1.03);
+}
+.screen5 .submit-btn:active{
+  transform: scale(0.97);
+}
 </style>
 </head>
 <body>
@@ -595,6 +726,71 @@ body{font-family:Arial}
 
 </div>
 
+<!-- ===== ЭКРАН 5: Анкета ===== -->
+<div class="screen5" id="screen5">
+
+  <div class="form-title">Анкета</div>
+
+  <div class="form-subtitle">
+    Пожалуйста, подтвердите присутствие до 15.08.<br>
+    Нам важно знать точное количество гостей.
+  </div>
+
+  <div class="form-container">
+    <div class="form-field">
+      <label class="form-label">Фамилия и Имя</label>
+      <input type="text" class="form-input" placeholder="Иванов Иван">
+    </div>
+
+    <div class="form-field">
+      <label class="form-label">Будете ли Вы одни или с +1?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="plus-one" value="alone">
+          <span>Буду один / одна</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="plus-one" value="plus1">
+          <span>Буду с +1</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label">Предпочтения по алкоголю</label>
+      <div class="alcohol-text">
+        Так как это отдых на природе — будет пиво, вино, крепкий алкоголь (водка, коньяк, виски).<br>
+        Но у нас много и не пьющих ребят — укажите, что пьёте:
+      </div>
+      <div class="radio-group" style="flex-direction: column; gap: 8px;">
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="none">
+          <span>Не пью алкоголь</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="beer">
+          <span>Пиво</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="wine">
+          <span>Вино</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="strong">
+          <span>Крепкий алкоголь (водка, коньяк, виски)</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="all">
+          <span>Всё понемногу</span>
+        </label>
+      </div>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">Отправить</button>
+  </div>
+
+</div>
+
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
@@ -606,8 +802,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const votesRef = db.ref('votes');
+const guestsRef = db.ref('guests');
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
 
+// Голосование
 votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
@@ -633,6 +831,44 @@ async function vote(type) {
   await votesRef.set(current);
 }
 
+// Анкета
+async function submitForm() {
+  const name = document.querySelector('.form-input').value.trim();
+  const plusOne = document.querySelector('input[name="plus-one"]:checked');
+  const alcohol = document.querySelector('input[name="alcohol"]:checked');
+
+  if (!name) {
+    alert('Пожалуйста, укажите фамилию и имя');
+    return;
+  }
+  if (!plusOne) {
+    alert('Укажите, будете ли Вы одни или с +1');
+    return;
+  }
+  if (!alcohol) {
+    alert('Укажите предпочтения по алкоголю');
+    return;
+  }
+
+  const guestData = {
+    name: name,
+    plusOne: plusOne.value,
+    alcohol: alcohol.value,
+    timestamp: Date.now()
+  };
+
+  try {
+    await guestsRef.push(guestData);
+    alert('Спасибо! Ваш ответ отправлен.');
+    // Очистка формы
+    document.querySelector('.form-input').value = '';
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+  } catch(e) {
+    alert('Ошибка отправки. Попробуйте ещё раз.');
+  }
+}
+
+// Анимации
 const s2 = document.getElementById('screen2');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
@@ -642,6 +878,11 @@ const s4 = document.getElementById('screen4');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s4.classList.add('visible'); });
 }, { threshold: 0.1 }).observe(s4);
+
+const s5 = document.getElementById('screen5');
+new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) s5.classList.add('visible'); });
+}, { threshold: 0.1 }).observe(s5);
 </script>
 
 </body>
