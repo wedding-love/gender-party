@@ -528,31 +528,23 @@ body{font-family:Arial}
   border-color: #2b8aaa;
 }
 
-/* Radio — сплошные, голубая обводка, прозрачный фон */
+/* Radio — просто кружок, без обводок вокруг */
 .screen4 .radio-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 1.8vw, 14px);
+  gap: clamp(8px, 1.5vw, 12px);
 }
 .screen4 .radio-option{
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   cursor: pointer;
-  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 12px;
-  background: transparent;
-  transition: background 0.2s ease;
-}
-.screen4 .radio-option:has(input:checked){
-  background: rgba(71,165,200,0.1);
 }
 .screen4 .radio-option input[type="radio"]{
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border: 2px solid #47a5c8;
   border-radius: 50%;
   flex-shrink: 0;
@@ -565,8 +557,8 @@ body{font-family:Arial}
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #47a5c8;
 }
@@ -576,31 +568,23 @@ body{font-family:Arial}
   color:#111;
 }
 
-/* Checkbox — сплошные, голубая обводка, прозрачный фон */
+/* Checkbox — просто квадратик, без обводок вокруг */
 .screen4 .checkbox-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 1.8vw, 14px);
+  gap: clamp(8px, 1.5vw, 12px);
 }
 .screen4 .checkbox-option{
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   cursor: pointer;
-  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 12px;
-  background: transparent;
-  transition: background 0.2s ease;
-}
-.screen4 .checkbox-option:has(input:checked){
-  background: rgba(71,165,200,0.1);
 }
 .screen4 .checkbox-option input[type="checkbox"]{
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border: 2px solid #47a5c8;
   border-radius: 5px;
   flex-shrink: 0;
@@ -612,9 +596,9 @@ body{font-family:Arial}
   content: '';
   position: absolute;
   top: 2px;
-  left: 5px;
+  left: 6px;
   width: 6px;
-  height: 11px;
+  height: 12px;
   border: solid #47a5c8;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
