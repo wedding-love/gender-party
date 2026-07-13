@@ -73,30 +73,12 @@ body{font-family:Arial}
   50%{transform:translateX(-50%) translateY(8px)}
 }
 
-/* ===== ОБЩИЙ ФОН ДЛЯ ДЕТАЛЕЙ И АНКЕТЫ ===== */
-.shared-bg{
-  width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
-  background-size: 100% 300%;
-  animation: tripleBg 10s ease-in-out infinite;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  overflow-x:hidden;
-}
-@keyframes tripleBg {
-  0%{background-position:0% 0%}
-  50%{background-position:0% 100%}
-  100%{background-position:0% 0%}
-}
-
 /* ===== ЭКРАН 2: Приглашение ===== */
 .screen2{
   min-height:100vh;
   min-height:100dvh;
   width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 50%, #d4f0ff 100%);
   background-size: 100% 300%;
   animation: tripleBg 10s ease-in-out infinite;
   display:flex;
@@ -107,6 +89,11 @@ body{font-family:Arial}
   justify-content: center;
   gap: clamp(14px, 2.5vw, 28px);
   overflow-x:hidden;
+}
+@keyframes tripleBg {
+  0%{background-position:0% 0%}
+  50%{background-position:0% 100%}
+  100%{background-position:0% 0%}
 }
 
 .screen2 .title,
@@ -343,7 +330,7 @@ body{font-family:Arial}
   min-height: 40vh;
   min-height: 40dvh;
   width:100%;
-  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 50%, #d4f0ff 100%);
   background-size: 100% 300%;
   animation: tripleBg 10s ease-in-out infinite;
   display:flex;
@@ -421,9 +408,20 @@ body{font-family:Arial}
 }
 
 /* ===== ДЕТАЛИ + АНКЕТА (общий фон) ===== */
-.screen4{
+.shared-bg{
   width:100%;
-  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(10px, 2vw, 20px);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 50%, #d4f0ff 100%);
+  background-size: 100% 300%;
+  animation: tripleBg 10s ease-in-out infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.screen4{
+  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
   justify-content: center;
   gap: clamp(18px, 3vw, 35px);
 }
@@ -455,15 +453,13 @@ body{font-family:Arial}
 .screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.3s}
 .screen4 .details-text:last-child{transition-delay:0.5s}
 
-/* Разделитель */
 .screen4 .divider{
   width: 120px;
   height: 1px;
-  background: rgba(0,0,0,0.15);
-  margin: clamp(10px, 2vw, 20px) 0;
+  background: rgba(0,0,0,0.12);
+  margin: clamp(8px, 1.5vw, 16px) 0;
 }
 
-/* ===== АНКЕТА ===== */
 .screen4 .form-title{
   font-family:'Great Vibes', cursive;
   font-size: clamp(42px, 9vw, 72px);
@@ -506,7 +502,7 @@ body{font-family:Arial}
 .screen4 .form-field{
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 .screen4 .form-label{
   font-family:'Cormorant Garamond', serif;
@@ -514,13 +510,14 @@ body{font-family:Arial}
   font-weight:600;
   color:#111;
 }
-/* Поля ввода — сквозные, обводка голубая */
+
+/* Поле ввода — сквозное, обводка голубая, скруглённые углы */
 .screen4 .form-input{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(16px, 2.5vw, 20px);
   padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2vw, 18px);
   border: 1.5px solid #47a5c8;
-  border-radius: 12px;
+  border-radius: 14px;
   background: transparent;
   color:#111;
   outline: none;
@@ -528,28 +525,20 @@ body{font-family:Arial}
 }
 .screen4 .form-input:focus{
   border-color: #2b8aaa;
-  background: rgba(71,165,200,0.05);
+  background: rgba(71,165,200,0.04);
 }
 
-/* Radio — сквозные, обводка голубая */
+/* Radio — без обводок */
 .screen4 .radio-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.5vw, 14px);
+  gap: clamp(6px, 1.2vw, 10px);
 }
 .screen4 .radio-option{
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  padding: clamp(8px, 1.2vw, 10px) clamp(12px, 1.8vw, 14px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 10px;
-  background: transparent;
-  transition: background 0.2s ease;
-}
-.screen4 .radio-option:has(input:checked){
-  background: rgba(71,165,200,0.1);
 }
 .screen4 .radio-option input[type="radio"]{
   accent-color: #47a5c8;
@@ -563,25 +552,17 @@ body{font-family:Arial}
   color:#111;
 }
 
-/* Checkbox для напитков */
+/* Checkbox — без обводок */
 .screen4 .checkbox-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.5vw, 14px);
+  gap: clamp(6px, 1.2vw, 10px);
 }
 .screen4 .checkbox-option{
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  padding: clamp(8px, 1.2vw, 10px) clamp(12px, 1.8vw, 14px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 10px;
-  background: transparent;
-  transition: background 0.2s ease;
-}
-.screen4 .checkbox-option:has(input:checked){
-  background: rgba(71,165,200,0.1);
 }
 .screen4 .checkbox-option input[type="checkbox"]{
   accent-color: #47a5c8;
@@ -604,14 +585,14 @@ body{font-family:Arial}
   margin-bottom: 4px;
 }
 
-/* Кнопка — сквозная, обводка розовая, текст голубой */
+/* Кнопка — сквозная, обводка голубая, текст голубой */
 .screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 3vw, 24px);
   font-weight:700;
   color: #47a5c8;
   background: transparent;
-  border: 2px solid #df5aa5;
+  border: 1.5px solid #47a5c8;
   border-radius: 50px;
   padding: clamp(12px, 2vw, 16px) clamp(30px, 5vw, 45px);
   cursor: pointer;
@@ -620,7 +601,7 @@ body{font-family:Arial}
   margin-top: 10px;
 }
 .screen4 .submit-btn:hover{
-  background: rgba(223,90,165,0.1);
+  background: rgba(71,165,200,0.08);
   transform: scale(1.03);
 }
 .screen4 .submit-btn:active{
@@ -880,7 +861,6 @@ async function vote(type) {
   await votesRef.set(current);
 }
 
-// Анимации
 const s2 = document.getElementById('screen2');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
