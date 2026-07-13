@@ -299,38 +299,39 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- Обводка: несколько линий -->
+      <!-- Обводка: 4 слоя, цвета переплетаются -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
-          <!-- Левая сторона — розовые линии -->
-          <!-- Внешняя розовая -->
-          <path d="M100 6 A94 94 0 0 0 100 194"
+          <!-- Слой 1: внешний — целый эллипс голубой -->
+          <ellipse cx="100" cy="100" rx="96" ry="96"
+            fill="none" stroke="#00a9d8" stroke-width="2"
+            stroke-linecap="round" opacity="0.9"/>
+
+          <!-- Слой 2: розовый, слегка смещён и повёрнут -->
+          <ellipse cx="100" cy="100" rx="90" ry="90"
             fill="none" stroke="#df5aa5" stroke-width="2.5"
-            stroke-linecap="round"/>
-          <!-- Внутренняя розовая -->
-          <path d="M100 14 A86 86 0 0 0 100 186"
+            stroke-linecap="round" opacity="0.85"
+            transform="rotate(5, 100, 100)"/>
+
+          <!-- Слой 3: голубой пунктирный -->
+          <ellipse cx="100" cy="100" rx="82" ry="82"
+            fill="none" stroke="#00a9d8" stroke-width="1.8"
+            stroke-dasharray="30 6 15 4 50 5 20 4"
+            stroke-linecap="round" opacity="0.7"
+            transform="rotate(-8, 100, 100)"/>
+
+          <!-- Слой 4: розовый пунктирный -->
+          <ellipse cx="100" cy="100" rx="74" ry="74"
             fill="none" stroke="#df5aa5" stroke-width="1.5"
-            stroke-linecap="round" opacity="0.7"/>
+            stroke-dasharray="25 5 40 7 18 3 35 6"
+            stroke-linecap="round" opacity="0.6"
+            transform="rotate(12, 100, 100)"/>
 
-          <!-- Правая сторона — голубые линии -->
-          <!-- Внешняя голубая -->
-          <path d="M100 6 A94 94 0 0 1 100 194"
-            fill="none" stroke="#00a9d8" stroke-width="2.5"
-            stroke-linecap="round"/>
-          <!-- Внутренняя голубая -->
-          <path d="M100 14 A86 86 0 0 1 100 186"
-            fill="none" stroke="#00a9d8" stroke-width="1.5"
-            stroke-linecap="round" opacity="0.7"/>
-
-          <!-- Третья линия по центру -->
-          <ellipse cx="100" cy="100" rx="80" ry="80"
-            fill="none" stroke="#df5aa5" stroke-width="1"
-            stroke-dasharray="0 163 0 0" stroke-linecap="round" opacity="0.5"
-            transform="rotate(0, 100, 100)"/>
-          <ellipse cx="100" cy="100" rx="80" ry="80"
+          <!-- Слой 5: внутренний — голубой тонкий -->
+          <ellipse cx="100" cy="100" rx="66" ry="66"
             fill="none" stroke="#00a9d8" stroke-width="1"
-            stroke-dasharray="0 0 0 163" stroke-linecap="round" opacity="0.5"
-            transform="rotate(0, 100, 100)"/>
+            stroke-linecap="round" opacity="0.5"
+            transform="rotate(-3, 100, 100)"/>
         </svg>
       </div>
     </div>
