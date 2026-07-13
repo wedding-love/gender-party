@@ -78,8 +78,8 @@ body{font-family:Arial}
   min-height:100vh;
   min-height:100dvh;
   width:100%;
-  background: linear-gradient(90deg, #ffcbe7 0%, #dff8ff 50%, #fff3fa 100%);
-  background-size: 300% 100%;
+  background: linear-gradient(135deg, #ffb3d1 0%, #b3e5ff 40%, #fff5e6 70%, #ffc8de 100%);
+  background-size: 300% 300%;
   animation: bgSlide 10s ease-in-out infinite;
   display:flex;
   flex-direction:column;
@@ -91,9 +91,9 @@ body{font-family:Arial}
   overflow-x:hidden;
 }
 @keyframes bgSlide {
-  0%{background-position:100% 0}
-  50%{background-position:0% 0}
-  100%{background-position:100% 0}
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 .screen2 .title,
@@ -330,9 +330,9 @@ body{font-family:Arial}
   min-height: 40vh;
   min-height: 40dvh;
   width:100%;
-  background: linear-gradient(135deg, #ffb8d4 0%, #a8e4f8 35%, #fff5e6 65%, #ffc8de 100%);
+  background: linear-gradient(135deg, #ff9ec4 0%, #7dd8f5 30%, #ffead4 60%, #ffb0d0 100%);
   background-size: 300% 300%;
-  animation: bgSlide3 8s ease-in-out infinite;
+  animation: bgSlide3 6s ease-in-out infinite;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -398,15 +398,17 @@ body{font-family:Arial}
 }
 .screen3 .vote-count{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4.5vw, 40px);
+  font-size: clamp(28px, 5vw, 44px);
   font-weight:700;
   color: #fff;
-  min-height: clamp(30px, 5vw, 48px);
+  min-height: clamp(34px, 5.5vw, 52px);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .screen3 .vote-count.show{
   opacity: 1;
+  transform: translateY(0);
 }
 </style>
 </head>
@@ -521,14 +523,14 @@ body{font-family:Arial}
         <div class="vote-photo">
           <img src="цветок.png" alt="Девочка" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=width:100%;height:100%;background:%23ffb3c6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px>🌸</div>'">
         </div>
-        <span class="vote-count" id="count-girl">0</span>
+        <span class="vote-count" id="count-girl"></span>
       </button>
 
       <button class="vote-btn" onclick="vote('boy')">
         <div class="vote-photo">
           <img src="мяч.png" alt="Мальчик" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=width:100%;height:100%;background:%235c9ce6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px>⚽</div>'">
         </div>
-        <span class="vote-count" id="count-boy">0</span>
+        <span class="vote-count" id="count-boy"></span>
       </button>
     </div>
   </div>
@@ -536,49 +538,62 @@ body{font-family:Arial}
 </div>
 
 <script>
-// ===== ГОЛОСОВАНИЕ =====
-// Для работы с разных устройств замени URL на свой сервер:
-const API_URL = 'https://твой-сервер.com/api/votes';
+// ===== JSONBIN.IO КОНФИГ =====
+const BIN_ID = '6a552313da38895dfe581807';
+const API_KEY = '$2a$10$fFAiFDQNx50Kojz3lEzxBeU6ndcYX7vHXsHv1pho9h8jb2VsQy00';
+const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+const HEADERS = {
+  'Content-Type': 'application/json',
+  'X-Master-Key': API_KEY
+};
 
-const STORAGE_KEY = 'gender_reveal_votes';
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
+let votes = { girl: 0, boy: 0 };
 
-// Загружаем голоса (с сервера или из localStorage)
 async function loadVotes() {
   try {
-    const res = await fetch(API_URL);
-    if (res.ok) return await res.json();
-  } catch(e) {}
-  // fallback — localStorage
-  const s = localStorage.getItem(STORAGE_KEY);
+    const res = await fetch(API_URL, { headers: HEADERS });
+    if (res.ok) {
+      const data = await res.json();
+      return data.record;
+    }
+  } catch(e) {
+    console.log('Сервер недоступен, пробуем localStorage');
+  }
+  const s = localStorage.getItem('gender_reveal_votes');
   return s ? JSON.parse(s) : { girl: 0, boy: 0 };
 }
 
-// Сохраняем голоса (на сервер или в localStorage)
 async function saveVotes(v) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(v));
+  localStorage.setItem('gender_reveal_votes', JSON.stringify(v));
   try {
     await fetch(API_URL, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      method: 'PUT',
+      headers: HEADERS,
       body: JSON.stringify(v)
     });
-  } catch(e) {}
-}
-
-let votes = { girl: 0, boy: 0 };
-
-async function init() {
-  votes = await loadVotes();
-  updateDisplay();
+  } catch(e) {
+    console.log('Не удалось сохранить на сервер');
+  }
 }
 
 function updateDisplay() {
-  document.getElementById('count-girl').textContent = votes.girl;
-  document.getElementById('count-boy').textContent = votes.boy;
-  // Показываем счётчики, если есть голоса
-  if (votes.girl > 0) document.getElementById('count-girl').classList.add('show');
-  if (votes.boy > 0) document.getElementById('count-boy').classList.add('show');
+  const girlEl = document.getElementById('count-girl');
+  const boyEl = document.getElementById('count-boy');
+  
+  if (votes.girl > 0) {
+    girlEl.textContent = votes.girl;
+    girlEl.classList.add('show');
+  } else {
+    girlEl.classList.remove('show');
+  }
+  
+  if (votes.boy > 0) {
+    boyEl.textContent = votes.boy;
+    boyEl.classList.add('show');
+  } else {
+    boyEl.classList.remove('show');
+  }
 }
 
 async function vote(t) {
@@ -593,9 +608,18 @@ async function vote(t) {
   updateDisplay();
 }
 
+async function init() {
+  votes = await loadVotes();
+  updateDisplay();
+  // Обновляем счётчики каждые 3 секунды
+  setInterval(async () => {
+    votes = await loadVotes();
+    updateDisplay();
+  }, 3000);
+}
+
 init();
 
-// Анимация второго экрана
 const s2 = document.getElementById('screen2');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
