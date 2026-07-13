@@ -78,7 +78,7 @@ body{font-family:Arial}
   min-height:100vh;
   min-height:100dvh;
   width:100%;
-  background: linear-gradient(180deg, #e8f8ff 0%, #fff0f5 50%, #e8f8ff 100%);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
   background-size: 100% 300%;
   animation: tripleBg 10s ease-in-out infinite;
   display:flex;
@@ -330,7 +330,7 @@ body{font-family:Arial}
   min-height: 40vh;
   min-height: 40dvh;
   width:100%;
-  background: linear-gradient(180deg, #e8f8ff 0%, #fff0f5 50%, #e8f8ff 100%);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
   background-size: 100% 300%;
   animation: tripleBg 10s ease-in-out infinite;
   display:flex;
@@ -410,7 +410,7 @@ body{font-family:Arial}
 /* ===== ЭКРАН 4: Детали ===== */
 .screen4{
   width:100%;
-  background: linear-gradient(180deg, #e8f8ff 0%, #fff0f5 50%, #e8f8ff 100%);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
   background-size: 100% 300%;
   animation: tripleBg 10s ease-in-out infinite;
   display:flex;
@@ -453,7 +453,7 @@ body{font-family:Arial}
 /* ===== ЭКРАН 5: Анкета ===== */
 .screen5{
   width:100%;
-  background: linear-gradient(180deg, #e8f8ff 0%, #fff0f5 50%, #e8f8ff 100%);
+  background: linear-gradient(180deg, #d4f0ff 0%, #ffe0ec 40%, #fff5e6 70%, #d4f0ff 100%);
   background-size: 100% 300%;
   animation: tripleBg 10s ease-in-out infinite;
   display:flex;
@@ -515,37 +515,36 @@ body{font-family:Arial}
   font-weight:600;
   color:#111;
 }
-.screen5 .form-input,
-.screen5 .form-select{
+.screen5 .form-input{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(16px, 2.5vw, 20px);
   padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2vw, 18px);
   border: 1.5px solid #ccc;
   border-radius: 12px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.8);
   color:#111;
   outline: none;
   transition: border-color 0.3s ease;
 }
-.screen5 .form-input:focus,
-.screen5 .form-select:focus{
+.screen5 .form-input:focus{
   border-color: #47a5c8;
 }
 .screen5 .radio-group{
   display: flex;
-  flex-wrap: wrap;
-  gap: clamp(12px, 2vw, 20px);
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 14px);
 }
 .screen5 .radio-option{
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
 }
 .screen5 .radio-option input[type="radio"]{
   accent-color: #47a5c8;
   width: 18px;
   height: 18px;
+  flex-shrink: 0;
 }
 .screen5 .radio-option span{
   font-family:'Cormorant Garamond', serif;
@@ -558,6 +557,7 @@ body{font-family:Arial}
   color: #555;
   line-height: 1.5;
   padding: 0 5px;
+  margin-bottom: 4px;
 }
 .screen5 .submit-btn{
   font-family:'Cormorant Garamond', serif;
@@ -736,17 +736,18 @@ body{font-family:Arial}
     Нам важно знать точное количество гостей.
   </div>
 
-  <div class="form-container">
+  <!-- Formspree форма -->
+  <form class="form-container" action="https://formspree.io/f/ТВОЙ_ID" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
-      <input type="text" class="form-input" placeholder="Иванов Иван">
+      <input type="text" name="name" class="form-input" placeholder="Иванов Иван" required>
     </div>
 
     <div class="form-field">
       <label class="form-label">Будете ли Вы одни или с +1?</label>
       <div class="radio-group">
         <label class="radio-option">
-          <input type="radio" name="plus-one" value="alone">
+          <input type="radio" name="plus-one" value="alone" required>
           <span>Буду один / одна</span>
         </label>
         <label class="radio-option">
@@ -760,11 +761,11 @@ body{font-family:Arial}
       <label class="form-label">Предпочтения по алкоголю</label>
       <div class="alcohol-text">
         Так как это отдых на природе — будет пиво, вино, крепкий алкоголь (водка, коньяк, виски).<br>
-        Но у нас много и не пьющих ребят — укажите, что пьёте:
+        Но у нас много и не пьющих ребят — выберите, что пьёте:
       </div>
-      <div class="radio-group" style="flex-direction: column; gap: 8px;">
+      <div class="radio-group">
         <label class="radio-option">
-          <input type="radio" name="alcohol" value="none">
+          <input type="radio" name="alcohol" value="none" required>
           <span>Не пью алкоголь</span>
         </label>
         <label class="radio-option">
@@ -776,8 +777,16 @@ body{font-family:Arial}
           <span>Вино</span>
         </label>
         <label class="radio-option">
-          <input type="radio" name="alcohol" value="strong">
-          <span>Крепкий алкоголь (водка, коньяк, виски)</span>
+          <input type="radio" name="alcohol" value="vodka">
+          <span>Водка</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="cognac">
+          <span>Коньяк</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="alcohol" value="whiskey">
+          <span>Виски</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="alcohol" value="all">
@@ -786,8 +795,8 @@ body{font-family:Arial}
       </div>
     </div>
 
-    <button class="submit-btn" onclick="submitForm()">Отправить</button>
-  </div>
+    <button type="submit" class="submit-btn">Отправить</button>
+  </form>
 
 </div>
 
@@ -802,10 +811,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const votesRef = db.ref('votes');
-const guestsRef = db.ref('guests');
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
 
-// Голосование
 votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
@@ -829,43 +836,6 @@ async function vote(type) {
   }
 
   await votesRef.set(current);
-}
-
-// Анкета
-async function submitForm() {
-  const name = document.querySelector('.form-input').value.trim();
-  const plusOne = document.querySelector('input[name="plus-one"]:checked');
-  const alcohol = document.querySelector('input[name="alcohol"]:checked');
-
-  if (!name) {
-    alert('Пожалуйста, укажите фамилию и имя');
-    return;
-  }
-  if (!plusOne) {
-    alert('Укажите, будете ли Вы одни или с +1');
-    return;
-  }
-  if (!alcohol) {
-    alert('Укажите предпочтения по алкоголю');
-    return;
-  }
-
-  const guestData = {
-    name: name,
-    plusOne: plusOne.value,
-    alcohol: alcohol.value,
-    timestamp: Date.now()
-  };
-
-  try {
-    await guestsRef.push(guestData);
-    alert('Спасибо! Ваш ответ отправлен.');
-    // Очистка формы
-    document.querySelector('.form-input').value = '';
-    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-  } catch(e) {
-    alert('Ошибка отправки. Попробуйте ещё раз.');
-  }
 }
 
 // Анимации
