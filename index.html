@@ -513,7 +513,6 @@ body{font-family:Arial}
   color:#111;
 }
 
-/* Поле ввода */
 .screen4 .form-input{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 2.8vw, 22px);
@@ -529,23 +528,47 @@ body{font-family:Arial}
   border-color: #2b8aaa;
 }
 
-/* Radio — без обводок, просто кружок */
+/* Radio — сплошные, голубая обводка, прозрачный фон */
 .screen4 .radio-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.5vw, 12px);
+  gap: clamp(10px, 1.8vw, 14px);
 }
 .screen4 .radio-option{
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   cursor: pointer;
+  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 12px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+.screen4 .radio-option:has(input:checked){
+  background: rgba(71,165,200,0.1);
 }
 .screen4 .radio-option input[type="radio"]{
-  accent-color: #47a5c8;
+  appearance: none;
+  -webkit-appearance: none;
   width: 20px;
   height: 20px;
+  border: 2px solid #47a5c8;
+  border-radius: 50%;
   flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+}
+.screen4 .radio-option input[type="radio"]:checked::after{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #47a5c8;
 }
 .screen4 .radio-option span{
   font-family:'Cormorant Garamond', serif;
@@ -553,28 +576,48 @@ body{font-family:Arial}
   color:#111;
 }
 
-/* Checkbox — голубой квадратик без обводки */
+/* Checkbox — сплошные, голубая обводка, прозрачный фон */
 .screen4 .checkbox-group{
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.5vw, 12px);
+  gap: clamp(10px, 1.8vw, 14px);
 }
 .screen4 .checkbox-option{
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   cursor: pointer;
+  padding: clamp(10px, 1.8vw, 14px) clamp(14px, 2.2vw, 18px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 12px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+.screen4 .checkbox-option:has(input:checked){
+  background: rgba(71,165,200,0.1);
 }
 .screen4 .checkbox-option input[type="checkbox"]{
-  accent-color: #47a5c8;
+  appearance: none;
+  -webkit-appearance: none;
   width: 20px;
   height: 20px;
+  border: 2px solid #47a5c8;
+  border-radius: 5px;
   flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
 }
-.screen4 .checkbox-option span{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);
-  color:#111;
+.screen4 .checkbox-option input[type="checkbox"]:checked::after{
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 6px;
+  height: 11px;
+  border: solid #47a5c8;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .screen4 .alcohol-text{
