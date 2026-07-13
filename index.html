@@ -1,53 +1,290 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<title>Girl or Boy</title>
-<link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet"/>
+<title>Gender Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden}
-body{position:relative;background:#000;font-family:Arial}
-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
-.star{position:absolute;width:20px;height:20px}
-.star svg{width:100%;height:100%}
-.title{position:absolute;left:50%;bottom:25%;transform:translateX(-50%) rotate(-9deg);font-family:'Ms Madi',cursive;font-size:clamp(72px,10vw,140px);color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(255,255,255,.15);font-weight:100;letter-spacing:6px;-webkit-text-stroke:0.5px white}
+html{scroll-behavior:smooth}
+body{font-family:Arial}
 
-.arrow{position:absolute;left:50%;bottom:25px;transform:translateX(-50%);animation:b 1.8s infinite}
-.arrow svg{width:28px;height:28px;display:block}
-@keyframes b{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}</style>
-</head><body>
-<video autoplay="" loop="" muted="" playsinline="">
-<source src="видео.mp4" type="video/mp4"/>
-</video>
-<div class="overlay"></div>
+/* ===== ЭКРАН 1: Girl or Boy ===== */
+.screen1{
+  position:relative;
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+  background:#000;
+}
+.screen1 video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.screen1 .overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+}
+.screen1 .star{
+  position:absolute;
+  width:20px;
+  height:20px;
+}
+.screen1 .star svg{
+  width:100%;
+  height:100%;
+}
+.screen1 .title{
+  position:absolute;
+  left:50%;
+  bottom:25%;
+  transform:translateX(-50%) rotate(-9deg);
+  font-family:'Ms Madi',cursive;
+  font-size:clamp(72px,10vw,140px);
+  color:#fff;
+  white-space:nowrap;
+  text-shadow:0 0 8px rgba(255,255,255,.15);
+  font-weight:100;
+  letter-spacing:6px;
+  -webkit-text-stroke:0.5px white;
+}
+.screen1 .arrow{
+  position:absolute;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%);
+  animation:b 1.8s infinite;
+  cursor:pointer;
+  text-decoration:none;
+}
+.screen1 .arrow svg{
+  width:28px;
+  height:28px;
+  display:block;
+}
+@keyframes b{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(8px)}
+}
 
-<!-- Звёздочки — 15 шт, без той что у Girl -->
-<div class="star" style="left:3%;top:4%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:92%;top:6%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:82%;top:20%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:5%;top:38%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:90%;top:36%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:18%;top:8%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:78%;top:10%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+/* ===== ЭКРАН 2: Приглашение ===== */
+.screen2{
+  min-height:100vh;
+  width:100%;
+  background: linear-gradient(90deg, #ffcbe7 0%, #dff8ff 50%, #fff3fa 100%);
+  background-size: 300% 100%;
+  animation: bgSlide 10s ease-in-out infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: clamp(10px, 3vw, 20px) clamp(10px, 3vw, 15px);
+  justify-content: space-between;
+  overflow:hidden;
+}
+@keyframes bgSlide {
+  0%{background-position:100% 0}
+  50%{background-position:0% 0}
+  100%{background-position:100% 0}
+}
 
-<div class="star" style="left:2%;top:60%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:94%;top:56%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:10%;top:75%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:88%;top:72%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+.screen2 .title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(32px, 8vw, 58px);
+  font-weight:400;
+  line-height:1.1;
+  margin-top: clamp(5px, 2vw, 10px);
+  word-break: break-word;
+  color:#111;
+}
+.screen2 .info{
+  margin-top: clamp(30px, 5vw, 45px);
+  font-family:'Cormorant Garamond';
+  font-size: clamp(15px, 3.5vw, 26px);
+  line-height:1.45;
+  padding: 0 10px;
+  color:#111;
+}
+.screen2 .calendar-wrapper{
+  width:100%;
+  max-width:620px;
+  margin-top: clamp(25px, 5vw, 60px);
+  flex-shrink: 0;
+}
+.screen2 .month-title{
+  display:flex;
+  align-items:center;
+  gap: clamp(12px, 3vw, 25px);
+  justify-content:center;
+  font-family:'Cormorant Garamond';
+  font-size: clamp(26px, 6vw, 45px);
+  color:#111;
+}
+.screen2 .month-title:before,
+.screen2 .month-title:after{
+  content:"";
+  height:1px;
+  background:#777;
+  flex:1;
+}
+.screen2 .calendar{
+  position:relative;
+  margin-top: clamp(10px, 2vw, 15px);
+  height: clamp(140px, 28vw, 220px);
+  border-top:1px solid #777;
+  border-bottom:1px solid #777;
+}
+.screen2 .days{
+  height:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+}
+.screen2 .cell{
+  border-right:1px solid #777;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:'Cormorant Garamond';
+  padding: clamp(5px, 2vw, 10px);
+}
+.screen2 .cell:last-child{
+  border:none;
+}
+.screen2 .week{
+  font-size: clamp(14px, 3vw, 25px);
+  margin-bottom: clamp(10px, 2.5vw, 25px);
+  word-break: break-word;
+  color:#111;
+}
+.screen2 .number{
+  font-size: clamp(40px, 9vw, 85px);
+  color: #bbb;
+}
+.screen2 .middle .number{
+  color:#000;
+  font-size: clamp(55px, 13vw, 115px);
+  line-height:1;
+}
+.screen2 .draw-circle{
+  position:absolute;
+  width: clamp(110px, 23vw, 190px);
+  height: clamp(110px, 23vw, 190px);
+  left:50%;
+  top: clamp(18px, 4vw, 40px);
+  transform:translateX(-50%);
+  border-radius:50%;
+  animation: pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+.screen2 .blue{
+  border: clamp(2px, 0.4vw, 3px) solid #00a9d8;
+  transform: translateX(-52%) rotate(-15deg);
+}
+.screen2 .pink{
+  border: clamp(2px, 0.4vw, 3px) solid #df5aa5;
+  transform: translateX(-48%) rotate(12deg);
+  animation-delay: 1s;
+}
+@keyframes pulse {
+  0%,100%{box-shadow:0 0 0 0 rgba(0,169,216,.4)}
+  50%{box-shadow:0 0 0 clamp(6px,1.5vw,12px) rgba(0,169,216,0)}
+}
+.screen2 .pink{
+  animation-name: pulsePink;
+}
+@keyframes pulsePink {
+  0%,100%{box-shadow:0 0 0 0 rgba(223,90,165,.4)}
+  50%{box-shadow:0 0 0 clamp(6px,1.5vw,12px) rgba(223,90,165,0)}
+}
+.screen2 .bottom{
+  margin-top: clamp(25px, 5vw, 55px);
+  margin-bottom: clamp(10px, 3vw, 20px);
+  font-family:'Cormorant Garamond';
+  font-size: clamp(16px, 3.5vw, 28px);
+  line-height:1.5;
+  padding: 0 10px;
+  color:#111;
+}
+</style>
+</head>
+<body>
 
-<div class="star" style="left:6%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:86%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:30%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-<div class="star" style="left:70%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+<!-- ===== ЭКРАН 1 ===== -->
+<div class="screen1">
+  <video autoplay loop muted playsinline>
+    <source src="видео.mp4" type="video/mp4"/>
+  </video>
+  <div class="overlay"></div>
 
-<h1 class="title">Girl or Boy</h1>
-<div class="arrow">
-  <svg viewbox="0 0 24 24" fill="none">
-    <path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+  <div class="star" style="left:3%;top:4%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:92%;top:6%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:82%;top:20%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:5%;top:38%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:90%;top:36%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:18%;top:8%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:78%;top:10%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:2%;top:60%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:94%;top:56%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:10%;top:75%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:88%;top:72%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:6%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:86%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:30%;top:90%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:70%;top:88%"><svg viewbox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+
+  <h1 class="title">Girl or Boy</h1>
+  <a href="#screen2" class="arrow">
+    <svg viewbox="0 0 24 24" fill="none">
+      <path d="M6 10l6 6 6-6" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
 </div>
-</body></html>
+
+<!-- ===== ЭКРАН 2 ===== -->
+<div class="screen2" id="screen2">
+
+  <div class="title">Дорогие и любимые!</div>
+
+  <div class="info">
+    Приглашаем Вас на наше трепетное и<br>
+    семейное торжество! Произойдет<br>
+    очень важное и волнительное событие!
+  </div>
+
+  <div class="calendar-wrapper">
+    <div class="month-title">АВГУСТ</div>
+    <div class="calendar">
+      <div class="days">
+        <div class="cell">
+          <div class="week">ПЯТНИЦА</div>
+          <div class="number">28</div>
+        </div>
+        <div class="cell middle">
+          <div class="week">СУББОТА</div>
+          <div class="number">29</div>
+        </div>
+        <div class="cell">
+          <div class="week">ВОСКРЕСЕНЬЕ</div>
+          <div class="number">30</div>
+        </div>
+      </div>
+      <div class="draw-circle blue"></div>
+      <div class="draw-circle pink"></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    Мы узнаем пол нашего малыша<br>
+    и хотим разделить это счастье с Вами!
+  </div>
+
+</div>
+
+</body>
+</html>
