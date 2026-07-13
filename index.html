@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
 <title>Gender Reveal</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -124,6 +124,7 @@ body{font-family:Arial}
 .screen2 .info{
   font-family:'Cormorant Garamond';
   font-size: clamp(20px, 4vw, 32px);
+  font-weight:600;
   line-height:1.45;
   padding: 0 10px;
   color:#111;
@@ -140,21 +141,22 @@ body{font-family:Arial}
   justify-content:center;
   font-family:'Cormorant Garamond';
   font-size: clamp(32px, 7vw, 52px);
+  font-weight:700;
   color:#111;
 }
 .screen2 .month-title:before,
 .screen2 .month-title:after{
   content:"";
-  height:1px;
-  background:#777;
+  height:2px;
+  background:#111;
   flex:1;
 }
 .screen2 .calendar{
   position:relative;
   margin-top: clamp(10px, 2vw, 15px);
   height: clamp(160px, 30vw, 240px);
-  border-top:1px solid #777;
-  border-bottom:1px solid #777;
+  border-top:2px solid #111;
+  border-bottom:2px solid #111;
 }
 .screen2 .days{
   height:100%;
@@ -162,7 +164,7 @@ body{font-family:Arial}
   grid-template-columns:1fr 1fr 1fr;
 }
 .screen2 .cell{
-  border-right:1px solid #777;
+  border-right:2px solid #111;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -173,17 +175,20 @@ body{font-family:Arial}
 .screen2 .cell:last-child{border:none}
 .screen2 .week{
   font-size: clamp(16px, 3.5vw, 28px);
+  font-weight:600;
   margin-bottom: clamp(10px, 2.5vw, 25px);
   word-break: break-word;
   color:#111;
 }
 .screen2 .number{
   font-size: clamp(48px, 10vw, 90px);
+  font-weight:700;
   color: #bbb;
 }
 .screen2 .middle .number{
   color:#000;
   font-size: clamp(65px, 14vw, 130px);
+  font-weight:700;
   line-height:1;
 }
 
@@ -217,6 +222,7 @@ body{font-family:Arial}
 .screen2 .bottom{
   font-family:'Cormorant Garamond';
   font-size: clamp(20px, 4vw, 32px);
+  font-weight:600;
   line-height:1.5;
   padding: 0 10px;
   color:#111;
@@ -265,6 +271,7 @@ body{font-family:Arial}
 .screen2 .time-label{
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(26px, 5vw, 44px);
+  font-weight:600;
   color: #111;
   line-height: 1.3;
   margin-bottom: clamp(12px, 2.5vw, 22px);
