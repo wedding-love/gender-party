@@ -299,54 +299,32 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- Спиральная обводка: лево-розовая, право-голубая -->
+      <!-- 3 сплошных круга: половина розовая, половина голубая -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
-          <!-- Внешний слой: левая розовая + правая голубая -->
-          <path d="M100 4 A96 96 0 0 0 100 196"
-            fill="none" stroke="#df5aa5" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="280 15 8 5 20 3"/>
-          <path d="M100 4 A96 96 0 0 1 100 196"
-            fill="none" stroke="#00a9d8" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="270 12 10 6 25 4"/>
+          <!-- Круг 1: внешний -->
+          <path d="M100 6 A94 94 0 0 0 100 194"
+            fill="none" stroke="#df5aa5" stroke-width="3"
+            stroke-linecap="round"/>
+          <path d="M100 6 A94 94 0 0 1 100 194"
+            fill="none" stroke="#00a9d8" stroke-width="3"
+            stroke-linecap="round"/>
 
-          <!-- Второй слой: смещён внутрь -->
-          <path d="M100 12 A88 88 0 0 0 100 188"
-            fill="none" stroke="#df5aa5" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="250 18 5 4 30 5"
-            opacity="0.8"/>
-          <path d="M100 12 A88 88 0 0 1 100 188"
-            fill="none" stroke="#00a9d8" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="240 14 8 7 22 3"
-            opacity="0.8"/>
+          <!-- Круг 2: средний -->
+          <path d="M100 18 A82 82 0 0 0 100 182"
+            fill="none" stroke="#df5aa5" stroke-width="3"
+            stroke-linecap="round"/>
+          <path d="M100 18 A82 82 0 0 1 100 182"
+            fill="none" stroke="#00a9d8" stroke-width="3"
+            stroke-linecap="round"/>
 
-          <!-- Третий слой: ещё глубже -->
-          <path d="M100 22 A78 78 0 0 0 100 178"
-            fill="none" stroke="#df5aa5" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="50 8 20 3 40 5 15 7 30 4"
-            opacity="0.6"/>
-          <path d="M100 22 A78 78 0 0 1 100 178"
-            fill="none" stroke="#00a9d8" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="45 6 25 5 35 3 18 8 28 4"
-            opacity="0.6"/>
-
-          <!-- Четвёртый слой: сердцевина -->
-          <path d="M100 32 A68 68 0 0 0 100 168"
-            fill="none" stroke="#df5aa5" stroke-width="1"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="35 10 15 4 25 6 10 5 20 3"
-            opacity="0.5"/>
-          <path d="M100 32 A68 68 0 0 1 100 168"
-            fill="none" stroke="#00a9d8" stroke-width="1"
-            stroke-linecap="round" stroke-linejoin="round"
-            stroke-dasharray="30 8 20 6 18 4 12 7 22 3"
-            opacity="0.5"/>
+          <!-- Круг 3: внутренний -->
+          <path d="M100 30 A70 70 0 0 0 100 170"
+            fill="none" stroke="#df5aa5" stroke-width="3"
+            stroke-linecap="round"/>
+          <path d="M100 30 A70 70 0 0 1 100 170"
+            fill="none" stroke="#00a9d8" stroke-width="3"
+            stroke-linecap="round"/>
         </svg>
       </div>
     </div>
