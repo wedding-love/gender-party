@@ -228,8 +228,8 @@ body{font-family:Arial}
   }
 }
 
-/* Маркерный стиль */
-.marker-ellipse{
+/* Небрежный фильтр */
+.rough-ellipse{
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: url(#rough);
@@ -306,7 +306,7 @@ body{font-family:Arial}
         </div>
       </div>
 
-      <!-- 3 круга: маркерные, небрежные -->
+      <!-- 3 круга: половина розовая, половина голубая -->
       <div class="circle-wrapper">
         <svg viewBox="0 0 200 200">
           <defs>
@@ -325,29 +325,23 @@ body{font-family:Arial}
             </filter>
           </defs>
 
-          <!-- Круг 1: внешний, толстый как маркер -->
-          <ellipse class="marker-ellipse" cx="100" cy="100" rx="94" ry="94"
-            fill="none" stroke="#df5aa5" stroke-width="4"
-            stroke-dasharray="0 295 0 0"/>
-          <ellipse class="marker-ellipse" cx="100" cy="100" rx="94" ry="94"
-            fill="none" stroke="#00a9d8" stroke-width="4"
-            stroke-dasharray="0 0 0 295"/>
+          <!-- Круг 1: внешний -->
+          <path class="rough-ellipse" d="M100 6 A94 94 0 0 0 100 194"
+            fill="none" stroke="#df5aa5" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 6 A94 94 0 0 1 100 194"
+            fill="none" stroke="#00a9d8" stroke-width="3"/>
 
           <!-- Круг 2: средний -->
-          <ellipse class="marker-ellipse" cx="100" cy="100" rx="82" ry="82"
-            fill="none" stroke="#df5aa5" stroke-width="4"
-            stroke-dasharray="0 257 0 0"/>
-          <ellipse class="marker-ellipse" cx="100" cy="100" rx="82" ry="82"
-            fill="none" stroke="#00a9d8" stroke-width="4"
-            stroke-dasharray="0 0 0 257"/>
+          <path class="rough-ellipse" d="M100 18 A82 82 0 0 0 100 182"
+            fill="none" stroke="#df5aa5" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 18 A82 82 0 0 1 100 182"
+            fill="none" stroke="#00a9d8" stroke-width="3"/>
 
           <!-- Круг 3: внутренний -->
-          <ellipse class="marker-ellipse" cx="100" cy="100" rx="70" ry="70"
-            fill="none" stroke="#df5aa5" stroke-width="4"
-            stroke-dasharray="0 220 0 0"/>
-          <ellipse class="marker-ellipse" cx="100" cy="100" rx="70" ry="70"
-            fill="none" stroke="#00a9d8" stroke-width="4"
-            stroke-dasharray="0 0 0 220"/>
+          <path class="rough-ellipse" d="M100 30 A70 70 0 0 0 100 170"
+            fill="none" stroke="#df5aa5" stroke-width="3"/>
+          <path class="rough-ellipse" d="M100 30 A70 70 0 0 1 100 170"
+            fill="none" stroke="#00a9d8" stroke-width="3"/>
         </svg>
       </div>
     </div>
