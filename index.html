@@ -295,7 +295,7 @@ body{font-family:Arial}
 /* Блок локации */
 .screen2 .location-block{
   width: 100%;
-  max-width: 600px;
+  max-width: 550px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -311,22 +311,30 @@ body{font-family:Arial}
 }
 .screen2 .location-address{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3.5vw, 28px);
+  font-size: clamp(18px, 3.5vw, 26px);
   font-weight:600;
-  line-height:1.5;
+  line-height:1.6;
   color:#111;
   padding: 0 10px;
 }
 .screen2 .location-name{
   font-weight:700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: clamp(8px, 1.5vw, 14px);
+}
+.screen2 .location-details{
+  font-weight:600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .screen2 .map-container{
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-width: 450px;
+  max-width: 380px;
   border-radius: 16px;
   overflow: hidden;
-  border: 2px solid #999;
 }
 .screen2 .map-container iframe{
   width: 100%;
@@ -441,9 +449,8 @@ body{font-family:Arial}
   <div class="location-block">
     <div class="location-title">Где?</div>
     <div class="location-address">
-      <span class="location-name">Агроусадьба «Хутор у Михалыча»</span><br>
-      Брестская область, д. Заречье,<br>
-      ул. Октябрьская, д. 52
+      <span class="location-name">Агроусадьба «Хутор у Михалыча»</span>
+      <span class="location-details">Брестская область, д. Заречье,<br>ул. Октябрьская, д. 52</span>
     </div>
     <div class="map-container">
       <iframe src="https://yandex.by/map-widget/v1/org/agrousadba_u_mikhalycha/86193548886/?ll=25.040347%2C52.535838&mode=search&sctx=ZAAAAAgBEAAaKAoSCXmu78NBjjtAES%2F6CtKM80pAEhIJq7TFNT6TzT8RuhKB6h9Etj8iBgABAgMEBSgKOABAnQFIAWoCdWGdAc3MzD2gAQCoAQC9AbDg5E3CAQbW3KSMwQKCApUB0JDQs9GA0L7Rg9GB0LDQtNGM0LHQsCDCq9Cl0YPRgtC%2B0YAg0YMg0JzQuNGF0LDQu9GL0YfQsMK7INCR0YDQtdGB0YLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0LQuINCX0LDRgNC10YfRjNC1LCDRg9C7LiDQntC60YLRj9Cx0YDRjNGB0LrQsNGPLCDQtC4gNTKKAgCSAgYyMDEwODSaAgxkZXNrdG9wLW1hcHM%3D&sll=25.040347%2C52.535838&sspn=0.014441%2C0.005613&text=Агроусадьба%20«Хутор%20у%20Михалыча»%20Брестская%20область%2C%20д.%20Заречье%2C%20ул.%20Октябрьская%2C%20д.%2052&z=16" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
