@@ -87,7 +87,7 @@ body{font-family:Arial}
   text-align:center;
   padding: clamp(30px, 6vw, 55px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
   justify-content: center;
-  gap: clamp(14px, 2.5vw, 28px);
+  gap: clamp(18px, 3vw, 34px);
   overflow-x:hidden;
 }
 @keyframes rainbowBg {
@@ -98,22 +98,16 @@ body{font-family:Arial}
   100%{background-position:0% 50%}
 }
 
-.screen2 .title,
-.screen2 .info,
-.screen2 .calendar-wrapper,
-.screen2 .bottom,
-.screen2 .time-block,
-.screen2 .location-block{
+/* Анимация появления */
+.animate-on-scroll{
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
-.screen2.visible .title{opacity:1;transform:translateY(0);transition-delay:0.1s}
-.screen2.visible .info{opacity:1;transform:translateY(0);transition-delay:0.25s}
-.screen2.visible .calendar-wrapper{opacity:1;transform:translateY(0);transition-delay:0.4s}
-.screen2.visible .bottom{opacity:1;transform:translateY(0);transition-delay:0.55s}
-.screen2.visible .time-block{opacity:1;transform:translateY(0);transition-delay:0.7s}
-.screen2.visible .location-block{opacity:1;transform:translateY(0);transition-delay:0.85s}
+.animate-on-scroll.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .screen2 .title{
   font-family:'Great Vibes', cursive;
@@ -123,6 +117,7 @@ body{font-family:Arial}
   color:#111;
   letter-spacing: 3px;
   padding-top: clamp(20px, 4vw, 40px);
+  transition-delay: 0.05s;
 }
 .screen2 .info{
   font-family:'Cormorant Garamond';
@@ -131,11 +126,13 @@ body{font-family:Arial}
   line-height:1.45;
   padding: 0 10px;
   color:#111;
+  transition-delay: 0.15s;
 }
 .screen2 .calendar-wrapper{
   width:100%;
   max-width:750px;
   flex-shrink: 0;
+  transition-delay: 0.25s;
 }
 .screen2 .month-title{
   display:flex;
@@ -229,6 +226,7 @@ body{font-family:Arial}
   line-height:1.5;
   padding: 0 10px;
   color:#111;
+  transition-delay: 0.35s;
 }
 
 .screen2 .time-block{
@@ -237,10 +235,11 @@ body{font-family:Arial}
   position: relative;
   flex-shrink: 0;
   margin-top: clamp(8px, 1.5vw, 15px);
+  transition-delay: 0.45s;
 }
 .screen2 .decor-lines{
   width: 100%;
-  height: clamp(280px, 44vw, 420px);
+  height: clamp(300px, 48vw, 460px);
   position: relative;
 }
 .screen2 .line{
@@ -272,7 +271,7 @@ body{font-family:Arial}
   font-weight:600;
   color: #111;
   line-height: 1.3;
-  margin-bottom: clamp(16px, 3vw, 26px);
+  margin-bottom: clamp(20px, 3.5vw, 32px);
 }
 .screen2 .time-value{
   font-family: 'Ms Madi', cursive;
@@ -290,7 +289,8 @@ body{font-family:Arial}
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(18px, 3.5vw, 35px);
+  gap: clamp(20px, 4vw, 40px);
+  transition-delay: 0.55s;
 }
 .screen2 .location-title{
   font-family:'Great Vibes', cursive;
@@ -358,11 +358,7 @@ body{font-family:Arial}
   flex-direction: column;
   align-items: center;
   gap: clamp(18px, 3vw, 30px);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen3.visible .vote-container{opacity:1;transform:translateY(0);transition-delay:0.1s}
 
 .screen3 .vote-title{
   font-family:'Cormorant Garamond', serif;
@@ -434,7 +430,7 @@ body{font-family:Arial}
 .screen4{
   padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
   justify-content: center;
-  gap: clamp(22px, 4vw, 42px);
+  gap: clamp(30px, 5vw, 50px);
 }
 
 .screen4 .details-title{
@@ -444,11 +440,8 @@ body{font-family:Arial}
   letter-spacing: 3px;
   line-height:1.1;
   color:#111;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.05s;
 }
-.screen4.visible .details-title{opacity:1;transform:translateY(0);transition-delay:0.1s}
 
 .screen4 .details-text{
   font-family:'Cormorant Garamond', serif;
@@ -458,12 +451,9 @@ body{font-family:Arial}
   color:#111;
   max-width: 680px;
   padding: 0 10px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.15s;
 }
-.screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.25s}
-.screen4 .details-text:last-child{transition-delay:0.4s}
+.screen4 .details-text:last-child{transition-delay: 0.25s;}
 
 .screen4 .form-title{
   font-family:'Great Vibes', cursive;
@@ -472,11 +462,8 @@ body{font-family:Arial}
   letter-spacing: 3px;
   line-height:1.1;
   color:#111;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.05s;
 }
-.screen4.visible .form-title{opacity:1;transform:translateY(0);transition-delay:0.55s}
 
 .screen4 .form-subtitle{
   font-family:'Cormorant Garamond', serif;
@@ -486,11 +473,8 @@ body{font-family:Arial}
   color:#111;
   max-width: 680px;
   padding: 0 10px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.15s;
 }
-.screen4.visible .form-subtitle{opacity:1;transform:translateY(0);transition-delay:0.65s}
 
 .screen4 .form-container{
   width: 100%;
@@ -499,11 +483,8 @@ body{font-family:Arial}
   flex-direction: column;
   gap: clamp(16px, 2.8vw, 24px);
   text-align: left;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.25s;
 }
-.screen4.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.75s}
 
 .screen4 .form-field{display:flex;flex-direction:column;gap:10px}
 .screen4 .form-label{
@@ -580,34 +561,29 @@ body{font-family:Arial}
   letter-spacing: 3px;
   line-height:1.1;
   color:#111;
-  opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.05s;
 }
-.screen4.visible .contacts-title{opacity:1;transform:translateY(0);transition-delay:0.85s}
 
 .screen4 .contacts-info{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
-  opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.15s;
 }
-.screen4.visible .contacts-info{opacity:1;transform:translateY(0);transition-delay:0.95s}
 
 .screen4 .contacts-phone{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
 
-/* ===== ЗВЁЗДОЧКИ ПЕРЕВЁРНУТЫМ ТРЕУГОЛЬНИКОМ ===== */
+/* ===== ЗВЁЗДОЧКИ ===== */
 .stars-triangle-bottom{
   position: relative;
   width: clamp(140px, 24vw, 210px);
   height: clamp(110px, 18vw, 150px);
-  margin-top: clamp(16px, 3vw, 28px);
-  margin-bottom: clamp(4px, 1vw, 10px);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-top: clamp(20px, 4vw, 36px);
+  margin-bottom: clamp(8px, 1.5vw, 14px);
+  transition-delay: 0.25s;
 }
-.screen4.visible .stars-triangle-bottom{opacity:1;transform:translateY(0);transition-delay:1.05s}
 
 .star-5-final{
   position: absolute;
@@ -637,12 +613,8 @@ body{font-family:Arial}
   letter-spacing: 3px;
   line-height:1.1;
   color:#111;
-  margin-top: clamp(8px, 1.5vw, 14px);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.05s;
 }
-.screen4.visible .waiting-title{opacity:1;transform:translateY(0);transition-delay:1.15s}
 
 .screen4 .waiting-subtitle{
   font-family:'Great Vibes', cursive;
@@ -651,12 +623,9 @@ body{font-family:Arial}
   letter-spacing: 3px;
   line-height:1.1;
   color:#111;
-  margin-top: clamp(0px, 0.5vw, 4px);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-top: clamp(2px, 0.5vw, 6px);
+  transition-delay: 0.1s;
 }
-.screen4.visible .waiting-subtitle{opacity:1;transform:translateY(0);transition-delay:1.25s}
 
 /* ===== ТАЙМЕР ===== */
 .timer-block{
@@ -664,12 +633,9 @@ body{font-family:Arial}
   gap: clamp(16px, 3vw, 32px);
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: clamp(20px, 4vw, 36px);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-top: clamp(24px, 4vw, 40px);
+  transition-delay: 0.2s;
 }
-.screen4.visible .timer-block{opacity:1;transform:translateY(0);transition-delay:1.35s}
 
 .timer-item{
   display: flex;
@@ -740,15 +706,15 @@ body{font-family:Arial}
 <!-- ===== ЭКРАН 2 ===== -->
 <div class="screen2" id="screen2">
 
-  <div class="title">Дорогие и любимые!</div>
+  <div class="title animate-on-scroll">Дорогие и любимые!</div>
 
-  <div class="info">
+  <div class="info animate-on-scroll">
     Приглашаем Вас на наше трепетное и<br>
     семейное торжество! Произойдет<br>
     очень важное и волнительное событие!
   </div>
 
-  <div class="calendar-wrapper">
+  <div class="calendar-wrapper animate-on-scroll">
     <div class="month-title">АВГУСТ</div>
     <div class="calendar">
       <div class="days">
@@ -773,12 +739,12 @@ body{font-family:Arial}
     </div>
   </div>
 
-  <div class="bottom">
+  <div class="bottom animate-on-scroll">
     Мы узнаем пол нашего малыша<br>
     и хотим разделить это счастье с Вами!
   </div>
 
-  <div class="time-block">
+  <div class="time-block animate-on-scroll">
     <div class="decor-lines">
       <svg class="line top" viewBox="0 0 400 120" preserveAspectRatio="none">
         <path d="M8 95 C35 25, 105 85, 170 55 C215 35, 155 10, 190 35 C240 80, 300 5, 390 28"/>
@@ -793,7 +759,7 @@ body{font-family:Arial}
     </div>
   </div>
 
-  <div class="location-block">
+  <div class="location-block animate-on-scroll">
     <div class="location-title">Где?</div>
     <div class="location-address">
       <span class="location-name">Агроусадьба «Хутор у Михалыча»</span>
@@ -809,7 +775,7 @@ body{font-family:Arial}
 <!-- ===== ЭКРАН 3: Голосование ===== -->
 <div class="screen3" id="screen3">
 
-  <div class="vote-container">
+  <div class="vote-container animate-on-scroll">
     <div class="vote-title">Ваши предположения по полу малыша?</div>
 
     <div class="vote-buttons">
@@ -836,26 +802,26 @@ body{font-family:Arial}
 <!-- ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ЗВЁЗДОЧКИ + ЖДЁМ ВАС + ТАЙМЕР ===== -->
 <div class="shared-bg screen4" id="screen4">
 
-  <div class="details-title">Детали</div>
+  <div class="details-title animate-on-scroll">Детали</div>
 
-  <div class="details-text">
+  <div class="details-text animate-on-scroll">
     Мы хотим, чтобы все гости чувствовали себя комфортно и не ограничивали себя ни в чём.<br>
     Поэтому по завершению мероприятия мы будем вызывать всем такси домой.
   </div>
 
-  <div class="details-text">
+  <div class="details-text animate-on-scroll">
     В программе — природа, баня, ароматные шашлыки, весёлые конкурсы, громкий смех и отличное настроение.<br>
     Одевайтесь удобно и будьте готовы веселиться от души!
   </div>
 
-  <div class="form-title">Анкета</div>
+  <div class="form-title animate-on-scroll">Анкета</div>
 
-  <div class="form-subtitle">
+  <div class="form-subtitle animate-on-scroll">
     Пожалуйста, подтвердите присутствие до 15.08.<br>
     Нам важно знать точное количество гостей.
   </div>
 
-  <form class="form-container" action="https://formspree.io/f/ТВОЙ_ID" method="POST">
+  <form class="form-container animate-on-scroll" action="https://formspree.io/f/ТВОЙ_ID" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
       <input type="text" name="name" class="form-input" placeholder="Иванов Иван" required>
@@ -916,16 +882,16 @@ body{font-family:Arial}
     <button type="submit" class="submit-btn">Отправить</button>
   </form>
 
-  <div class="contacts-title">Контакты</div>
+  <div class="contacts-title animate-on-scroll">Контакты</div>
 
-  <div class="contacts-info">
+  <div class="contacts-info animate-on-scroll">
     По всем вопросам обращайтесь:<br>
     <span style="font-weight:600;">Владислав</span><br>
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
-  <!-- 3 звездочки перевёрнутым треугольником -->
-  <div class="stars-triangle-bottom">
+  <!-- 3 звездочки -->
+  <div class="stars-triangle-bottom animate-on-scroll">
     <svg class="star-5-final top-center" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
@@ -953,11 +919,11 @@ body{font-family:Arial}
   </div>
 
   <!-- Ждём Вас -->
-  <div class="waiting-title">Ждём Вас</div>
-  <div class="waiting-subtitle">через...</div>
+  <div class="waiting-title animate-on-scroll">Ждём Вас</div>
+  <div class="waiting-subtitle animate-on-scroll">через...</div>
 
   <!-- Таймер -->
-  <div class="timer-block">
+  <div class="timer-block animate-on-scroll">
     <div class="timer-item">
       <div class="timer-circle">
         <span class="timer-number" id="days">00</span>
@@ -1067,21 +1033,16 @@ function updateTimer() {
 updateTimer();
 setInterval(updateTimer, 1000);
 
-// Анимации
-const s2 = document.getElementById('screen2');
-new IntersectionObserver(e => {
-  e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
-}, { threshold: 0.1 }).observe(s2);
+// Анимация при скролле
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-const s3 = document.getElementById('screen3');
-new IntersectionObserver(e => {
-  e.forEach(x => { if (x.isIntersecting) s3.classList.add('visible'); });
-}, { threshold: 0.1 }).observe(s3);
-
-const s4 = document.getElementById('screen4');
-new IntersectionObserver(e => {
-  e.forEach(x => { if (x.isIntersecting) s4.classList.add('visible'); });
-}, { threshold: 0.1 }).observe(s4);
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 </script>
 
 </body>
