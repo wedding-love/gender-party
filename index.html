@@ -109,11 +109,11 @@ body{font-family:Arial}
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .screen2.visible .title{opacity:1;transform:translateY(0);transition-delay:0.1s}
-.screen2.visible .info{opacity:1;transform:translateY(0);transition-delay:0.2s}
-.screen2.visible .calendar-wrapper{opacity:1;transform:translateY(0);transition-delay:0.35s}
-.screen2.visible .bottom{opacity:1;transform:translateY(0);transition-delay:0.5s}
-.screen2.visible .time-block{opacity:1;transform:translateY(0);transition-delay:0.65s}
-.screen2.visible .location-block{opacity:1;transform:translateY(0);transition-delay:0.8s}
+.screen2.visible .info{opacity:1;transform:translateY(0);transition-delay:0.25s}
+.screen2.visible .calendar-wrapper{opacity:1;transform:translateY(0);transition-delay:0.4s}
+.screen2.visible .bottom{opacity:1;transform:translateY(0);transition-delay:0.55s}
+.screen2.visible .time-block{opacity:1;transform:translateY(0);transition-delay:0.7s}
+.screen2.visible .location-block{opacity:1;transform:translateY(0);transition-delay:0.85s}
 
 .screen2 .title{
   font-family:'Great Vibes', cursive;
@@ -236,10 +236,11 @@ body{font-family:Arial}
   max-width: 550px;
   position: relative;
   flex-shrink: 0;
+  margin-top: clamp(8px, 1.5vw, 15px);
 }
 .screen2 .decor-lines{
   width: 100%;
-  height: clamp(240px, 36vw, 360px);
+  height: clamp(280px, 44vw, 420px);
   position: relative;
 }
 .screen2 .line{
@@ -271,7 +272,7 @@ body{font-family:Arial}
   font-weight:600;
   color: #111;
   line-height: 1.3;
-  margin-bottom: clamp(10px, 2vw, 18px);
+  margin-bottom: clamp(16px, 3vw, 26px);
 }
 .screen2 .time-value{
   font-family: 'Ms Madi', cursive;
@@ -357,7 +358,12 @@ body{font-family:Arial}
   flex-direction: column;
   align-items: center;
   gap: clamp(18px, 3vw, 30px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.screen3.visible .vote-container{opacity:1;transform:translateY(0);transition-delay:0.1s}
+
 .screen3 .vote-title{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(22px, 4vw, 36px);
@@ -428,7 +434,7 @@ body{font-family:Arial}
 .screen4{
   padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
   justify-content: center;
-  gap: clamp(20px, 3.5vw, 38px);
+  gap: clamp(22px, 4vw, 42px);
 }
 
 .screen4 .details-title{
@@ -456,15 +462,8 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.3s}
-.screen4 .details-text:last-child{transition-delay:0.5s}
-
-.screen4 .divider{
-  width: 140px;
-  height: 1px;
-  background: rgba(0,0,0,0.12);
-  margin: clamp(10px, 2vw, 20px) 0;
-}
+.screen4.visible .details-text{opacity:1;transform:translateY(0);transition-delay:0.25s}
+.screen4 .details-text:last-child{transition-delay:0.4s}
 
 .screen4 .form-title{
   font-family:'Great Vibes', cursive;
@@ -477,7 +476,7 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen4.visible .form-title{opacity:1;transform:translateY(0);transition-delay:0.6s}
+.screen4.visible .form-title{opacity:1;transform:translateY(0);transition-delay:0.55s}
 
 .screen4 .form-subtitle{
   font-family:'Cormorant Garamond', serif;
@@ -491,7 +490,7 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen4.visible .form-subtitle{opacity:1;transform:translateY(0);transition-delay:0.7s}
+.screen4.visible .form-subtitle{opacity:1;transform:translateY(0);transition-delay:0.65s}
 
 .screen4 .form-container{
   width: 100%;
@@ -504,7 +503,7 @@ body{font-family:Arial}
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.screen4.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.8s}
+.screen4.visible .form-container{opacity:1;transform:translateY(0);transition-delay:0.75s}
 
 .screen4 .form-field{display:flex;flex-direction:column;gap:10px}
 .screen4 .form-label{
@@ -583,14 +582,14 @@ body{font-family:Arial}
   color:#111;
   opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease;
 }
-.screen4.visible .contacts-title{opacity:1;transform:translateY(0);transition-delay:0.9s}
+.screen4.visible .contacts-title{opacity:1;transform:translateY(0);transition-delay:0.85s}
 
 .screen4 .contacts-info{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
   opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease;
 }
-.screen4.visible .contacts-info{opacity:1;transform:translateY(0);transition-delay:1s}
+.screen4.visible .contacts-info{opacity:1;transform:translateY(0);transition-delay:0.95s}
 
 .screen4 .contacts-phone{
   font-family:'Cormorant Garamond', serif;
@@ -604,7 +603,12 @@ body{font-family:Arial}
   height: clamp(110px, 18vw, 150px);
   margin-top: clamp(16px, 3vw, 28px);
   margin-bottom: clamp(4px, 1vw, 10px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.screen4.visible .stars-triangle-bottom{opacity:1;transform:translateY(0);transition-delay:1.05s}
+
 .star-5-final{
   position: absolute;
   width: clamp(30px, 5.5vw, 48px);
@@ -622,7 +626,7 @@ body{font-family:Arial}
 }
 .star-5-final.bottom-right{
   bottom: 0;
-  right: 18%;
+  right: 28%;
 }
 
 /* ===== ЖДЁМ ВАС ===== */
@@ -634,7 +638,12 @@ body{font-family:Arial}
   line-height:1.1;
   color:#111;
   margin-top: clamp(8px, 1.5vw, 14px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.screen4.visible .waiting-title{opacity:1;transform:translateY(0);transition-delay:1.15s}
+
 .screen4 .waiting-subtitle{
   font-family:'Great Vibes', cursive;
   font-size: clamp(48px, 10vw, 78px);
@@ -643,7 +652,11 @@ body{font-family:Arial}
   line-height:1.1;
   color:#111;
   margin-top: clamp(0px, 0.5vw, 4px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.screen4.visible .waiting-subtitle{opacity:1;transform:translateY(0);transition-delay:1.25s}
 
 /* ===== ТАЙМЕР ===== */
 .timer-block{
@@ -652,7 +665,12 @@ body{font-family:Arial}
   justify-content: center;
   flex-wrap: wrap;
   margin-top: clamp(20px, 4vw, 36px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.screen4.visible .timer-block{opacity:1;transform:translateY(0);transition-delay:1.35s}
+
 .timer-item{
   display: flex;
   flex-direction: column;
@@ -830,8 +848,6 @@ body{font-family:Arial}
     Одевайтесь удобно и будьте готовы веселиться от души!
   </div>
 
-  <div class="divider"></div>
-
   <div class="form-title">Анкета</div>
 
   <div class="form-subtitle">
@@ -899,8 +915,6 @@ body{font-family:Arial}
 
     <button type="submit" class="submit-btn">Отправить</button>
   </form>
-
-  <div class="divider"></div>
 
   <div class="contacts-title">Контакты</div>
 
@@ -1010,7 +1024,7 @@ async function vote(type) {
   await votesRef.set(current);
 }
 
-// ===== ТАЙМЕР ОБРАТНОГО ОТСЧЁТА =====
+// ===== ТАЙМЕР =====
 const targetDate = new Date('2026-08-28T18:00:00');
 
 function pluralize(n, forms) {
@@ -1058,6 +1072,11 @@ const s2 = document.getElementById('screen2');
 new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) s2.classList.add('visible'); });
 }, { threshold: 0.1 }).observe(s2);
+
+const s3 = document.getElementById('screen3');
+new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) s3.classList.add('visible'); });
+}, { threshold: 0.1 }).observe(s3);
 
 const s4 = document.getElementById('screen4');
 new IntersectionObserver(e => {
