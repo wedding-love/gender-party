@@ -562,6 +562,7 @@ body{font-family:Arial}
   line-height:1.1;
   color:#111;
   transition-delay: 0.05s;
+  margin-top: clamp(30px, 5vw, 50px);
 }
 
 .screen4 .contacts-info{
@@ -843,10 +844,6 @@ body{font-family:Arial}
 
     <div class="form-field">
       <label class="form-label">Предпочтения по алкоголю</label>
-      <div class="alcohol-text">
-        Так как это отдых на природе — будет пиво, вино, крепкий алкоголь (водка, коньяк, виски).<br>
-        Но у нас много и не пьющих ребят — выберите, что пьёте:
-      </div>
       <div class="checkbox-group">
         <label class="checkbox-option">
           <input type="checkbox" name="alcohol" value="none">
@@ -871,10 +868,6 @@ body{font-family:Arial}
         <label class="checkbox-option">
           <input type="checkbox" name="alcohol" value="whiskey">
           <span>Виски</span>
-        </label>
-        <label class="checkbox-option">
-          <input type="checkbox" name="alcohol" value="all">
-          <span>Всё понемногу</span>
         </label>
       </div>
     </div>
