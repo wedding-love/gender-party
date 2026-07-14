@@ -410,6 +410,11 @@ body{font-family:Arial}
   font-weight:700;
   color: #fff;
   min-height: clamp(38px, 6.5vw, 58px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.screen3 .vote-count.show{
+  opacity: 1;
 }
 
 /* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
@@ -947,7 +952,22 @@ votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
   document.getElementById('count-boy').textContent = data.boy || 0;
+  updateVoteVisibility();
 });
+
+function updateVoteVisibility() {
+  const myVote = localStorage.getItem(MY_VOTE_KEY);
+  const girlCount = document.getElementById('count-girl');
+  const boyCount = document.getElementById('count-boy');
+  
+  if (myVote) {
+    girlCount.classList.add('show');
+    boyCount.classList.add('show');
+  } else {
+    girlCount.classList.remove('show');
+    boyCount.classList.remove('show');
+  }
+}
 
 async function vote(type) {
   const snapshot = await votesRef.once('value');
@@ -966,7 +986,10 @@ async function vote(type) {
   }
 
   await votesRef.set(current);
+  updateVoteVisibility();
 }
+
+updateVoteVisibility();
 
 // ===== ТАЙМЕР =====
 const targetDate = new Date('2026-08-28T18:00:00');
