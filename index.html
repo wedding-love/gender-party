@@ -326,15 +326,17 @@ body{font-family:Arial}
   border: none;
 }
 
-/* ===== ЭКРАН 3: Голосование ===== */
+/* ===== ЭКРАН 3: Голосование (яркий фон) ===== */
 .screen3{
   min-height: 40vh;
   min-height: 40dvh;
   width:100%;
-  background: radial-gradient(ellipse at 30% 40%, #ffd6e8 0%, transparent 55%),
-              radial-gradient(ellipse at 70% 60%, #d4f0ff 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 20%, #ffe0ec 0%, transparent 45%);
-  background-color: #f5f0f0;
+  background: radial-gradient(ellipse at 30% 40%, #ffb3d1 0%, transparent 55%),
+              radial-gradient(ellipse at 70% 60%, #a3dfff 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 20%, #ffc8de 0%, transparent 45%),
+              radial-gradient(ellipse at 40% 80%, #b3e5ff 0%, transparent 40%),
+              radial-gradient(ellipse at 80% 30%, #ff9ec4 0%, transparent 35%);
+  background-color: #ffe0ec;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -718,7 +720,6 @@ body{font-family:Arial}
         <div class="cell"><div class="week">ВОСКРЕСЕНЬЕ</div><div class="number">30</div></div>
       </div>
 
-      <!-- Фото круг.png с пульсацией -->
       <div class="photo-wrapper">
         <img src="круг.png" alt="Круг" onerror="this.style.display='none'">
       </div>
