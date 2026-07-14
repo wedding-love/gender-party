@@ -192,7 +192,7 @@ body{font-family:Arial}
   line-height:1;
 }
 
-/* ===== ЗАВИТКИ ФЛОМАСТЕРОМ ===== */
+/* ===== ДВА НЕЗАМКНУТЫХ КРУГА ФЛОМАСТЕРОМ ===== */
 .screen2 .swirl-wrapper{
   position:absolute;
   width: clamp(180px, 36vw, 300px);
@@ -214,7 +214,6 @@ body{font-family:Arial}
   50%{transform:scale(1.05)}
 }
 
-/* Фломастерный фильтр */
 .swirl-path{
   fill:none;
   stroke-linecap:round;
@@ -722,7 +721,7 @@ body{font-family:Arial}
         <div class="cell"><div class="week">ВОСКРЕСЕНЬЕ</div><div class="number">30</div></div>
       </div>
 
-      <!-- Завитки фломастером -->
+      <!-- Два незамкнутых круга фломастером -->
       <div class="swirl-wrapper">
         <svg viewBox="0 0 200 200">
           <defs>
@@ -731,14 +730,16 @@ body{font-family:Arial}
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
             </filter>
           </defs>
-          
-          <!-- Завиток 1: розовый, начинается сверху, закручивается и не замыкается -->
-          <path class="swirl-path" d="M100 20 C130 20, 155 40, 155 70 C155 105, 120 135, 85 130 C55 126, 35 100, 40 72 C45 50, 65 35, 88 40 C108 44, 118 70, 108 90"
-            stroke="#df5aa5" stroke-width="3.5" fill="none"/>
-          
-          <!-- Завиток 2: голубой, начинается снизу, закручивается в другую сторону -->
-          <path class="swirl-path" d="M100 180 C70 180, 45 160, 45 130 C45 95, 80 65, 115 70 C145 74, 165 100, 160 128 C155 150, 135 165, 112 160 C92 156, 82 130, 92 110"
-            stroke="#00a9d8" stroke-width="3.5" fill="none"/>
+
+          <!-- Внешний круг: розовый, начинается сверху, почти круг но не замкнут -->
+          <path class="swirl-path" d="M100 8 
+            A92 92 0 1 1 90 9"
+            stroke="#df5aa5" stroke-width="4"/>
+
+          <!-- Внутренний круг: голубой, начинается снизу, почти круг но не замкнут -->
+          <path class="swirl-path" d="M100 178 
+            A78 78 0 1 1 102 177"
+            stroke="#00a9d8" stroke-width="4"/>
         </svg>
       </div>
     </div>
