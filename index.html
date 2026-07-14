@@ -98,7 +98,6 @@ body{font-family:Arial}
   100%{background-position:0% 50%}
 }
 
-/* Анимация появления */
 .animate-on-scroll{
   opacity: 0;
   transform: translateY(40px);
@@ -193,16 +192,17 @@ body{font-family:Arial}
   line-height:1;
 }
 
-.screen2 .circle-wrapper{
+/* ===== ЗАВИТКИ ФЛОМАСТЕРОМ ===== */
+.screen2 .swirl-wrapper{
   position:absolute;
-  width: clamp(170px, 34vw, 280px);
-  height: clamp(170px, 34vw, 280px);
+  width: clamp(180px, 36vw, 300px);
+  height: clamp(180px, 36vw, 300px);
   left:50%;
-  top: clamp(5px, 2vw, 15px);
+  top: clamp(0px, 1vw, 5px);
   transform:translateX(-50%);
   pointer-events: none;
 }
-.screen2 .circle-wrapper svg{
+.screen2 .swirl-wrapper svg{
   width:100%;
   height:100%;
   overflow:visible;
@@ -211,12 +211,15 @@ body{font-family:Arial}
 }
 @keyframes breathe {
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.06)}
+  50%{transform:scale(1.05)}
 }
-.rough-ellipse{
+
+/* Фломастерный фильтр */
+.swirl-path{
+  fill:none;
   stroke-linecap:round;
   stroke-linejoin:round;
-  filter:url(#rough);
+  filter:url(#marker-rough);
 }
 
 .screen2 .bottom{
@@ -538,11 +541,6 @@ body{font-family:Arial}
   font-size: clamp(18px, 2.8vw, 22px);color:#111;
 }
 
-.screen4 .alcohol-text{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.6vw, 20px);color:#555;line-height:1.5;padding:0 5px;margin-bottom:4px;
-}
-
 .screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
@@ -723,18 +721,24 @@ body{font-family:Arial}
         <div class="cell middle"><div class="week">СУББОТА</div><div class="number">29</div></div>
         <div class="cell"><div class="week">ВОСКРЕСЕНЬЕ</div><div class="number">30</div></div>
       </div>
-      <div class="circle-wrapper">
+
+      <!-- Завитки фломастером -->
+      <div class="swirl-wrapper">
         <svg viewBox="0 0 200 200">
           <defs>
-            <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" result="noise"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+            <filter id="marker-rough" x="-8%" y="-8%" width="116%" height="116%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
             </filter>
           </defs>
-          <path class="rough-ellipse" d="M100 6 A94 94 0 0 0 100 194" fill="none" stroke="#df5aa5" stroke-width="3"/>
-          <path class="rough-ellipse" d="M100 6 A94 94 0 0 1 100 194" fill="none" stroke="#00a9d8" stroke-width="3"/>
-          <path class="rough-ellipse" d="M100 22 A78 78 0 0 0 100 178" fill="none" stroke="#df5aa5" stroke-width="3"/>
-          <path class="rough-ellipse" d="M100 22 A78 78 0 0 1 100 178" fill="none" stroke="#00a9d8" stroke-width="3"/>
+          
+          <!-- Завиток 1: розовый, начинается сверху, закручивается и не замыкается -->
+          <path class="swirl-path" d="M100 20 C130 20, 155 40, 155 70 C155 105, 120 135, 85 130 C55 126, 35 100, 40 72 C45 50, 65 35, 88 40 C108 44, 118 70, 108 90"
+            stroke="#df5aa5" stroke-width="3.5" fill="none"/>
+          
+          <!-- Завиток 2: голубой, начинается снизу, закручивается в другую сторону -->
+          <path class="swirl-path" d="M100 180 C70 180, 45 160, 45 130 C45 95, 80 65, 115 70 C145 74, 165 100, 160 128 C155 150, 135 165, 112 160 C92 156, 82 130, 92 110"
+            stroke="#00a9d8" stroke-width="3.5" fill="none"/>
         </svg>
       </div>
     </div>
@@ -818,8 +822,7 @@ body{font-family:Arial}
   <div class="form-title animate-on-scroll">Анкета</div>
 
   <div class="form-subtitle animate-on-scroll">
-    Пожалуйста, подтвердите присутствие до 15.08.<br>
-    Нам важно знать точное количество гостей.
+    Пожалуйста, подтвердите присутствие до 15.08.
   </div>
 
   <form class="form-container animate-on-scroll" action="https://formspree.io/f/ТВОЙ_ID" method="POST">
