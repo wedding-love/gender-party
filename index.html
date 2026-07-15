@@ -725,7 +725,7 @@
     .music-inline .music-btn:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст — адаптивный круг с одинаковыми отступами */
+    /* вращающийся текст — одинаковые отступы со всех сторон */
     .music-inline .rotate-text {
       position: absolute;
       top: 50%;
@@ -807,8 +807,8 @@
           <defs>
             <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
-          <text font-size="12.5" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
-            <textPath href="#circlePathInline" startOffset="2%">
+          <text font-size="12" letter-spacing="3" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
+            <textPath href="#circlePathInline" startOffset="1%">
               • Включите музыку • Включите музыку • Включите музыку
             </textPath>
           </text>
