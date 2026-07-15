@@ -95,6 +95,7 @@ body{font-family:Arial;overflow-x:hidden}
   overflow-x:hidden;
 }
 
+/* Анимация появления при скролле */
 .animate-on-scroll{
   opacity: 0;
   transform: translateY(30px);
@@ -188,8 +189,6 @@ body{font-family:Arial;overflow-x:hidden}
   font-weight:700;
   line-height:1;
 }
-
-/* ===== ФОТО КРУГ С ПУЛЬСАЦИЕЙ ===== */
 .screen2 .photo-wrapper{
   position:absolute;
   width: clamp(240px, 44vw, 380px);
@@ -211,7 +210,6 @@ body{font-family:Arial;overflow-x:hidden}
   0%,100%{transform:scale(1); opacity:0.8}
   50%{transform:scale(1.06); opacity:1}
 }
-
 .screen2 .bottom{
   font-family:'Cormorant Garamond';
   font-size: clamp(18px, 3.5vw, 28px);
@@ -220,7 +218,6 @@ body{font-family:Arial;overflow-x:hidden}
   padding: 0 10px;
   color:#111;
 }
-
 .screen2 .time-block{
   width: 100%;
   max-width: 550px;
@@ -272,7 +269,6 @@ body{font-family:Arial;overflow-x:hidden}
 }
 .screen2 .time-value .blue{color: #00a9d8;}
 .screen2 .time-value .pink{color: #df5aa5;}
-
 .screen2 .location-block{
   width: 100%;
   max-width: 550px;
@@ -340,7 +336,6 @@ body{font-family:Arial;overflow-x:hidden}
   justify-content: center;
   overflow-x:hidden;
 }
-
 .screen3 .vote-container{
   background: #47a5c8;
   border-radius: 22px;
@@ -352,7 +347,6 @@ body{font-family:Arial;overflow-x:hidden}
   align-items: center;
   gap: clamp(18px, 3vw, 30px);
 }
-
 .screen3 .vote-title{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(22px, 4vw, 36px);
@@ -427,13 +421,11 @@ body{font-family:Arial;overflow-x:hidden}
   text-align:center;
   overflow-x:hidden;
 }
-
 .screen4{
   padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
   justify-content: center;
   gap: clamp(30px, 5vw, 50px);
 }
-
 .screen4 .details-title{
   font-family:'Great Vibes', cursive;
   font-size: clamp(48px, 10vw, 78px);
@@ -442,7 +434,6 @@ body{font-family:Arial;overflow-x:hidden}
   line-height:1.1;
   color:#111;
 }
-
 .screen4 .details-text{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.8vw, 30px);
@@ -452,7 +443,6 @@ body{font-family:Arial;overflow-x:hidden}
   max-width: 680px;
   padding: 0 10px;
 }
-
 .screen4 .form-title{
   font-family:'Great Vibes', cursive;
   font-size: clamp(48px, 10vw, 78px);
@@ -461,7 +451,6 @@ body{font-family:Arial;overflow-x:hidden}
   line-height:1.1;
   color:#111;
 }
-
 .screen4 .form-subtitle{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.8vw, 30px);
@@ -471,7 +460,6 @@ body{font-family:Arial;overflow-x:hidden}
   max-width: 680px;
   padding: 0 10px;
 }
-
 .screen4 .form-container{
   width: 100%;
   max-width: 580px;
@@ -480,7 +468,6 @@ body{font-family:Arial;overflow-x:hidden}
   gap: clamp(16px, 2.8vw, 24px);
   text-align: left;
 }
-
 .screen4 .form-field{display:flex;flex-direction:column;gap:10px}
 .screen4 .form-label{
   font-family:'Cormorant Garamond', serif;
@@ -500,7 +487,6 @@ body{font-family:Arial;overflow-x:hidden}
   transition: border-color 0.3s ease;
 }
 .screen4 .form-input:focus{border-color:#2b8aaa}
-
 .screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
 .screen4 .radio-option{display:flex;align-items:center;gap:12px;cursor:pointer}
 .screen4 .radio-option input[type="radio"]{
@@ -516,7 +502,6 @@ body{font-family:Arial;overflow-x:hidden}
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 2.8vw, 22px);color:#111;
 }
-
 .screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
 .screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
 .screen4 .checkbox-option input[type="checkbox"]{
@@ -532,7 +517,6 @@ body{font-family:Arial;overflow-x:hidden}
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(18px, 2.8vw, 22px);color:#111;
 }
-
 .screen4 .submit-btn{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
@@ -542,8 +526,6 @@ body{font-family:Arial;overflow-x:hidden}
 }
 .screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
 .screen4 .submit-btn:active{transform:scale(0.97)}
-
-/* ===== КОНТАКТЫ ===== */
 .screen4 .contacts-title{
   font-family:'Great Vibes', cursive;
   font-size: clamp(48px, 10vw, 78px);
@@ -553,18 +535,14 @@ body{font-family:Arial;overflow-x:hidden}
   color:#111;
   margin-top: clamp(30px, 5vw, 50px);
 }
-
 .screen4 .contacts-info{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
 }
-
 .screen4 .contacts-phone{
   font-family:'Cormorant Garamond', serif;
   font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
-
-/* ===== ЗВЁЗДОЧКИ ===== */
 .stars-triangle-bottom{
   position: relative;
   width: clamp(140px, 24vw, 210px);
@@ -572,7 +550,6 @@ body{font-family:Arial;overflow-x:hidden}
   margin-top: clamp(20px, 4vw, 36px);
   margin-bottom: clamp(8px, 1.5vw, 14px);
 }
-
 .star-5-final{
   position: absolute;
   width: clamp(30px, 5.5vw, 48px);
@@ -592,8 +569,6 @@ body{font-family:Arial;overflow-x:hidden}
   bottom: 0;
   right: 28%;
 }
-
-/* ===== ЖДЁМ ВАС ===== */
 .screen4 .waiting-title{
   font-family:'Great Vibes', cursive;
   font-size: clamp(48px, 10vw, 78px);
@@ -602,7 +577,6 @@ body{font-family:Arial;overflow-x:hidden}
   line-height:1.1;
   color:#111;
 }
-
 .screen4 .waiting-subtitle{
   font-family:'Great Vibes', cursive;
   font-size: clamp(48px, 10vw, 78px);
@@ -612,8 +586,6 @@ body{font-family:Arial;overflow-x:hidden}
   color:#111;
   margin-top: clamp(2px, 0.5vw, 6px);
 }
-
-/* ===== ТАЙМЕР ===== */
 .timer-block{
   display: flex;
   gap: clamp(16px, 3vw, 32px);
@@ -621,7 +593,6 @@ body{font-family:Arial;overflow-x:hidden}
   flex-wrap: wrap;
   margin-top: clamp(24px, 4vw, 40px);
 }
-
 .timer-item{
   display: flex;
   flex-direction: column;
@@ -661,27 +632,26 @@ body{font-family:Arial;overflow-x:hidden}
 
 <!-- ===== ЭКРАН 1 ===== -->
 <div class="screen1" id="mainScreen">
-  <video id="bgVideo" autoplay loop muted playsinline preload="auto">
-    <source src="видео.mp4" type="video/mp4"/>
+  <video id="bgVideo" loop muted playsinline preload="auto">
+    <source src="video.mp4" type="video/mp4"/>
   </video>
   <div class="overlay"></div>
 
-  <!-- ЗВЁЗДЫ (без изменений) -->
-  <div class="star" style="left:3%;top:4%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:92%;top:6%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:82%;top:20%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:5%;top:38%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:90%;top:36%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:18%;top:8%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:78%;top:10%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:2%;top:60%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:94%;top:56%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:10%;top:75%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:88%;top:72%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:6%;top:88%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:86%;top:90%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:30%;top:90%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
-  <div class="star" style="left:70%;top:88%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"></path></svg></div>
+  <div class="star" style="left:3%;top:4%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:92%;top:6%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:82%;top:20%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:5%;top:38%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:90%;top:36%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:18%;top:8%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:78%;top:10%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:2%;top:60%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:94%;top:56%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:10%;top:75%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:88%;top:72%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:6%;top:88%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:86%;top:90%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:30%;top:90%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
+  <div class="star" style="left:70%;top:88%"><svg viewBox="0 0 24 24"><path d="M12 2l2.3 7.2L22 12l-7.7 2.8L12 22l-2.3-7.2L2 12l7.7-2.8z" fill="none" stroke="white" stroke-width="1"/></svg></div>
 
   <h1 class="title">Girl or Boy</h1>
   <a href="#screen2" class="arrow">
@@ -689,7 +659,7 @@ body{font-family:Arial;overflow-x:hidden}
   </a>
 </div>
 
-<!-- ===== ОСТАЛЬНЫЕ ЭКРАНЫ (без изменений) ===== -->
+<!-- ===== ЭКРАН 2 ===== -->
 <div class="screen2" id="screen2">
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
   <div class="info animate-on-scroll">Приглашаем Вас на наше трепетное и<br>семейное торжество! Произойдет<br>очень важное и волнительное событие!</div>
@@ -709,7 +679,10 @@ body{font-family:Arial;overflow-x:hidden}
     <div class="decor-lines">
       <svg class="line top" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M8 95 C35 25, 105 85, 170 55 C215 35, 155 10, 190 35 C240 80, 300 5, 390 28"/></svg>
       <svg class="line bottom" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M8 95 C35 25, 105 85, 170 55 C215 35, 155 10, 190 35 C240 80, 300 5, 390 28"/></svg>
-      <div class="time-text"><div class="time-label">Ждём Вас в</div><div class="time-value"><span class="blue">18</span>:<span class="pink">00</span></div></div>
+      <div class="time-text">
+        <div class="time-label">Ждём Вас в</div>
+        <div class="time-value"><span class="blue">18</span>:<span class="pink">00</span></div>
+      </div>
     </div>
   </div>
   <div class="location-block animate-on-scroll">
@@ -724,6 +697,7 @@ body{font-family:Arial;overflow-x:hidden}
   </div>
 </div>
 
+<!-- ===== ЭКРАН 3: Голосование ===== -->
 <div class="screen3" id="screen3">
   <div class="vote-container animate-on-scroll">
     <div class="vote-title">Ваши предположения по полу малыша?</div>
@@ -742,6 +716,7 @@ body{font-family:Arial;overflow-x:hidden}
   </div>
 </div>
 
+<!-- ===== ЭКРАН 4: Детали, анкета, контакты, таймер ===== -->
 <div class="shared-bg screen4" id="screen4">
   <div class="details-title animate-on-scroll">Детали</div>
   <div class="details-text animate-on-scroll">Мы хотим, чтобы все гости чувствовали себя комфортно и не ограничивали себя ни в чём.<br>Поэтому по завершению мероприятия мы будем вызывать всем такси домой.</div>
@@ -790,31 +765,114 @@ body{font-family:Arial;overflow-x:hidden}
   </div>
 </div>
 
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
 <script>
-// ===== ВИДЕО: МАКСИМАЛЬНО БЫСТРЫЙ АВТОЗАПУСК С ЗАПАСНЫМ ПЛАНОМ =====
+// ============================================================
+//  ХАК: ЗАПУСК ВИДЕО ЧЕРЕЗ WEB AUDIO API (БЕЗ КАСАНИЯ)
+// ============================================================
 document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('bgVideo');
-  if (!video) return;
+  if (!video) {
+    console.error('❌ Видео не найдено! Проверьте id="bgVideo"');
+    return;
+  }
 
-  // Пытаемся запустить сразу
-  video.play().catch(function() {
-    // Если не вышло — запускаем при первом касании/клике в любом месте страницы
-    const startVideo = function(e) {
-      video.play().then(() => {
-        // Убираем обработчики после успешного запуска
-        document.removeEventListener('click', startVideo);
-        document.removeEventListener('touchstart', startVideo);
-      }).catch(() => {});
-    };
-    document.addEventListener('click', startVideo);
-    document.addEventListener('touchstart', startVideo);
-  });
+  console.log('▶️ Пытаемся запустить видео без касания через Web Audio API...');
+
+  // Функция запуска видео
+  function startVideo() {
+    video.play().then(() => {
+      console.log('✅ Видео успешно запущено без касания!');
+    }).catch(function(err) {
+      console.warn('⚠️ Не удалось запустить видео через хак:', err.message);
+      // Запасной план: ждём касания
+      const startOnInteraction = function() {
+        video.play().then(() => {
+          console.log('✅ Видео запущено по касанию');
+          document.removeEventListener('click', startOnInteraction);
+          document.removeEventListener('touchstart', startOnInteraction);
+        }).catch(() => {});
+      };
+      document.addEventListener('click', startOnInteraction);
+      document.addEventListener('touchstart', startOnInteraction);
+      console.log('🔄 Ожидаем касания/клика для запуска видео...');
+    });
+  }
+
+  // ----- ГЛАВНЫЙ ХАК: создаём аудиоконтекст -----
+  try {
+    // Создаём аудиоконтекст (считается пользовательским действием)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Создаём тихий звук (1 сэмпл тишины)
+    const bufferSize = 1;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    data[0] = 0; // тишина
+
+    // Создаём источник и воспроизводим тишину
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioCtx.destination);
+    source.start(0);
+    
+    // Как только аудиоконтекст "проснулся" - запускаем видео
+    if (audioCtx.state === 'running') {
+      console.log('✅ Аудиоконтекст уже запущен, пробуем видео...');
+      startVideo();
+    } else {
+      // Ждём, пока аудиоконтекст станет running
+      audioCtx.onstatechange = function() {
+        if (audioCtx.state === 'running') {
+          console.log('✅ Аудиоконтекст стал running, пробуем видео...');
+          startVideo();
+          audioCtx.onstatechange = null;
+        }
+      };
+      // Если через 2 секунды всё ещё не running - пробуем форсировать
+      setTimeout(() => {
+        if (audioCtx.state !== 'running') {
+          console.warn('⚠️ Аудиоконтекст не стал running, пробуем resume...');
+          audioCtx.resume().then(() => {
+            console.log('✅ Аудиоконтекст принудительно запущен');
+            startVideo();
+          }).catch(() => {});
+        }
+      }, 2000);
+    }
+  } catch (e) {
+    console.warn('⚠️ Web Audio API не поддерживается, пробуем обычный запуск');
+    // Запасной вариант: пытаемся запустить обычным способом
+    video.play().catch(function() {
+      // Если не получилось - ждём касания
+      const startOnInteraction = function() {
+        video.play();
+        document.removeEventListener('click', startOnInteraction);
+        document.removeEventListener('touchstart', startOnInteraction);
+      };
+      document.addEventListener('click', startOnInteraction);
+      document.addEventListener('touchstart', startOnInteraction);
+    });
+  }
+
+  // Если видео всё ещё на паузе через 5 секунд - пробуем принудительно
+  setTimeout(function() {
+    if (video.paused) {
+      console.warn('⚠️ Видео всё ещё на паузе, пробуем принудительно...');
+      video.play().catch(() => {});
+    }
+  }, 5000);
 });
 
-// ===== FIREBASE ГОЛОСОВАНИЕ (без изменений) =====
-const firebaseConfig = { databaseURL: "https://gender-e7fab-default-rtdb.firebaseio.com/" };
+// ============================================================
+//  FIREBASE ГОЛОСОВАНИЕ (БЕЗ ИЗМЕНЕНИЙ)
+// ============================================================
+const firebaseConfig = {
+  databaseURL: "https://gender-e7fab-default-rtdb.firebaseio.com/"
+};
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const votesRef = db.ref('votes');
@@ -853,7 +911,9 @@ async function vote(type) {
 }
 updateVoteVisibility();
 
-// ===== ТАЙМЕР =====
+// ============================================================
+//  ТАЙМЕР ДО 28 АВГУСТА 2026 18:00
+// ============================================================
 const targetDate = new Date('2026-08-28T18:00:00');
 function pluralize(n, forms) {
   const m = Math.abs(n) % 100, m1 = m % 10;
@@ -884,11 +944,14 @@ function updateTimer() {
 updateTimer();
 setInterval(updateTimer, 1000);
 
-// ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
+// ============================================================
+//  АНИМАЦИЯ ПРИ СКРОЛЛЕ
+// ============================================================
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
