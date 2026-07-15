@@ -124,20 +124,104 @@ body{font-family:Arial;overflow-x:hidden}
   padding: 0 10px;
   color:#111;
 }
+
+/* ===== МУЗЫКАЛЬНЫЙ ПЛЕЕР ===== */
+.music-player{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin:5px 0;
+  cursor:pointer;
+  user-select:none;
+  position:relative;
+}
+.music-player .circle-wrap{
+  position:relative;
+  width:clamp(120px,20vw,180px);
+  height:clamp(120px,20vw,180px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.music-player .circle-wrap svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+}
+.music-player .circle-wrap .rotating-text{
+  fill:none;
+  stroke:#000;
+  stroke-width:1.2;
+  font-family:'Cormorant Garamond',serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.music-player .circle-wrap .center-icon{
+  position:relative;
+  z-index:2;
+  width:clamp(40px,7vw,60px);
+  height:clamp(40px,7vw,60px);
+  background:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.3s ease;
+}
+.music-player .circle-wrap .center-icon svg{
+  width:clamp(20px,3.5vw,30px);
+  height:clamp(20px,3.5vw,30px);
+  fill:none;
+  stroke:#fff;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.music-player .circle-wrap .center-icon.muted{
+  background:#000;
+}
+.music-player .circle-wrap .center-icon.muted svg{
+  stroke:#fff;
+}
+.music-player .circle-wrap .center-icon.playing{
+  background:#000;
+}
+.music-player .circle-wrap .center-icon.playing svg{
+  stroke:#fff;
+}
+.music-player .hint-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(14px,2vw,18px);
+  font-weight:600;
+  color:#000;
+  letter-spacing:1px;
+  opacity:0.6;
+  transition:opacity 0.5s ease;
+}
+.music-player .hint-text.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
 .screen2 .calendar-wrapper{
   width:100%;
   max-width:750px;
-  flex-shrink: 0;
+  flex-shrink:0;
 }
 .screen2 .month-title{
   display:flex;
   align-items:center;
-  gap: clamp(12px, 3vw, 25px);
+  gap:clamp(12px,3vw,25px);
   justify-content:center;
   font-family:'Cormorant Garamond';
-  font-size: clamp(36px, 8vw, 58px);
+  font-size:clamp(36px,8vw,58px);
   font-weight:700;
-  letter-spacing: 2px;
+  letter-spacing:2px;
   color:#111;
 }
 .screen2 .month-title:before,
@@ -149,8 +233,8 @@ body{font-family:Arial;overflow-x:hidden}
 }
 .screen2 .calendar{
   position:relative;
-  margin-top: clamp(10px, 2vw, 15px);
-  height: clamp(200px, 38vw, 310px);
+  margin-top:clamp(10px,2vw,15px);
+  height:clamp(200px,38vw,310px);
   border-top:2px solid #111;
   border-bottom:2px solid #111;
 }
@@ -166,255 +250,255 @@ body{font-family:Arial;overflow-x:hidden}
   align-items:center;
   justify-content:center;
   font-family:'Cormorant Garamond';
-  padding: clamp(5px, 2vw, 12px);
+  padding:clamp(5px,2vw,12px);
   position:relative;
   z-index:2;
 }
 .screen2 .cell:last-child{border:none}
 .screen2 .week{
-  font-size: clamp(16px, 3.5vw, 28px);
+  font-size:clamp(16px,3.5vw,28px);
   font-weight:600;
-  margin-bottom: clamp(10px, 2.5vw, 25px);
-  white-space: nowrap;
+  margin-bottom:clamp(10px,2.5vw,25px);
+  white-space:nowrap;
   color:#111;
 }
 .screen2 .number{
-  font-size: clamp(60px, 13vw, 110px);
+  font-size:clamp(60px,13vw,110px);
   font-weight:700;
-  color: #bbb;
+  color:#bbb;
 }
 .screen2 .middle .number{
   color:#000;
-  font-size: clamp(80px, 18vw, 160px);
+  font-size:clamp(80px,18vw,160px);
   font-weight:700;
   line-height:1;
 }
 .screen2 .photo-wrapper{
   position:absolute;
-  width: clamp(240px, 44vw, 380px);
-  height: clamp(240px, 44vw, 380px);
+  width:clamp(240px,44vw,380px);
+  height:clamp(240px,44vw,380px);
   left:50%;
-  top: 50%;
-  transform:translate(-50%, -50%);
-  pointer-events: none;
+  top:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
   z-index:1;
 }
 .screen2 .photo-wrapper img{
   width:100%;
   height:100%;
   object-fit:contain;
-  animation: pulse-photo 2.5s ease-in-out infinite;
-  transform-origin: center center;
+  animation:pulse-photo 2.5s ease-in-out infinite;
+  transform-origin:center center;
 }
-@keyframes pulse-photo {
-  0%,100%{transform:scale(1); opacity:0.8}
-  50%{transform:scale(1.06); opacity:1}
+@keyframes pulse-photo{
+  0%,100%{transform:scale(1);opacity:0.8}
+  50%{transform:scale(1.06);opacity:1}
 }
 .screen2 .bottom{
   font-family:'Cormorant Garamond';
-  font-size: clamp(18px, 3.5vw, 28px);
+  font-size:clamp(18px,3.5vw,28px);
   font-weight:600;
   line-height:1.5;
-  padding: 0 10px;
+  padding:0 10px;
   color:#111;
 }
 .screen2 .time-block{
-  width: 100%;
-  max-width: 550px;
-  position: relative;
-  flex-shrink: 0;
-  margin-top: clamp(8px, 1.5vw, 15px);
+  width:100%;
+  max-width:550px;
+  position:relative;
+  flex-shrink:0;
+  margin-top:clamp(8px,1.5vw,15px);
 }
 .screen2 .decor-lines{
-  width: 100%;
-  height: clamp(300px, 48vw, 460px);
-  position: relative;
+  width:100%;
+  height:clamp(300px,48vw,460px);
+  position:relative;
 }
 .screen2 .line{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  height: auto;
+  position:absolute;
+  width:100%;
+  left:0;
+  height:auto;
 }
-.screen2 .line.top{top: 0;}
-.screen2 .line.bottom{bottom: 0; transform: rotate(180deg);}
+.screen2 .line.top{top:0}
+.screen2 .line.bottom{bottom:0;transform:rotate(180deg)}
 .screen2 .line path{
-  fill: none;
-  stroke: #666;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  fill:none;
+  stroke:#666;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 .screen2 .time-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:2;
 }
 .screen2 .time-label{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4.5vw, 40px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(24px,4.5vw,40px);
   font-weight:600;
-  color: #111;
-  line-height: 1.3;
-  margin-bottom: clamp(20px, 3.5vw, 32px);
+  color:#111;
+  line-height:1.3;
+  margin-bottom:clamp(20px,3.5vw,32px);
 }
 .screen2 .time-value{
-  font-family: 'Ms Madi', cursive;
-  font-size: clamp(60px, 12vw, 120px);
-  line-height: 1;
-  letter-spacing: 5px;
+  font-family:'Ms Madi',cursive;
+  font-size:clamp(60px,12vw,120px);
+  line-height:1;
+  letter-spacing:5px;
 }
-.screen2 .time-value .blue{color: #00a9d8;}
-.screen2 .time-value .pink{color: #df5aa5;}
+.screen2 .time-value .blue{color:#00a9d8}
+.screen2 .time-value .pink{color:#df5aa5}
 .screen2 .location-block{
-  width: 100%;
-  max-width: 550px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(20px, 4vw, 40px);
+  width:100%;
+  max-width:550px;
+  flex-shrink:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(20px,4vw,40px);
 }
 .screen2 .location-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(42px,9vw,72px);
   font-weight:400;
   line-height:1.1;
-  letter-spacing: 3px;
+  letter-spacing:3px;
   color:#111;
 }
 .screen2 .location-address{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(16px, 3vw, 24px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(16px,3vw,24px);
   font-weight:600;
   line-height:1.6;
   color:#111;
-  padding: 0 10px;
+  padding:0 10px;
 }
 .screen2 .location-name{
   font-weight:700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: clamp(8px, 1.5vw, 14px);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  display:block;
+  margin-bottom:clamp(8px,1.5vw,14px);
 }
 .screen2 .location-details{
   font-weight:600;
 }
 .screen2 .map-container{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  max-width: 280px;
-  border-radius: 14px;
-  overflow: hidden;
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:280px;
+  border-radius:14px;
+  overflow:hidden;
 }
 .screen2 .map-container iframe{
-  width: 100%;
-  height: 100%;
-  border: none;
+  width:100%;
+  height:100%;
+  border:none;
 }
 
 /* ===== ЭКРАН 3: Голосование ===== */
 .screen3{
-  min-height: 40vh;
-  min-height: 40dvh;
+  min-height:40vh;
+  min-height:40dvh;
   width:100%;
-  background: radial-gradient(ellipse at 30% 40%, #ffb3d1 0%, transparent 55%),
-              radial-gradient(ellipse at 70% 60%, #a3dfff 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 20%, #ffc8de 0%, transparent 45%),
-              radial-gradient(ellipse at 40% 80%, #b3e5ff 0%, transparent 40%),
-              radial-gradient(ellipse at 80% 30%, #ff9ec4 0%, transparent 35%);
-  background-color: #ffe0ec;
+  background:radial-gradient(ellipse at 30% 40%,#ffb3d1 0%,transparent 55%),
+             radial-gradient(ellipse at 70% 60%,#a3dfff 0%,transparent 50%),
+             radial-gradient(ellipse at 50% 20%,#ffc8de 0%,transparent 45%),
+             radial-gradient(ellipse at 40% 80%,#b3e5ff 0%,transparent 40%),
+             radial-gradient(ellipse at 80% 30%,#ff9ec4 0%,transparent 35%);
+  background-color:#ffe0ec;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
-  padding: clamp(35px, 7vw, 60px) clamp(16px, 3vw, 24px);
-  justify-content: center;
+  padding:clamp(35px,7vw,60px) clamp(16px,3vw,24px);
+  justify-content:center;
   overflow-x:hidden;
 }
 .screen3 .vote-container{
-  background: #47a5c8;
-  border-radius: 22px;
-  padding: clamp(20px, 4vw, 35px) clamp(20px, 4vw, 35px);
-  max-width: 550px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(18px, 3vw, 30px);
+  background:#47a5c8;
+  border-radius:22px;
+  padding:clamp(20px,4vw,35px) clamp(20px,4vw,35px);
+  max-width:550px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(18px,3vw,30px);
 }
 .screen3 .vote-title{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 36px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,4vw,36px);
   font-weight:700;
-  color: #fff;
-  line-height: 1.3;
+  color:#fff;
+  line-height:1.3;
 }
 .screen3 .vote-buttons{
-  display: flex;
-  gap: clamp(35px, 8vw, 80px);
-  justify-content: center;
-  align-items: flex-start;
+  display:flex;
+  gap:clamp(35px,8vw,80px);
+  justify-content:center;
+  align-items:flex-start;
 }
 .screen3 .vote-btn{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(8px, 1.5vw, 12px);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: transform 0.25s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(8px,1.5vw,12px);
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:0;
+  transition:transform 0.25s ease;
 }
-.screen3 .vote-btn:hover{transform: scale(1.1);}
-.screen3 .vote-btn:active{transform: scale(0.92);}
+.screen3 .vote-btn:hover{transform:scale(1.1)}
+.screen3 .vote-btn:active{transform:scale(0.92)}
 .screen3 .vote-photo{
-  width: clamp(80px, 16vw, 120px);
-  height: clamp(80px, 16vw, 120px);
-  border-radius: 50%;
-  overflow: hidden;
+  width:clamp(80px,16vw,120px);
+  height:clamp(80px,16vw,120px);
+  border-radius:50%;
+  overflow:hidden;
 }
 .screen3 .vote-photo img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 .screen3 .vote-label{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(14px, 2.2vw, 20px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(14px,2.2vw,20px);
   font-weight:600;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:2px;
 }
 .screen3 .vote-count{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(32px, 6vw, 50px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,6vw,50px);
   font-weight:700;
-  color: #fff;
-  min-height: clamp(38px, 6.5vw, 58px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  color:#fff;
+  min-height:clamp(38px,6.5vw,58px);
+  opacity:0;
+  transition:opacity 0.3s ease;
 }
 .screen3 .vote-count.show{
-  opacity: 1;
+  opacity:1;
 }
 
 /* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
 .shared-bg{
   width:100%;
-  background: radial-gradient(ellipse at 25% 35%, #ffd6e8 0%, transparent 50%),
-              radial-gradient(ellipse at 75% 65%, #d4f0ff 0%, transparent 50%),
-              radial-gradient(ellipse at 60% 25%, #ffe0ec 0%, transparent 40%),
-              radial-gradient(ellipse at 35% 75%, #c8e8ff 0%, transparent 40%),
-              radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 55%);
-  background-color: #f5f0f0;
+  background:radial-gradient(ellipse at 25% 35%,#ffd6e8 0%,transparent 50%),
+             radial-gradient(ellipse at 75% 65%,#d4f0ff 0%,transparent 50%),
+             radial-gradient(ellipse at 60% 25%,#ffe0ec 0%,transparent 40%),
+             radial-gradient(ellipse at 35% 75%,#c8e8ff 0%,transparent 40%),
+             radial-gradient(ellipse at 50% 50%,#e8f4f8 0%,transparent 55%);
+  background-color:#f5f0f0;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -422,69 +506,69 @@ body{font-family:Arial;overflow-x:hidden}
   overflow-x:hidden;
 }
 .screen4{
-  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
-  justify-content: center;
-  gap: clamp(30px, 5vw, 50px);
+  padding:clamp(35px,6vw,55px) clamp(20px,4vw,35px) clamp(40px,7vw,60px);
+  justify-content:center;
+  gap:clamp(30px,5vw,50px);
 }
 .screen4 .details-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,10vw,78px);
   font-weight:400;
-  letter-spacing: 3px;
+  letter-spacing:3px;
   line-height:1.1;
   color:#111;
 }
 .screen4 .details-text{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3.8vw,30px);
   font-weight:500;
   line-height:1.7;
   color:#111;
-  max-width: 680px;
-  padding: 0 10px;
+  max-width:680px;
+  padding:0 10px;
 }
 .screen4 .form-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,10vw,78px);
   font-weight:400;
-  letter-spacing: 3px;
+  letter-spacing:3px;
   line-height:1.1;
   color:#111;
 }
 .screen4 .form-subtitle{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3.8vw,30px);
   font-weight:500;
   line-height:1.5;
   color:#111;
-  max-width: 680px;
-  padding: 0 10px;
+  max-width:680px;
+  padding:0 10px;
 }
 .screen4 .form-container{
-  width: 100%;
-  max-width: 580px;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(16px, 2.8vw, 24px);
-  text-align: left;
+  width:100%;
+  max-width:580px;
+  display:flex;
+  flex-direction:column;
+  gap:clamp(16px,2.8vw,24px);
+  text-align:left;
 }
 .screen4 .form-field{display:flex;flex-direction:column;gap:10px}
 .screen4 .form-label{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.2vw, 26px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3.2vw,26px);
   font-weight:600;
   color:#111;
 }
 .screen4 .form-input{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);
-  padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 14px;
-  background: transparent;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.8vw,22px);
+  padding:clamp(12px,2vw,16px) clamp(16px,2.5vw,20px);
+  border:1.5px solid #47a5c8;
+  border-radius:14px;
+  background:transparent;
   color:#111;
-  outline: none;
-  transition: border-color 0.3s ease;
+  outline:none;
+  transition:border-color 0.3s ease;
 }
 .screen4 .form-input:focus{border-color:#2b8aaa}
 .screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
@@ -499,8 +583,8 @@ body{font-family:Arial;overflow-x:hidden}
   border-radius:50%;background:#47a5c8;
 }
 .screen4 .radio-option span{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);color:#111;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.8vw,22px);color:#111;
 }
 .screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
 .screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
@@ -514,117 +598,106 @@ body{font-family:Arial;overflow-x:hidden}
   border:solid #47a5c8;border-width:0 2px 2px 0;transform:rotate(45deg);
 }
 .screen4 .checkbox-option span{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);color:#111;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.8vw,22px);color:#111;
 }
 .screen4 .submit-btn{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3.5vw,28px);font-weight:700;color:#47a5c8;
   background:transparent;border:1.5px solid #df5aa5;border-radius:50px;
-  padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
+  padding:clamp(14px,2.5vw,18px) clamp(35px,6vw,50px);
   cursor:pointer;transition:all 0.3s ease;align-self:center;margin-top:12px;
 }
 .screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
 .screen4 .submit-btn:active{transform:scale(0.97)}
 .screen4 .contacts-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,10vw,78px);
   font-weight:400;
-  letter-spacing: 3px;
+  letter-spacing:3px;
   line-height:1.1;
   color:#111;
-  margin-top: clamp(30px, 5vw, 50px);
+  margin-top:clamp(30px,5vw,50px);
 }
 .screen4 .contacts-info{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3.8vw,30px);font-weight:500;line-height:1.6;color:#111;
 }
 .screen4 .contacts-phone{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,4vw,34px);font-weight:600;color:#111;letter-spacing:0.5px;
 }
 .stars-triangle-bottom{
-  position: relative;
-  width: clamp(140px, 24vw, 210px);
-  height: clamp(110px, 18vw, 150px);
-  margin-top: clamp(20px, 4vw, 36px);
-  margin-bottom: clamp(8px, 1.5vw, 14px);
+  position:relative;
+  width:clamp(140px,24vw,210px);
+  height:clamp(110px,18vw,150px);
+  margin-top:clamp(20px,4vw,36px);
+  margin-bottom:clamp(8px,1.5vw,14px);
 }
 .star-5-final{
-  position: absolute;
-  width: clamp(30px, 5.5vw, 48px);
-  height: clamp(30px, 5.5vw, 48px);
+  position:absolute;
+  width:clamp(30px,5.5vw,48px);
+  height:clamp(30px,5.5vw,48px);
 }
-.star-5-final.top-center{
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.star-5-final.mid-left{
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-.star-5-final.bottom-right{
-  bottom: 0;
-  right: 28%;
-}
+.star-5-final.top-center{top:0;left:50%;transform:translateX(-50%)}
+.star-5-final.mid-left{top:50%;left:0;transform:translateY(-50%)}
+.star-5-final.bottom-right{bottom:0;right:28%}
 .screen4 .waiting-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,10vw,78px);
   font-weight:400;
-  letter-spacing: 3px;
+  letter-spacing:3px;
   line-height:1.1;
   color:#111;
 }
 .screen4 .waiting-subtitle{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,10vw,78px);
   font-weight:400;
-  letter-spacing: 3px;
+  letter-spacing:3px;
   line-height:1.1;
   color:#111;
-  margin-top: clamp(2px, 0.5vw, 6px);
+  margin-top:clamp(2px,0.5vw,6px);
 }
 .timer-block{
-  display: flex;
-  gap: clamp(16px, 3vw, 32px);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: clamp(24px, 4vw, 40px);
+  display:flex;
+  gap:clamp(16px,3vw,32px);
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:clamp(24px,4vw,40px);
 }
 .timer-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(6px, 1vw, 12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(6px,1vw,12px);
 }
 .timer-circle{
-  width: clamp(75px, 15vw, 115px);
-  height: clamp(75px, 15vw, 115px);
-  border-radius: 50%;
-  border: 2.5px solid #47a5c8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  gap: 3px;
+  width:clamp(75px,15vw,115px);
+  height:clamp(75px,15vw,115px);
+  border-radius:50%;
+  border:2.5px solid #47a5c8;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  gap:3px;
 }
 .timer-number{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(32px, 6.5vw, 52px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,6.5vw,52px);
   font-weight:700;
-  color: #df5aa5;
-  line-height: 1;
+  color:#df5aa5;
+  line-height:1;
 }
 .timer-label-inside{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(12px, 2vw, 16px);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(12px,2vw,16px);
   font-weight:300;
-  color: #999;
-  letter-spacing: 0.3px;
-  line-height: 1;
+  color:#999;
+  letter-spacing:0.3px;
+  line-height:1;
 }
 </style>
 </head>
@@ -662,6 +735,34 @@ body{font-family:Arial;overflow-x:hidden}
 <!-- ===== ЭКРАН 2 ===== -->
 <div class="screen2" id="screen2">
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
+
+  <!-- ===== МУЗЫКАЛЬНЫЙ ПЛЕЕР ===== -->
+  <div class="music-player animate-on-scroll" id="musicPlayer">
+    <div class="circle-wrap">
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <path id="textPath" d="M 100,100 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0"/>
+        </defs>
+        <text class="rotating-text" font-size="14">
+          <textPath href="#textPath" startOffset="0%">
+            • Включите музыку • Включите музыку • Включите музыку •
+          </textPath>
+        </text>
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#000" stroke-width="1.5" opacity="0.15"/>
+      </svg>
+      <div class="center-icon muted" id="musicIcon">
+        <svg viewBox="0 0 24 24">
+          <!-- Иконка динамика с зачёркиванием -->
+          <rect x="2" y="2" width="20" height="20" rx="2" fill="none" stroke="none"/>
+          <path d="M11 5L6 9H2v6h4l5 4V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hint-text" id="musicHint">нажмите, чтобы включить музыку</div>
+  </div>
+
   <div class="info animate-on-scroll">Приглашаем Вас на наше трепетное и<br>семейное торжество! Произойдет<br>очень важное и волнительное событие!</div>
   <div class="calendar-wrapper animate-on-scroll">
     <div class="month-title">АВГУСТ</div>
@@ -765,89 +866,91 @@ body{font-family:Arial;overflow-x:hidden}
   </div>
 </div>
 
+<!-- Аудио для плеера -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg"/>
+</audio>
+
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
 // ============================================================
-//  ХАК: ЗАПУСК ВИДЕО ЧЕРЕЗ WEB AUDIO API (БЕЗ КАСАНИЯ)
+//  МУЗЫКАЛЬНЫЙ ПЛЕЕР
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+  const player = document.getElementById('musicPlayer');
+  const audio = document.getElementById('bgMusic');
+  const icon = document.getElementById('musicIcon');
+  const hint = document.getElementById('musicHint');
+  let isPlaying = false;
+
+  if (!player || !audio) return;
+
+  // Функция переключения
+  function toggleMusic(e) {
+    e.stopPropagation();
+    
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      icon.classList.remove('playing');
+      icon.classList.add('muted');
+      hint.classList.remove('hidden');
+      // Иконка с зачёркнутым динамиком
+      icon.innerHTML = `<svg viewBox="0 0 24 24">
+        <path d="M11 5L6 9H2v6h4l5 4V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>`;
+    } else {
+      audio.play().then(() => {
+        isPlaying = true;
+        icon.classList.remove('muted');
+        icon.classList.add('playing');
+        hint.classList.add('hidden');
+        // Иконка динамика без зачёркивания
+        icon.innerHTML = `<svg viewBox="0 0 24 24">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>`;
+      }).catch(function(err) {
+        console.log('Ошибка воспроизведения музыки:', err);
+        // Если не получилось, пробуем при клике
+      });
+    }
+  }
+
+  // Клик по плееру
+  player.addEventListener('click', toggleMusic);
+  
+  // На мобильных устройствах touch
+  player.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    toggleMusic(e);
+  }, { passive: false });
+
+  // Инициализация: иконка с зачёркнутым динамиком
+  icon.classList.add('muted');
+  icon.innerHTML = `<svg viewBox="0 0 24 24">
+    <path d="M11 5L6 9H2v6h4l5 4V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>`;
+  hint.classList.remove('hidden');
+});
+
+// ============================================================
+//  ВИДЕО: ЗАПУСК ЧЕРЕЗ WEB AUDIO API
 // ============================================================
 document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('bgVideo');
-  if (!video) {
-    console.error('❌ Видео не найдено! Проверьте id="bgVideo"');
-    return;
-  }
+  if (!video) return;
 
-  console.log('▶️ Пытаемся запустить видео без касания через Web Audio API...');
-
-  // Функция запуска видео
   function startVideo() {
-    video.play().then(() => {
-      console.log('✅ Видео успешно запущено без касания!');
-    }).catch(function(err) {
-      console.warn('⚠️ Не удалось запустить видео через хак:', err.message);
-      // Запасной план: ждём касания
-      const startOnInteraction = function() {
-        video.play().then(() => {
-          console.log('✅ Видео запущено по касанию');
-          document.removeEventListener('click', startOnInteraction);
-          document.removeEventListener('touchstart', startOnInteraction);
-        }).catch(() => {});
-      };
-      document.addEventListener('click', startOnInteraction);
-      document.addEventListener('touchstart', startOnInteraction);
-      console.log('🔄 Ожидаем касания/клика для запуска видео...');
-    });
-  }
-
-  // ----- ГЛАВНЫЙ ХАК: создаём аудиоконтекст -----
-  try {
-    // Создаём аудиоконтекст (считается пользовательским действием)
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    
-    // Создаём тихий звук (1 сэмпл тишины)
-    const bufferSize = 1;
-    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-    const data = buffer.getChannelData(0);
-    data[0] = 0; // тишина
-
-    // Создаём источник и воспроизводим тишину
-    const source = audioCtx.createBufferSource();
-    source.buffer = buffer;
-    source.connect(audioCtx.destination);
-    source.start(0);
-    
-    // Как только аудиоконтекст "проснулся" - запускаем видео
-    if (audioCtx.state === 'running') {
-      console.log('✅ Аудиоконтекст уже запущен, пробуем видео...');
-      startVideo();
-    } else {
-      // Ждём, пока аудиоконтекст станет running
-      audioCtx.onstatechange = function() {
-        if (audioCtx.state === 'running') {
-          console.log('✅ Аудиоконтекст стал running, пробуем видео...');
-          startVideo();
-          audioCtx.onstatechange = null;
-        }
-      };
-      // Если через 2 секунды всё ещё не running - пробуем форсировать
-      setTimeout(() => {
-        if (audioCtx.state !== 'running') {
-          console.warn('⚠️ Аудиоконтекст не стал running, пробуем resume...');
-          audioCtx.resume().then(() => {
-            console.log('✅ Аудиоконтекст принудительно запущен');
-            startVideo();
-          }).catch(() => {});
-        }
-      }, 2000);
-    }
-  } catch (e) {
-    console.warn('⚠️ Web Audio API не поддерживается, пробуем обычный запуск');
-    // Запасной вариант: пытаемся запустить обычным способом
     video.play().catch(function() {
-      // Если не получилось - ждём касания
       const startOnInteraction = function() {
         video.play();
         document.removeEventListener('click', startOnInteraction);
@@ -858,17 +961,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Если видео всё ещё на паузе через 5 секунд - пробуем принудительно
-  setTimeout(function() {
-    if (video.paused) {
-      console.warn('⚠️ Видео всё ещё на паузе, пробуем принудительно...');
-      video.play().catch(() => {});
+  try {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const bufferSize = 1;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    data[0] = 0;
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioCtx.destination);
+    source.start(0);
+    
+    if (audioCtx.state === 'running') {
+      startVideo();
+    } else {
+      audioCtx.onstatechange = function() {
+        if (audioCtx.state === 'running') {
+          startVideo();
+          audioCtx.onstatechange = null;
+        }
+      };
     }
-  }, 5000);
+  } catch (e) {
+    video.play().catch(function() {
+      const startOnInteraction = function() {
+        video.play();
+        document.removeEventListener('click', startOnInteraction);
+        document.removeEventListener('touchstart', startOnInteraction);
+      };
+      document.addEventListener('click', startOnInteraction);
+      document.addEventListener('touchstart', startOnInteraction);
+    });
+  }
 });
 
 // ============================================================
-//  FIREBASE ГОЛОСОВАНИЕ (БЕЗ ИЗМЕНЕНИЙ)
+//  FIREBASE ГОЛОСОВАНИЕ
 // ============================================================
 const firebaseConfig = {
   databaseURL: "https://gender-e7fab-default-rtdb.firebaseio.com/"
@@ -912,7 +1040,7 @@ async function vote(type) {
 updateVoteVisibility();
 
 // ============================================================
-//  ТАЙМЕР ДО 28 АВГУСТА 2026 18:00
+//  ТАЙМЕР
 // ============================================================
 const targetDate = new Date('2026-08-28T18:00:00');
 function pluralize(n, forms) {
