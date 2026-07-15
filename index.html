@@ -1,3 +1,6 @@
+Конечно, вот исправленный HTML-код. Я убрал глобальное жирное начертание шрифта и удалил значок воспроизведения (серый треугольник) на главном видео.
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,7 +11,7 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;overflow-x:hidden}
-    body{font-family:Arial;overflow-x:hidden}
+    body{font-family:Arial;overflow-x:hidden;font-weight:normal;} /* Убираем глобальное жирное */
 
     /* ===== ЭКРАН 1: Girl or Boy ===== */
     .screen1{
@@ -778,7 +781,7 @@
 
 <!-- ===== ЭКРАН 1 ===== -->
 <div class="screen1">
-  <video autoplay loop muted playsinline>
+  <video autoplay loop muted playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback">
     <source src="видео.mp4" type="video/mp4"/>
   </video>
   <div class="overlay"></div>
@@ -1184,3 +1187,4 @@ musicBtnInline.addEventListener('click', function(e) {
 
 </body>
 </html>
+```
