@@ -841,8 +841,9 @@
     <!-- ЭКРАН 1: Girl or Boy                                         -->
     <!-- ============================================================ -->
     <section class="screen1">
-        <video autoplay loop muted playsinline>
+        <video id="bgVideo" loop muted playsinline poster="постер.jpg">
             <source src="-5623185157659730904.webm" type="video/webm" />
+            <source src="-5623185157659730904.mp4" type="video/mp4" />
         </video>
         <div class="overlay"></div>
         
@@ -1153,23 +1154,62 @@
     
     <script>
         // ============================================================
-        // ЗАПУСК ВИДЕО ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+        // УЛУЧШЕННЫЙ ЗАПУСК ВИДЕО
         // ============================================================
-        window.addEventListener("load", function() {
-            var video = document.querySelector(".screen1 video");
+        function startVideo() {
+            var video = document.getElementById('bgVideo');
             
-            if (video) {
-                video.muted = true;
-                video.playsInline = true;
-                
-                var playPromise = video.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.catch(function(err) {
-                        console.log("Видео не запустилось:", err);
-                    });
-                }
+            if (!video) return;
+            
+            // Убеждаемся, что видео подготовлено
+            video.muted = true;
+            video.playsInline = true;
+            
+            // Пробуем запустить видео
+            var playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    console.log('Видео успешно запущено');
+                }).catch(function(err) {
+                    console.log('Автозапуск не удался:', err);
+                    // Пробуем альтернативный способ
+                    tryAlternativePlay(video);
+                });
             }
+        }
+        
+        function tryAlternativePlay(video) {
+            // Пробуем запустить после взаимодействия с пользователем
+            document.addEventListener('click', function playOnClick() {
+                video.play().then(function() {
+                    console.log('Видео запущено по клику');
+                }).catch(function(err) {
+                    console.log('Не удалось запустить даже по клику:', err);
+                });
+                document.removeEventListener('click', playOnClick);
+            }, { once: true });
+            
+            // Также пробуем через touchstart для мобильных
+            document.addEventListener('touchstart', function playOnTouch() {
+                video.play().then(function() {
+                    console.log('Видео запущено по касанию');
+                }).catch(function(err) {
+                    console.log('Не удалось запустить по касанию:', err);
+                });
+                document.removeEventListener('touchstart', playOnTouch);
+            }, { once: true });
+        }
+        
+        // Запускаем видео при загрузке страницы
+        window.addEventListener('load', function() {
+            // Даем небольшую задержку для полной загрузки видео
+            setTimeout(startVideo, 100);
+        });
+        
+        // Также пробуем запустить при DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(startVideo, 50);
         });
         
         // ============================================================
@@ -1186,7 +1226,6 @@
         // ============================================================
         // ГОЛОСОВАНИЕ
         // ============================================================
-        // Слушаем изменения в Firebase
         votesRef.on('value', function(snapshot) {
             var data = snapshot.val() || { girl: 0, boy: 0 };
             document.getElementById('count-girl').textContent = data.girl || 0;
@@ -1213,7 +1252,6 @@
             var current = snapshot.val() || { girl: 0, boy: 0 };
             var myVote = localStorage.getItem(MY_VOTE_KEY);
             
-            // Отнимаем предыдущий голос, если был
             if (myVote === 'girl') {
                 current.girl = Math.max(0, (current.girl || 0) - 1);
             }
@@ -1221,7 +1259,6 @@
                 current.boy = Math.max(0, (current.boy || 0) - 1);
             }
             
-            // Добавляем новый голос
             if (type === 'girl') {
                 current.girl = (current.girl || 0) + 1;
                 localStorage.setItem(MY_VOTE_KEY, 'girl');
@@ -1234,7 +1271,6 @@
             updateVoteVisibility();
         }
         
-        // Инициализация видимости голосов
         updateVoteVisibility();
         
         // ============================================================
@@ -1279,7 +1315,6 @@
             document.getElementById('seconds-label').textContent = pluralize(seconds, ['секунда', 'секунды', 'секунд']);
         }
         
-        // Запускаем таймер
         updateTimer();
         setInterval(updateTimer, 1000);
         
