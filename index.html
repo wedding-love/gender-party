@@ -407,7 +407,7 @@
       color: #fff;
       min-height: clamp(38px, 6.5vw, 58px);
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
     }
     .screen3 .vote-count.show{
       opacity: 1;
@@ -725,14 +725,14 @@
     .music-inline .music-btn:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст — очень тонкий */
+    /* вращающийся текст — одинаковые отступы со всех сторон */
     .music-inline .rotate-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 175px;
-      height: 175px;
+      width: 180px;
+      height: 180px;
       pointer-events: none;
       animation: spin-text 16s linear infinite;
     }
@@ -806,7 +806,6 @@
           <defs>
             <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
-          <!-- ровно три повторения, без лишних точек подряд -->
           <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
             <textPath href="#circlePathInline" startOffset="2%">
               • Включите музыку • Включите музыку • Включите музыку
