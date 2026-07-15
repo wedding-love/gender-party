@@ -657,7 +657,7 @@
       line-height: 1;
     }
 
-    /* ===== КНОПКА МУЗЫКИ - ИСХОДНЫЙ ВАРИАНТ ===== */
+    /* ===== КНОПКА МУЗЫКИ - ТЕКСТ ЗА ПРЕДЕЛАМИ ОБВОДКИ ===== */
     .music-inline {
       display: flex;
       justify-content: center;
@@ -681,6 +681,7 @@
       transition: all 0.25s ease;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 0;
+      z-index: 1;
     }
     .music-inline .music-btn:hover {
       transform: scale(1.05);
@@ -710,6 +711,7 @@
       background: #000;
       border-radius: 2px;
       pointer-events: none;
+      z-index: 2;
     }
     .music-inline .music-btn.muted {
       border-color: #000;
@@ -725,17 +727,18 @@
     .music-inline .music-btn:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст — увеличенный размер, за пределами обводки */
+    /* вращающийся текст — ЗА ПРЕДЕЛАМИ ОБВОДКИ */
     .music-inline .rotate-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      max-width: 210px;
+      max-width: 230px;
       aspect-ratio: 1/1;
       pointer-events: none;
       animation: spin-text 16s linear infinite;
+      z-index: 0;
     }
     .music-inline .rotate-text svg {
       width: 100%;
@@ -793,7 +796,7 @@
 
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
 
-  <!-- === КНОПКА МУЗЫКИ - ИСХОДНЫЙ ВАРИАНТ === -->
+  <!-- === КНОПКА МУЗЫКИ - ТЕКСТ ЗА ПРЕДЕЛАМИ ОБВОДКИ === -->
   <div class="music-inline animate-on-scroll">
     <button class="music-btn muted" id="musicBtnInline" aria-label="Включить музыку">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -805,7 +808,7 @@
       <div class="rotate-text">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+            <path id="circlePathInline" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" />
           </defs>
           <text font-size="14" letter-spacing="3" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
             <textPath href="#circlePathInline" startOffset="1%">
