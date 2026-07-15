@@ -1153,31 +1153,51 @@
     
     <script>
         // ============================================================
+        // ЗАПУСК ВИДЕО ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+        // ============================================================
+        window.addEventListener("load", function() {
+            var video = document.querySelector(".screen1 video");
+            
+            if (video) {
+                video.muted = true;
+                video.playsInline = true;
+                
+                var playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(err) {
+                        console.log("Видео не запустилось:", err);
+                    });
+                }
+            }
+        });
+        
+        // ============================================================
         // НАСТРОЙКА FIREBASE
         // ============================================================
-        const firebaseConfig = {
+        var firebaseConfig = {
             databaseURL: "https://gender-e7fab-default-rtdb.firebaseio.com/"
         };
         firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
-        const votesRef = db.ref('votes');
-        const MY_VOTE_KEY = 'gender_reveal_my_vote';
+        var db = firebase.database();
+        var votesRef = db.ref('votes');
+        var MY_VOTE_KEY = 'gender_reveal_my_vote';
         
         // ============================================================
         // ГОЛОСОВАНИЕ
         // ============================================================
         // Слушаем изменения в Firebase
-        votesRef.on('value', (snapshot) => {
-            const data = snapshot.val() || { girl: 0, boy: 0 };
+        votesRef.on('value', function(snapshot) {
+            var data = snapshot.val() || { girl: 0, boy: 0 };
             document.getElementById('count-girl').textContent = data.girl || 0;
             document.getElementById('count-boy').textContent = data.boy || 0;
             updateVoteVisibility();
         });
         
         function updateVoteVisibility() {
-            const myVote = localStorage.getItem(MY_VOTE_KEY);
-            const girlCount = document.getElementById('count-girl');
-            const boyCount = document.getElementById('count-boy');
+            var myVote = localStorage.getItem(MY_VOTE_KEY);
+            var girlCount = document.getElementById('count-girl');
+            var boyCount = document.getElementById('count-boy');
             
             if (myVote) {
                 girlCount.classList.add('show');
@@ -1189,9 +1209,9 @@
         }
         
         async function vote(type) {
-            const snapshot = await votesRef.once('value');
-            const current = snapshot.val() || { girl: 0, boy: 0 };
-            const myVote = localStorage.getItem(MY_VOTE_KEY);
+            var snapshot = await votesRef.once('value');
+            var current = snapshot.val() || { girl: 0, boy: 0 };
+            var myVote = localStorage.getItem(MY_VOTE_KEY);
             
             // Отнимаем предыдущий голос, если был
             if (myVote === 'girl') {
@@ -1220,11 +1240,11 @@
         // ============================================================
         // ТАЙМЕР
         // ============================================================
-        const targetDate = new Date('2026-08-28T18:00:00');
+        var targetDate = new Date('2026-08-28T18:00:00');
         
         function pluralize(n, forms) {
-            const m = Math.abs(n) % 100;
-            const m1 = m % 10;
+            var m = Math.abs(n) % 100;
+            var m1 = m % 10;
             if (m > 10 && m < 20) return forms[2];
             if (m1 > 1 && m1 < 5) return forms[1];
             if (m1 === 1) return forms[0];
@@ -1232,8 +1252,8 @@
         }
         
         function updateTimer() {
-            const now = new Date();
-            const diff = targetDate - now;
+            var now = new Date();
+            var diff = targetDate - now;
             
             if (diff <= 0) {
                 document.getElementById('days').textContent = '0';
@@ -1243,10 +1263,10 @@
                 return;
             }
             
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
             
             document.getElementById('days').textContent = days;
             document.getElementById('hours').textContent = hours;
@@ -1266,8 +1286,8 @@
         // ============================================================
         // АНИМАЦИЯ ПРИ СКРОЛЛЕ
         // ============================================================
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
@@ -1277,7 +1297,9 @@
             rootMargin: '0px 0px -30px 0px' 
         });
         
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
