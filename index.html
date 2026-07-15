@@ -95,7 +95,6 @@
       overflow-x:hidden;
     }
 
-    /* Простая анимация появления */
     .animate-on-scroll{
       opacity: 0;
       transform: translateY(30px);
@@ -190,7 +189,6 @@
       line-height:1;
     }
 
-    /* ===== ФОТО КРУГ С ПУЛЬСАЦИЕЙ ===== */
     .screen2 .photo-wrapper{
       position:absolute;
       width: clamp(240px, 44vw, 380px);
@@ -544,7 +542,6 @@
     .screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
     .screen4 .submit-btn:active{transform:scale(0.97)}
 
-    /* ===== КОНТАКТЫ ===== */
     .screen4 .contacts-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
@@ -565,7 +562,6 @@
       font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#2d2a2a;letter-spacing:0.5px;
     }
 
-    /* ===== ЗВЁЗДОЧКИ ===== */
     .stars-triangle-bottom{
       position: relative;
       width: clamp(140px, 24vw, 210px);
@@ -594,7 +590,6 @@
       right: 28%;
     }
 
-    /* ===== ЖДЁМ ВАС ===== */
     .screen4 .waiting-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
@@ -614,7 +609,6 @@
       margin-top: clamp(2px, 0.5vw, 6px);
     }
 
-    /* ===== ТАЙМЕР ===== */
     .timer-block{
       display: flex;
       gap: clamp(16px, 3vw, 32px);
@@ -657,19 +651,18 @@
       line-height: 1;
     }
 
-    /* ===== КНОПКА МУЗЫКИ - ТЕКСТ ЗА ПРЕДЕЛАМИ ОБВОДКИ ===== */
-    .music-inline {
+    /* ===== КНОПКА МУЗЫКИ — ПО ЦЕНТРУ ===== */
+    .music-center {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
-      padding: 36px 0 44px 0;
+      padding: 20px 0 25px 0;
       width: 100%;
     }
-    .music-inline .music-btn {
+    .music-btn-center {
       position: relative;
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       border: 1.5px solid #000;
       background: rgba(255,255,255,0.15);
@@ -681,18 +674,17 @@
       transition: all 0.25s ease;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 0;
-      z-index: 1;
     }
-    .music-inline .music-btn:hover {
+    .music-btn-center:hover {
       transform: scale(1.05);
       border-color: #000;
     }
-    .music-inline .music-btn:active {
+    .music-btn-center:active {
       transform: scale(0.92);
     }
-    .music-inline .music-btn svg {
-      width: 42px;
-      height: 42px;
+    .music-btn-center svg {
+      width: 38px;
+      height: 38px;
       fill: none;
       stroke: #000;
       stroke-width: 1.5;
@@ -700,58 +692,57 @@
       stroke-linejoin: round;
       transition: stroke 0.25s;
     }
-    .music-inline .music-btn .slash {
+    .music-btn-center .slash {
       display: none;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-35deg);
-      width: 52px;
+      width: 48px;
       height: 2px;
       background: #000;
       border-radius: 2px;
       pointer-events: none;
-      z-index: 2;
     }
-    .music-inline .music-btn.muted {
+    /* по умолчанию — muted (перечеркнут) */
+    .music-btn-center.muted {
       border-color: #000;
       background: rgba(255,255,255,0.15);
     }
-    .music-inline .music-btn.muted svg {
+    .music-btn-center.muted svg {
       stroke: #000;
     }
-    .music-inline .music-btn.muted .slash {
+    .music-btn-center.muted .slash {
       display: block;
       background: #000;
     }
-    .music-inline .music-btn:not(.muted) .slash {
+    .music-btn-center:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст — ЗА ПРЕДЕЛАМИ ОБВОДКИ */
-    .music-inline .rotate-text {
+    /* вращающийся текст с точками */
+    .music-btn-center .rotate-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      max-width: 260px;
+      max-width: 190px;
       aspect-ratio: 1/1;
       pointer-events: none;
       animation: spin-text 16s linear infinite;
-      z-index: 0;
     }
-    .music-inline .rotate-text svg {
+    .music-btn-center .rotate-text svg {
       width: 100%;
       height: 100%;
     }
-    .music-inline .rotate-text text {
+    .music-btn-center .rotate-text text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 200;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       fill: #000;
     }
-    .music-inline .music-btn.muted .rotate-text text {
+    .music-btn-center.muted .rotate-text text {
       fill: #000;
     }
     @keyframes spin-text {
@@ -796,9 +787,9 @@
 
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
 
-  <!-- === КНОПКА МУЗЫКИ - ТЕКСТ ЗА ПРЕДЕЛАМИ ОБВОДКИ === -->
-  <div class="music-inline animate-on-scroll">
-    <button class="music-btn muted" id="musicBtnInline" aria-label="Включить музыку">
+  <!-- ===== КНОПКА МУЗЫКИ ПО ЦЕНТРУ ===== -->
+  <div class="music-center animate-on-scroll">
+    <button class="music-btn-center muted" id="musicBtnCenter" aria-label="Включить музыку">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
@@ -808,10 +799,10 @@
       <div class="rotate-text">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <path id="circlePathInline" d="M 100,100 m -95,0 a 95,95 0 1,1 190,0 a 95,95 0 1,1 -190,0" />
+            <path id="circlePathCenter" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
-          <text font-size="14" letter-spacing="3" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
-            <textPath href="#circlePathInline" startOffset="1%">
+          <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
+            <textPath href="#circlePathCenter" startOffset="2%">
               • Включите музыку • Включите музыку • Включите музыку
             </textPath>
           </text>
@@ -1069,7 +1060,6 @@ votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
   document.getElementById('count-boy').textContent = data.boy || 0;
-  // Показываем счетчики всегда (включая 0)
   document.getElementById('count-girl').classList.add('show');
   document.getElementById('count-boy').classList.add('show');
 });
@@ -1079,11 +1069,9 @@ async function vote(type) {
   const current = snapshot.val() || { girl: 0, boy: 0 };
   const myVote = localStorage.getItem(MY_VOTE_KEY);
 
-  // Отнимаем старый голос, если был
   if (myVote === 'girl') current.girl = Math.max(0, (current.girl || 0) - 1);
   if (myVote === 'boy') current.boy = Math.max(0, (current.boy || 0) - 1);
 
-  // Добавляем новый голос
   if (type === 'girl') {
     current.girl = (current.girl || 0) + 1;
     localStorage.setItem(MY_VOTE_KEY, 'girl');
@@ -1149,15 +1137,15 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-// ===== МУЗЫКА: переключатель для встроенной кнопки =====
-const musicBtnInline = document.getElementById('musicBtnInline');
-let isMutedInline = true;
+// ===== МУЗЫКА: переключатель для кнопки по центру =====
+const musicBtnCenter = document.getElementById('musicBtnCenter');
+let isMutedCenter = true; // по умолчанию выключена (перечеркнута)
 
-musicBtnInline.addEventListener('click', function(e) {
+musicBtnCenter.addEventListener('click', function(e) {
   e.preventDefault();
-  isMutedInline = !isMutedInline;
-  this.classList.toggle('muted', isMutedInline);
-  this.setAttribute('aria-label', isMutedInline ? 'Включить музыку' : 'Выключить музыку');
+  isMutedCenter = !isMutedCenter;
+  this.classList.toggle('muted', isMutedCenter);
+  this.setAttribute('aria-label', isMutedCenter ? 'Включить музыку' : 'Выключить музыку');
 });
 </script>
 
