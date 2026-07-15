@@ -662,6 +662,7 @@ body{font-family:Arial;overflow-x:hidden}
 
 <!-- ===== ЭКРАН 1 ===== -->
 <div class="screen1">
+  <!-- ВИДЕО С АВТОЗАПУСКОМ -->
   <video id="bgVideo" autoplay loop muted playsinline preload="auto">
     <source src="видео.mp4" type="video/mp4"/>
   </video>
@@ -796,7 +797,6 @@ body{font-family:Arial;overflow-x:hidden}
     Пожалуйста, подтвердите присутствие до 15.08.
   </div>
 
-  <!-- ===== ФОРМА с вашим ID Formspree ===== -->
   <form class="form-container animate-on-scroll" action="https://formspree.io/f/xjgnkdga" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
@@ -925,21 +925,20 @@ body{font-family:Arial;overflow-x:hidden}
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// ===== ГАРАНТИРОВАННЫЙ ЗАПУСК ВИДЕО =====
+// ===== ВИДЕО ЗАПУСКАЕТСЯ СРАЗУ (autoplay уже есть в теге) =====
+// Дополнительно пробуем запустить, если autoplay не сработал
 document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('bgVideo');
   if (video) {
-    // Пробуем запустить видео сразу
-    video.play().catch(function(error) {
-      console.log('Автозапуск заблокирован браузером, запустим при взаимодействии');
-      // Если браузер блокирует автозапуск, запускаем при первом клике или касании
-      const startVideo = function() {
+    video.play().catch(function() {
+      // Если браузер заблокировал автозапуск, запустим при первом касании
+      const start = function() {
         video.play();
-        document.removeEventListener('click', startVideo);
-        document.removeEventListener('touchstart', startVideo);
+        document.removeEventListener('click', start);
+        document.removeEventListener('touchstart', start);
       };
-      document.addEventListener('click', startVideo);
-      document.addEventListener('touchstart', startVideo);
+      document.addEventListener('click', start);
+      document.addEventListener('touchstart', start);
     });
   }
 });
