@@ -1,662 +1,762 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<title>Gender Reveal</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:Arial;overflow-x:hidden}
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>Gender Reveal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:Arial;overflow-x:hidden}
 
-/* ===== ЭКРАН 1: Girl or Boy ===== */
-.screen1{
-  position:relative;
-  height:100vh;
-  height:100dvh;
-  width:100%;
-  overflow:hidden;
-  background:#000;
-}
-.screen1 video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.screen1 .overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.35);
-}
-.screen1 .star{
-  position:absolute;
-  width:20px;
-  height:20px;
-}
-.screen1 .star svg{
-  width:100%;
-  height:100%;
-}
-.screen1 .title{
-  position:absolute;
-  left:50%;
-  bottom:25%;
-  transform:translateX(-50%) rotate(-9deg);
-  font-family:'Ms Madi',cursive;
-  font-size:clamp(72px,10vw,140px);
-  color:#fff;
-  white-space:nowrap;
-  text-shadow:0 0 8px rgba(255,255,255,.15);
-  font-weight:100;
-  letter-spacing:10px;
-  -webkit-text-stroke:0.5px white;
-}
-.screen1 .arrow{
-  position:absolute;
-  left:50%;
-  bottom:25px;
-  transform:translateX(-50%);
-  animation:b 1.8s infinite;
-  cursor:pointer;
-  text-decoration:none;
-}
-.screen1 .arrow svg{
-  width:28px;
-  height:28px;
-  display:block;
-}
-@keyframes b{
-  0%,100%{transform:translateX(-50%) translateY(0)}
-  50%{transform:translateX(-50%) translateY(8px)}
-}
+    /* ===== ЭКРАН 1: Girl or Boy ===== */
+    .screen1{
+      position:relative;
+      height:100vh;
+      height:100dvh;
+      width:100%;
+      overflow:hidden;
+      background:#000;
+    }
+    .screen1 video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .screen1 .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.35);
+    }
+    .screen1 .star{
+      position:absolute;
+      width:20px;
+      height:20px;
+    }
+    .screen1 .star svg{
+      width:100%;
+      height:100%;
+    }
+    .screen1 .title{
+      position:absolute;
+      left:50%;
+      bottom:25%;
+      transform:translateX(-50%) rotate(-9deg);
+      font-family:'Ms Madi',cursive;
+      font-size:clamp(72px,10vw,140px);
+      color:#fff;
+      white-space:nowrap;
+      text-shadow:0 0 8px rgba(255,255,255,.15);
+      font-weight:100;
+      letter-spacing:10px;
+      -webkit-text-stroke:0.5px white;
+    }
+    .screen1 .arrow{
+      position:absolute;
+      left:50%;
+      bottom:25px;
+      transform:translateX(-50%);
+      animation:b 1.8s infinite;
+      cursor:pointer;
+      text-decoration:none;
+    }
+    .screen1 .arrow svg{
+      width:28px;
+      height:28px;
+      display:block;
+    }
+    @keyframes b{
+      0%,100%{transform:translateX(-50%) translateY(0)}
+      50%{transform:translateX(-50%) translateY(8px)}
+    }
 
-/* ===== ЭКРАН 2: Приглашение ===== */
-.screen2{
-  min-height:100vh;
-  min-height:100dvh;
-  width:100%;
-  background: radial-gradient(ellipse at 20% 30%, #ffd6e8 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 70%, #d4f0ff 0%, transparent 50%),
-              radial-gradient(ellipse at 60% 20%, #ffe0ec 0%, transparent 40%),
-              radial-gradient(ellipse at 30% 80%, #c8e8ff 0%, transparent 40%),
-              radial-gradient(ellipse at 70% 50%, #ffc8de 0%, transparent 35%),
-              radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 60%);
-  background-color: #f5f0f0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: clamp(30px, 6vw, 55px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
-  justify-content: center;
-  gap: clamp(18px, 3vw, 34px);
-  overflow-x:hidden;
-}
+    /* ===== ЭКРАН 2: Приглашение ===== */
+    .screen2{
+      min-height:100vh;
+      min-height:100dvh;
+      width:100%;
+      background: radial-gradient(ellipse at 20% 30%, #ffd6e8 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 70%, #d4f0ff 0%, transparent 50%),
+                  radial-gradient(ellipse at 60% 20%, #ffe0ec 0%, transparent 40%),
+                  radial-gradient(ellipse at 30% 80%, #c8e8ff 0%, transparent 40%),
+                  radial-gradient(ellipse at 70% 50%, #ffc8de 0%, transparent 35%),
+                  radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 60%);
+      background-color: #f5f0f0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding: clamp(30px, 6vw, 55px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
+      justify-content: center;
+      gap: clamp(18px, 3vw, 34px);
+      overflow-x:hidden;
+    }
 
-/* Простая анимация появления */
-.animate-on-scroll{
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  will-change: opacity, transform;
-}
-.animate-on-scroll.visible{
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* Простая анимация появления */
+    .animate-on-scroll{
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      will-change: opacity, transform;
+    }
+    .animate-on-scroll.visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.screen2 .title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
-  font-weight:400;
-  line-height:1.1;
-  color:#111;
-  letter-spacing: 3px;
-  padding-top: clamp(20px, 4vw, 40px);
-}
-.screen2 .info{
-  font-family:'Cormorant Garamond';
-  font-size: clamp(18px, 3.5vw, 28px);
-  font-weight:600;
-  line-height:1.45;
-  padding: 0 10px;
-  color:#111;
-}
-.screen2 .calendar-wrapper{
-  width:100%;
-  max-width:750px;
-  flex-shrink: 0;
-}
-.screen2 .month-title{
-  display:flex;
-  align-items:center;
-  gap: clamp(12px, 3vw, 25px);
-  justify-content:center;
-  font-family:'Cormorant Garamond';
-  font-size: clamp(36px, 8vw, 58px);
-  font-weight:700;
-  letter-spacing: 2px;
-  color:#111;
-}
-.screen2 .month-title:before,
-.screen2 .month-title:after{
-  content:"";
-  height:2px;
-  background:#111;
-  flex:1;
-}
-.screen2 .calendar{
-  position:relative;
-  margin-top: clamp(10px, 2vw, 15px);
-  height: clamp(200px, 38vw, 310px);
-  border-top:2px solid #111;
-  border-bottom:2px solid #111;
-}
-.screen2 .days{
-  height:100%;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-}
-.screen2 .cell{
-  border-right:2px solid #111;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  font-family:'Cormorant Garamond';
-  padding: clamp(5px, 2vw, 12px);
-  position:relative;
-  z-index:2;
-}
-.screen2 .cell:last-child{border:none}
-.screen2 .week{
-  font-size: clamp(16px, 3.5vw, 28px);
-  font-weight:600;
-  margin-bottom: clamp(10px, 2.5vw, 25px);
-  white-space: nowrap;
-  color:#111;
-}
-.screen2 .number{
-  font-size: clamp(60px, 13vw, 110px);
-  font-weight:700;
-  color: #bbb;
-}
-.screen2 .middle .number{
-  color:#000;
-  font-size: clamp(80px, 18vw, 160px);
-  font-weight:700;
-  line-height:1;
-}
+    .screen2 .title{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(42px, 9vw, 72px);
+      font-weight:400;
+      line-height:1.1;
+      color:#111;
+      letter-spacing: 3px;
+      padding-top: clamp(20px, 4vw, 40px);
+    }
+    .screen2 .info{
+      font-family:'Cormorant Garamond';
+      font-size: clamp(18px, 3.5vw, 28px);
+      font-weight:600;
+      line-height:1.45;
+      padding: 0 10px;
+      color:#111;
+    }
+    .screen2 .calendar-wrapper{
+      width:100%;
+      max-width:750px;
+      flex-shrink: 0;
+    }
+    .screen2 .month-title{
+      display:flex;
+      align-items:center;
+      gap: clamp(12px, 3vw, 25px);
+      justify-content:center;
+      font-family:'Cormorant Garamond';
+      font-size: clamp(36px, 8vw, 58px);
+      font-weight:700;
+      letter-spacing: 2px;
+      color:#111;
+    }
+    .screen2 .month-title:before,
+    .screen2 .month-title:after{
+      content:"";
+      height:2px;
+      background:#111;
+      flex:1;
+    }
+    .screen2 .calendar{
+      position:relative;
+      margin-top: clamp(10px, 2vw, 15px);
+      height: clamp(200px, 38vw, 310px);
+      border-top:2px solid #111;
+      border-bottom:2px solid #111;
+    }
+    .screen2 .days{
+      height:100%;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+    }
+    .screen2 .cell{
+      border-right:2px solid #111;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      font-family:'Cormorant Garamond';
+      padding: clamp(5px, 2vw, 12px);
+      position:relative;
+      z-index:2;
+    }
+    .screen2 .cell:last-child{border:none}
+    .screen2 .week{
+      font-size: clamp(16px, 3.5vw, 28px);
+      font-weight:600;
+      margin-bottom: clamp(10px, 2.5vw, 25px);
+      white-space: nowrap;
+      color:#111;
+    }
+    .screen2 .number{
+      font-size: clamp(60px, 13vw, 110px);
+      font-weight:700;
+      color: #bbb;
+    }
+    .screen2 .middle .number{
+      color:#000;
+      font-size: clamp(80px, 18vw, 160px);
+      font-weight:700;
+      line-height:1;
+    }
 
-/* ===== ФОТО КРУГ С ПУЛЬСАЦИЕЙ ===== */
-.screen2 .photo-wrapper{
-  position:absolute;
-  width: clamp(240px, 44vw, 380px);
-  height: clamp(240px, 44vw, 380px);
-  left:50%;
-  top: 50%;
-  transform:translate(-50%, -50%);
-  pointer-events: none;
-  z-index:1;
-}
-.screen2 .photo-wrapper img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  animation: pulse-photo 2.5s ease-in-out infinite;
-  transform-origin: center center;
-}
-@keyframes pulse-photo {
-  0%,100%{transform:scale(1); opacity:0.8}
-  50%{transform:scale(1.06); opacity:1}
-}
+    /* ===== ФОТО КРУГ С ПУЛЬСАЦИЕЙ ===== */
+    .screen2 .photo-wrapper{
+      position:absolute;
+      width: clamp(240px, 44vw, 380px);
+      height: clamp(240px, 44vw, 380px);
+      left:50%;
+      top: 50%;
+      transform:translate(-50%, -50%);
+      pointer-events: none;
+      z-index:1;
+    }
+    .screen2 .photo-wrapper img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      animation: pulse-photo 2.5s ease-in-out infinite;
+      transform-origin: center center;
+    }
+    @keyframes pulse-photo {
+      0%,100%{transform:scale(1); opacity:0.8}
+      50%{transform:scale(1.06); opacity:1}
+    }
 
-.screen2 .bottom{
-  font-family:'Cormorant Garamond';
-  font-size: clamp(18px, 3.5vw, 28px);
-  font-weight:600;
-  line-height:1.5;
-  padding: 0 10px;
-  color:#111;
-}
+    .screen2 .bottom{
+      font-family:'Cormorant Garamond';
+      font-size: clamp(18px, 3.5vw, 28px);
+      font-weight:600;
+      line-height:1.5;
+      padding: 0 10px;
+      color:#111;
+    }
 
-.screen2 .time-block{
-  width: 100%;
-  max-width: 550px;
-  position: relative;
-  flex-shrink: 0;
-  margin-top: clamp(8px, 1.5vw, 15px);
-}
-.screen2 .decor-lines{
-  width: 100%;
-  height: clamp(300px, 48vw, 460px);
-  position: relative;
-}
-.screen2 .line{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  height: auto;
-}
-.screen2 .line.top{top: 0;}
-.screen2 .line.bottom{bottom: 0; transform: rotate(180deg);}
-.screen2 .line path{
-  fill: none;
-  stroke: #666;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.screen2 .time-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
-}
-.screen2 .time-label{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4.5vw, 40px);
-  font-weight:600;
-  color: #111;
-  line-height: 1.3;
-  margin-bottom: clamp(20px, 3.5vw, 32px);
-}
-.screen2 .time-value{
-  font-family: 'Ms Madi', cursive;
-  font-size: clamp(60px, 12vw, 120px);
-  line-height: 1;
-  letter-spacing: 5px;
-}
-.screen2 .time-value .blue{color: #00a9d8;}
-.screen2 .time-value .pink{color: #df5aa5;}
+    .screen2 .time-block{
+      width: 100%;
+      max-width: 550px;
+      position: relative;
+      flex-shrink: 0;
+      margin-top: clamp(8px, 1.5vw, 15px);
+    }
+    .screen2 .decor-lines{
+      width: 100%;
+      height: clamp(300px, 48vw, 460px);
+      position: relative;
+    }
+    .screen2 .line{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      height: auto;
+    }
+    .screen2 .line.top{top: 0;}
+    .screen2 .line.bottom{bottom: 0; transform: rotate(180deg);}
+    .screen2 .line path{
+      fill: none;
+      stroke: #666;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .screen2 .time-text{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+    .screen2 .time-label{
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 4.5vw, 40px);
+      font-weight:600;
+      color: #111;
+      line-height: 1.3;
+      margin-bottom: clamp(20px, 3.5vw, 32px);
+    }
+    .screen2 .time-value{
+      font-family: 'Ms Madi', cursive;
+      font-size: clamp(60px, 12vw, 120px);
+      line-height: 1;
+      letter-spacing: 5px;
+    }
+    .screen2 .time-value .blue{color: #00a9d8;}
+    .screen2 .time-value .pink{color: #df5aa5;}
 
-.screen2 .location-block{
-  width: 100%;
-  max-width: 550px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(20px, 4vw, 40px);
-}
-.screen2 .location-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 72px);
-  font-weight:400;
-  line-height:1.1;
-  letter-spacing: 3px;
-  color:#111;
-}
-.screen2 .location-address{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(16px, 3vw, 24px);
-  font-weight:600;
-  line-height:1.6;
-  color:#111;
-  padding: 0 10px;
-}
-.screen2 .location-name{
-  font-weight:700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: clamp(8px, 1.5vw, 14px);
-}
-.screen2 .location-details{
-  font-weight:600;
-}
-.screen2 .map-container{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  max-width: 280px;
-  border-radius: 14px;
-  overflow: hidden;
-}
-.screen2 .map-container iframe{
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+    .screen2 .location-block{
+      width: 100%;
+      max-width: 550px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(20px, 4vw, 40px);
+    }
+    .screen2 .location-title{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(42px, 9vw, 72px);
+      font-weight:400;
+      line-height:1.1;
+      letter-spacing: 3px;
+      color:#111;
+    }
+    .screen2 .location-address{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(16px, 3vw, 24px);
+      font-weight:600;
+      line-height:1.6;
+      color:#111;
+      padding: 0 10px;
+    }
+    .screen2 .location-name{
+      font-weight:700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: clamp(8px, 1.5vw, 14px);
+    }
+    .screen2 .location-details{
+      font-weight:600;
+    }
+    .screen2 .map-container{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 280px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .screen2 .map-container iframe{
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-/* ===== ЭКРАН 3: Голосование ===== */
-.screen3{
-  min-height: 40vh;
-  min-height: 40dvh;
-  width:100%;
-  background: radial-gradient(ellipse at 30% 40%, #ffb3d1 0%, transparent 55%),
-              radial-gradient(ellipse at 70% 60%, #a3dfff 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 20%, #ffc8de 0%, transparent 45%),
-              radial-gradient(ellipse at 40% 80%, #b3e5ff 0%, transparent 40%),
-              radial-gradient(ellipse at 80% 30%, #ff9ec4 0%, transparent 35%);
-  background-color: #ffe0ec;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: clamp(35px, 7vw, 60px) clamp(16px, 3vw, 24px);
-  justify-content: center;
-  overflow-x:hidden;
-}
+    /* ===== ЭКРАН 3: Голосование ===== */
+    .screen3{
+      min-height: 40vh;
+      min-height: 40dvh;
+      width:100%;
+      background: radial-gradient(ellipse at 30% 40%, #ffb3d1 0%, transparent 55%),
+                  radial-gradient(ellipse at 70% 60%, #a3dfff 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 20%, #ffc8de 0%, transparent 45%),
+                  radial-gradient(ellipse at 40% 80%, #b3e5ff 0%, transparent 40%),
+                  radial-gradient(ellipse at 80% 30%, #ff9ec4 0%, transparent 35%);
+      background-color: #ffe0ec;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding: clamp(35px, 7vw, 60px) clamp(16px, 3vw, 24px);
+      justify-content: center;
+      overflow-x:hidden;
+    }
 
-.screen3 .vote-container{
-  background: #47a5c8;
-  border-radius: 22px;
-  padding: clamp(20px, 4vw, 35px) clamp(20px, 4vw, 35px);
-  max-width: 550px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(18px, 3vw, 30px);
-}
+    .screen3 .vote-container{
+      background: #47a5c8;
+      border-radius: 22px;
+      padding: clamp(20px, 4vw, 35px) clamp(20px, 4vw, 35px);
+      max-width: 550px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(18px, 3vw, 30px);
+    }
 
-.screen3 .vote-title{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 36px);
-  font-weight:700;
-  color: #fff;
-  line-height: 1.3;
-}
-.screen3 .vote-buttons{
-  display: flex;
-  gap: clamp(35px, 8vw, 80px);
-  justify-content: center;
-  align-items: flex-start;
-}
-.screen3 .vote-btn{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(8px, 1.5vw, 12px);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: transform 0.25s ease;
-}
-.screen3 .vote-btn:hover{transform: scale(1.1);}
-.screen3 .vote-btn:active{transform: scale(0.92);}
-.screen3 .vote-photo{
-  width: clamp(80px, 16vw, 120px);
-  height: clamp(80px, 16vw, 120px);
-  border-radius: 50%;
-  overflow: hidden;
-}
-.screen3 .vote-photo img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.screen3 .vote-label{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(14px, 2.2vw, 20px);
-  font-weight:600;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.screen3 .vote-count{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(32px, 6vw, 50px);
-  font-weight:700;
-  color: #fff;
-  min-height: clamp(38px, 6.5vw, 58px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.screen3 .vote-count.show{
-  opacity: 1;
-}
+    .screen3 .vote-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight:700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .screen3 .vote-buttons{
+      display: flex;
+      gap: clamp(35px, 8vw, 80px);
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .screen3 .vote-btn{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(8px, 1.5vw, 12px);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: transform 0.25s ease;
+    }
+    .screen3 .vote-btn:hover{transform: scale(1.1);}
+    .screen3 .vote-btn:active{transform: scale(0.92);}
+    .screen3 .vote-photo{
+      width: clamp(80px, 16vw, 120px);
+      height: clamp(80px, 16vw, 120px);
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .screen3 .vote-photo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .screen3 .vote-label{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(14px, 2.2vw, 20px);
+      font-weight:600;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .screen3 .vote-count{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6vw, 50px);
+      font-weight:700;
+      color: #fff;
+      min-height: clamp(38px, 6.5vw, 58px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .screen3 .vote-count.show{
+      opacity: 1;
+    }
 
-/* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
-.shared-bg{
-  width:100%;
-  background: radial-gradient(ellipse at 25% 35%, #ffd6e8 0%, transparent 50%),
-              radial-gradient(ellipse at 75% 65%, #d4f0ff 0%, transparent 50%),
-              radial-gradient(ellipse at 60% 25%, #ffe0ec 0%, transparent 40%),
-              radial-gradient(ellipse at 35% 75%, #c8e8ff 0%, transparent 40%),
-              radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 55%);
-  background-color: #f5f0f0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  overflow-x:hidden;
-}
+    /* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
+    .shared-bg{
+      width:100%;
+      background: radial-gradient(ellipse at 25% 35%, #ffd6e8 0%, transparent 50%),
+                  radial-gradient(ellipse at 75% 65%, #d4f0ff 0%, transparent 50%),
+                  radial-gradient(ellipse at 60% 25%, #ffe0ec 0%, transparent 40%),
+                  radial-gradient(ellipse at 35% 75%, #c8e8ff 0%, transparent 40%),
+                  radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 55%);
+      background-color: #f5f0f0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      overflow-x:hidden;
+    }
 
-.screen4{
-  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
-  justify-content: center;
-  gap: clamp(30px, 5vw, 50px);
-}
+    .screen4{
+      padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
+      justify-content: center;
+      gap: clamp(30px, 5vw, 50px);
+    }
 
-.screen4 .details-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
-  font-weight:400;
-  letter-spacing: 3px;
-  line-height:1.1;
-  color:#111;
-}
+    .screen4 .details-title{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(48px, 10vw, 78px);
+      font-weight:400;
+      letter-spacing: 3px;
+      line-height:1.1;
+      color:#111;
+    }
 
-.screen4 .details-text{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);
-  font-weight:500;
-  line-height:1.7;
-  color:#111;
-  max-width: 680px;
-  padding: 0 10px;
-}
+    .screen4 .details-text{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.8vw, 30px);
+      font-weight:500;
+      line-height:1.7;
+      color:#111;
+      max-width: 680px;
+      padding: 0 10px;
+    }
 
-.screen4 .form-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
-  font-weight:400;
-  letter-spacing: 3px;
-  line-height:1.1;
-  color:#111;
-}
+    .screen4 .form-title{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(48px, 10vw, 78px);
+      font-weight:400;
+      letter-spacing: 3px;
+      line-height:1.1;
+      color:#111;
+    }
 
-.screen4 .form-subtitle{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);
-  font-weight:500;
-  line-height:1.5;
-  color:#111;
-  max-width: 680px;
-  padding: 0 10px;
-}
+    .screen4 .form-subtitle{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.8vw, 30px);
+      font-weight:500;
+      line-height:1.5;
+      color:#111;
+      max-width: 680px;
+      padding: 0 10px;
+    }
 
-.screen4 .form-container{
-  width: 100%;
-  max-width: 580px;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(16px, 2.8vw, 24px);
-  text-align: left;
-}
+    .screen4 .form-container{
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 2.8vw, 24px);
+      text-align: left;
+    }
 
-.screen4 .form-field{display:flex;flex-direction:column;gap:10px}
-.screen4 .form-label{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.2vw, 26px);
-  font-weight:600;
-  color:#111;
-}
-.screen4 .form-input{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);
-  padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
-  border: 1.5px solid #47a5c8;
-  border-radius: 14px;
-  background: transparent;
-  color:#111;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-.screen4 .form-input:focus{border-color:#2b8aaa}
+    .screen4 .form-field{display:flex;flex-direction:column;gap:10px}
+    .screen4 .form-label{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.2vw, 26px);
+      font-weight:600;
+      color:#111;
+    }
+    .screen4 .form-input{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.8vw, 22px);
+      padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
+      border: 1.5px solid #47a5c8;
+      border-radius: 14px;
+      background: transparent;
+      color:#111;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .screen4 .form-input:focus{border-color:#2b8aaa}
 
-.screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
-.screen4 .radio-option{display:flex;align-items:center;gap:12px;cursor:pointer}
-.screen4 .radio-option input[type="radio"]{
-  appearance:none;-webkit-appearance:none;
-  width:22px;height:22px;border:2px solid #47a5c8;border-radius:50%;
-  flex-shrink:0;position:relative;cursor:pointer;background:transparent;
-}
-.screen4 .radio-option input[type="radio"]:checked::after{
-  content:'';position:absolute;top:3px;left:3px;width:12px;height:12px;
-  border-radius:50%;background:#47a5c8;
-}
-.screen4 .radio-option span{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);color:#111;
-}
+    .screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
+    .screen4 .radio-option{display:flex;align-items:center;gap:12px;cursor:pointer}
+    .screen4 .radio-option input[type="radio"]{
+      appearance:none;-webkit-appearance:none;
+      width:22px;height:22px;border:2px solid #47a5c8;border-radius:50%;
+      flex-shrink:0;position:relative;cursor:pointer;background:transparent;
+    }
+    .screen4 .radio-option input[type="radio"]:checked::after{
+      content:'';position:absolute;top:3px;left:3px;width:12px;height:12px;
+      border-radius:50%;background:#47a5c8;
+    }
+    .screen4 .radio-option span{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.8vw, 22px);color:#111;
+    }
 
-.screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
-.screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
-.screen4 .checkbox-option input[type="checkbox"]{
-  appearance:none;-webkit-appearance:none;
-  width:22px;height:22px;border:2px solid #47a5c8;border-radius:5px;
-  flex-shrink:0;position:relative;cursor:pointer;background:transparent;
-}
-.screen4 .checkbox-option input[type="checkbox"]:checked::after{
-  content:'';position:absolute;top:2px;left:6px;width:6px;height:12px;
-  border:solid #47a5c8;border-width:0 2px 2px 0;transform:rotate(45deg);
-}
-.screen4 .checkbox-option span{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 22px);color:#111;
-}
+    .screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
+    .screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
+    .screen4 .checkbox-option input[type="checkbox"]{
+      appearance:none;-webkit-appearance:none;
+      width:22px;height:22px;border:2px solid #47a5c8;border-radius:5px;
+      flex-shrink:0;position:relative;cursor:pointer;background:transparent;
+    }
+    .screen4 .checkbox-option input[type="checkbox"]:checked::after{
+      content:'';position:absolute;top:2px;left:6px;width:6px;height:12px;
+      border:solid #47a5c8;border-width:0 2px 2px 0;transform:rotate(45deg);
+    }
+    .screen4 .checkbox-option span{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.8vw, 22px);color:#111;
+    }
 
-.screen4 .submit-btn{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
-  background:transparent;border:1.5px solid #df5aa5;border-radius:50px;
-  padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
-  cursor:pointer;transition:all 0.3s ease;align-self:center;margin-top:12px;
-}
-.screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
-.screen4 .submit-btn:active{transform:scale(0.97)}
+    .screen4 .submit-btn{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
+      background:transparent;border:1.5px solid #df5aa5;border-radius:50px;
+      padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
+      cursor:pointer;transition:all 0.3s ease;align-self:center;margin-top:12px;
+    }
+    .screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
+    .screen4 .submit-btn:active{transform:scale(0.97)}
 
-/* ===== КОНТАКТЫ ===== */
-.screen4 .contacts-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
-  font-weight:400;
-  letter-spacing: 3px;
-  line-height:1.1;
-  color:#111;
-  margin-top: clamp(30px, 5vw, 50px);
-}
+    /* ===== КОНТАКТЫ ===== */
+    .screen4 .contacts-title{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(48px, 10vw, 78px);
+      font-weight:400;
+      letter-spacing: 3px;
+      line-height:1.1;
+      color:#111;
+      margin-top: clamp(30px, 5vw, 50px);
+    }
 
-.screen4 .contacts-info{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
-}
+    .screen4 .contacts-info{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
+    }
 
-.screen4 .contacts-phone{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
-}
+    .screen4 .contacts-phone{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
+    }
 
-/* ===== ЗВЁЗДОЧКИ ===== */
-.stars-triangle-bottom{
-  position: relative;
-  width: clamp(140px, 24vw, 210px);
-  height: clamp(110px, 18vw, 150px);
-  margin-top: clamp(20px, 4vw, 36px);
-  margin-bottom: clamp(8px, 1.5vw, 14px);
-}
+    /* ===== ЗВЁЗДОЧКИ ===== */
+    .stars-triangle-bottom{
+      position: relative;
+      width: clamp(140px, 24vw, 210px);
+      height: clamp(110px, 18vw, 150px);
+      margin-top: clamp(20px, 4vw, 36px);
+      margin-bottom: clamp(8px, 1.5vw, 14px);
+    }
 
-.star-5-final{
-  position: absolute;
-  width: clamp(30px, 5.5vw, 48px);
-  height: clamp(30px, 5.5vw, 48px);
-}
-.star-5-final.top-center{
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.star-5-final.mid-left{
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-.star-5-final.bottom-right{
-  bottom: 0;
-  right: 28%;
-}
+    .star-5-final{
+      position: absolute;
+      width: clamp(30px, 5.5vw, 48px);
+      height: clamp(30px, 5.5vw, 48px);
+    }
+    .star-5-final.top-center{
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .star-5-final.mid-left{
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    .star-5-final.bottom-right{
+      bottom: 0;
+      right: 28%;
+    }
 
-/* ===== ЖДЁМ ВАС ===== */
-.screen4 .waiting-title{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
-  font-weight:400;
-  letter-spacing: 3px;
-  line-height:1.1;
-  color:#111;
-}
+    /* ===== ЖДЁМ ВАС ===== */
+    .screen4 .waiting-title{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(48px, 10vw, 78px);
+      font-weight:400;
+      letter-spacing: 3px;
+      line-height:1.1;
+      color:#111;
+    }
 
-.screen4 .waiting-subtitle{
-  font-family:'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 78px);
-  font-weight:400;
-  letter-spacing: 3px;
-  line-height:1.1;
-  color:#111;
-  margin-top: clamp(2px, 0.5vw, 6px);
-}
+    .screen4 .waiting-subtitle{
+      font-family:'Great Vibes', cursive;
+      font-size: clamp(48px, 10vw, 78px);
+      font-weight:400;
+      letter-spacing: 3px;
+      line-height:1.1;
+      color:#111;
+      margin-top: clamp(2px, 0.5vw, 6px);
+    }
 
-/* ===== ТАЙМЕР ===== */
-.timer-block{
-  display: flex;
-  gap: clamp(16px, 3vw, 32px);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: clamp(24px, 4vw, 40px);
-}
+    /* ===== ТАЙМЕР ===== */
+    .timer-block{
+      display: flex;
+      gap: clamp(16px, 3vw, 32px);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: clamp(24px, 4vw, 40px);
+    }
 
-.timer-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(6px, 1vw, 12px);
-}
-.timer-circle{
-  width: clamp(75px, 15vw, 115px);
-  height: clamp(75px, 15vw, 115px);
-  border-radius: 50%;
-  border: 2.5px solid #47a5c8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  gap: 3px;
-}
-.timer-number{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(32px, 6.5vw, 52px);
-  font-weight:700;
-  color: #df5aa5;
-  line-height: 1;
-}
-.timer-label-inside{
-  font-family:'Cormorant Garamond', serif;
-  font-size: clamp(12px, 2vw, 16px);
-  font-weight:300;
-  color: #999;
-  letter-spacing: 0.3px;
-  line-height: 1;
-}
-</style>
+    .timer-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(6px, 1vw, 12px);
+    }
+    .timer-circle{
+      width: clamp(75px, 15vw, 115px);
+      height: clamp(75px, 15vw, 115px);
+      border-radius: 50%;
+      border: 2.5px solid #47a5c8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      gap: 3px;
+    }
+    .timer-number{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6.5vw, 52px);
+      font-weight:700;
+      color: #df5aa5;
+      line-height: 1;
+    }
+    .timer-label-inside{
+      font-family:'Cormorant Garamond', serif;
+      font-size: clamp(12px, 2vw, 16px);
+      font-weight:300;
+      color: #999;
+      letter-spacing: 0.3px;
+      line-height: 1;
+    }
+
+    /* ===== КНОПКА МУЗЫКИ ===== */
+    .music-btn-wrap {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .music-btn-wrap:hover {
+      transform: scale(1.05);
+    }
+    .music-btn-wrap:active {
+      transform: scale(0.92);
+    }
+    .music-btn-wrap .circle {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid #111;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .music-btn-wrap .circle svg {
+      width: 34px;
+      height: 34px;
+      fill: none;
+      stroke: #111;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+    .music-btn-wrap .circle .muted {
+      stroke: #999;
+    }
+    /* текст вокруг круга — абсолютно позиционирован */
+    .music-btn-wrap .circle .rotate-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 140px;
+      pointer-events: none;
+      animation: spin-text 12s linear infinite;
+    }
+    .music-btn-wrap .circle .rotate-text svg {
+      width: 100%;
+      height: 100%;
+    }
+    .music-btn-wrap .circle .rotate-text text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      fill: #111;
+    }
+    @keyframes spin-text {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    /* если музыка выключена — затемняем круг и делаем динамик перечеркнутым */
+    .music-btn-wrap.muted .circle {
+      border-color: #999;
+      background: #f0f0f0;
+    }
+    .music-btn-wrap.muted .circle svg {
+      stroke: #999;
+    }
+    .music-btn-wrap.muted .circle .rotate-text text {
+      fill: #999;
+    }
+    /* перечеркивание динамика */
+    .music-btn-wrap .circle .slash {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-35deg);
+      width: 44px;
+      height: 3px;
+      background: #999;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .music-btn-wrap.muted .circle .slash {
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
@@ -796,7 +896,6 @@ body{font-family:Arial;overflow-x:hidden}
     Пожалуйста, подтвердите присутствие до 15.08.
   </div>
 
-  <!-- ===== ИЗМЕНЕНИЕ: добавлен ваш ID Formspree ===== -->
   <form class="form-container animate-on-scroll" action="https://formspree.io/f/xjgnkdga" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
@@ -920,6 +1019,34 @@ body{font-family:Arial;overflow-x:hidden}
 
 </div>
 
+<!-- ===== КНОПКА МУЗЫКИ ===== -->
+<button class="music-btn-wrap" id="musicBtn" aria-label="Включить музыку">
+  <div class="circle">
+    <!-- иконка динамика (без перечеркивания) -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+    </svg>
+    <!-- полоска-перечеркивание (появляется при muted) -->
+    <div class="slash"></div>
+
+    <!-- вращающийся текст вокруг круга -->
+    <div class="rotate-text">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="circlePath" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+        </defs>
+        <text font-size="20" letter-spacing="4" fill="#111">
+          <textPath href="#circlePath" startOffset="3%">
+            ✦ Включите музыку ✦ Включите музыку ✦
+          </textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+</button>
+
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
@@ -1029,6 +1156,20 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// ===== МУЗЫКА: игрушечный переключатель (без реального аудио) =====
+const musicBtn = document.getElementById('musicBtn');
+let isMuted = false; // по умолчанию звук включён (динамик без перечеркивания)
+
+musicBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  isMuted = !isMuted;
+  this.classList.toggle('muted', isMuted);
+  // Меняем aria-label
+  this.setAttribute('aria-label', isMuted ? 'Включить музыку' : 'Выключить музыку');
+  // Здесь можно добавить реальное управление аудио, если есть <audio> элемент
+  // Например: const audio = document.getElementById('bg-music'); if (audio) { isMuted ? audio.pause() : audio.play(); }
+});
 </script>
 
 </body>
