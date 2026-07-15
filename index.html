@@ -725,14 +725,15 @@
     .music-inline .music-btn:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст — одинаковые отступы со всех сторон */
+    /* вращающийся текст — адаптивный круг с одинаковыми отступами */
     .music-inline .rotate-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 180px;
-      height: 180px;
+      width: 100%;
+      max-width: 190px;
+      aspect-ratio: 1/1;
       pointer-events: none;
       animation: spin-text 16s linear infinite;
     }
@@ -742,7 +743,7 @@
     }
     .music-inline .rotate-text text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 200;
       letter-spacing: 2.5px;
       fill: #000;
@@ -806,7 +807,7 @@
           <defs>
             <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
-          <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
+          <text font-size="12.5" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
             <textPath href="#circlePathInline" startOffset="2%">
               • Включите музыку • Включите музыку • Включите музыку
             </textPath>
@@ -1054,7 +1055,7 @@ const db = firebase.database();
 const votesRef = db.ref('votes');
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
 
-// Принудительный сброс голосов до 0
+// Принудительный сброс голосов до 0 (только при первом запуске)
 votesRef.set({ girl: 0, boy: 0 });
 
 votesRef.on('value', (snapshot) => {
@@ -1083,9 +1084,11 @@ async function vote(type) {
   const current = snapshot.val() || { girl: 0, boy: 0 };
   const myVote = localStorage.getItem(MY_VOTE_KEY);
 
+  // Отнимаем старый голос, если был
   if (myVote === 'girl') current.girl = Math.max(0, (current.girl || 0) - 1);
   if (myVote === 'boy') current.boy = Math.max(0, (current.boy || 0) - 1);
 
+  // Добавляем новый голос
   if (type === 'girl') {
     current.girl = (current.girl || 0) + 1;
     localStorage.setItem(MY_VOTE_KEY, 'girl');
@@ -1098,6 +1101,7 @@ async function vote(type) {
   updateVoteVisibility();
 }
 
+// Обновляем видимость при загрузке
 updateVoteVisibility();
 
 // ===== ТАЙМЕР =====
