@@ -1055,29 +1055,21 @@ const db = firebase.database();
 const votesRef = db.ref('votes');
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
 
-// Принудительный сброс голосов до 0 (только при первом запуске)
-votesRef.set({ girl: 0, boy: 0 });
+// НЕ сбрасываем данные, а используем существующие или создаем с 0 только если их нет
+votesRef.once('value').then((snapshot) => {
+  if (!snapshot.exists()) {
+    votesRef.set({ girl: 0, boy: 0 });
+  }
+});
 
 votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
   document.getElementById('count-boy').textContent = data.boy || 0;
-  updateVoteVisibility();
+  // Показываем счетчики всегда (включая 0)
+  document.getElementById('count-girl').classList.add('show');
+  document.getElementById('count-boy').classList.add('show');
 });
-
-function updateVoteVisibility() {
-  const myVote = localStorage.getItem(MY_VOTE_KEY);
-  const girlCount = document.getElementById('count-girl');
-  const boyCount = document.getElementById('count-boy');
-  
-  if (myVote) {
-    girlCount.classList.add('show');
-    boyCount.classList.add('show');
-  } else {
-    girlCount.classList.remove('show');
-    boyCount.classList.remove('show');
-  }
-}
 
 async function vote(type) {
   const snapshot = await votesRef.once('value');
@@ -1098,11 +1090,7 @@ async function vote(type) {
   }
 
   await votesRef.set(current);
-  updateVoteVisibility();
 }
-
-// Обновляем видимость при загрузке
-updateVoteVisibility();
 
 // ===== ТАЙМЕР =====
 const targetDate = new Date('2026-08-28T18:00:00');
