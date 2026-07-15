@@ -1,6 +1,3 @@
-Конечно, вот исправленный HTML-код. Я убрал глобальное жирное начертание шрифта и удалил значок воспроизведения (серый треугольник) на главном видео.
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,7 +8,7 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;overflow-x:hidden}
-    body{font-family:Arial;overflow-x:hidden;font-weight:normal;} /* Убираем глобальное жирное */
+    body{font-family:Arial;overflow-x:hidden;font-weight:700;} /* Сделали жирный шрифт для всего документа */
 
     /* ===== ЭКРАН 1: Girl or Boy ===== */
     .screen1{
@@ -28,6 +25,8 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      /* Убираем все элементы управления, чтобы не было паузы */
+      pointer-events: none;
     }
     .screen1 .overlay{
       position:absolute;
@@ -113,7 +112,7 @@
     .screen2 .title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(42px, 9vw, 72px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       line-height:1.1;
       color:#2d2a2a;
       letter-spacing: 3px;
@@ -122,7 +121,7 @@
     .screen2 .info{
       font-family:'Cormorant Garamond';
       font-size: clamp(18px, 3.5vw, 28px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1.45;
       padding: 0 10px;
       color:#2d2a2a;
@@ -139,7 +138,7 @@
       justify-content:center;
       font-family:'Cormorant Garamond';
       font-size: clamp(36px, 8vw, 58px);
-      font-weight:500;
+      font-weight:700; /* Жирный */
       letter-spacing: 2px;
       color:#2d2a2a;
     }
@@ -176,20 +175,20 @@
     .screen2 .cell:last-child{border:none}
     .screen2 .week{
       font-size: clamp(16px, 3.5vw, 28px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       margin-bottom: clamp(10px, 2.5vw, 25px);
       white-space: nowrap;
       color:#2d2a2a;
     }
     .screen2 .number{
       font-size: clamp(60px, 13vw, 110px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color: #bbb;
     }
     .screen2 .middle .number{
       color:#2d2a2a;
       font-size: clamp(80px, 18vw, 160px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1;
     }
 
@@ -219,7 +218,7 @@
     .screen2 .bottom{
       font-family:'Cormorant Garamond';
       font-size: clamp(18px, 3.5vw, 28px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1.5;
       padding: 0 10px;
       color:#2d2a2a;
@@ -263,7 +262,7 @@
     .screen2 .time-label{
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(24px, 4.5vw, 40px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color: #2d2a2a;
       line-height: 1.3;
       margin-bottom: clamp(20px, 3.5vw, 32px);
@@ -273,6 +272,7 @@
       font-size: clamp(60px, 12vw, 120px);
       line-height: 1;
       letter-spacing: 5px;
+      font-weight:700; /* Жирный */
     }
     .screen2 .time-value .blue{color: #00a9d8;}
     .screen2 .time-value .pink{color: #df5aa5;}
@@ -289,7 +289,7 @@
     .screen2 .location-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(42px, 9vw, 72px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       line-height:1.1;
       letter-spacing: 3px;
       color:#2d2a2a;
@@ -297,20 +297,20 @@
     .screen2 .location-address{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(16px, 3vw, 24px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1.6;
       color:#2d2a2a;
       padding: 0 10px;
     }
     .screen2 .location-name{
-      font-weight:400;
+      font-weight:700; /* Жирный */
       text-transform: uppercase;
       letter-spacing: 1px;
       display: block;
       margin-bottom: clamp(8px, 1.5vw, 14px);
     }
     .screen2 .location-details{
-      font-weight:300;
+      font-weight:700; /* Жирный */
     }
     .screen2 .map-container{
       width: 100%;
@@ -360,7 +360,7 @@
     .screen3 .vote-title{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(22px, 4vw, 36px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       color: #fff;
       line-height: 1.3;
     }
@@ -398,7 +398,7 @@
     .screen3 .vote-label{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(14px, 2.2vw, 20px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -406,7 +406,7 @@
     .screen3 .vote-count{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(32px, 6vw, 50px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color: #fff;
       min-height: clamp(38px, 6.5vw, 58px);
       opacity: 0;
@@ -441,7 +441,7 @@
     .screen4 .details-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       letter-spacing: 3px;
       line-height:1.1;
       color:#2d2a2a;
@@ -450,7 +450,7 @@
     .screen4 .details-text{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1.7;
       color:#2d2a2a;
       max-width: 680px;
@@ -460,7 +460,7 @@
     .screen4 .form-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       letter-spacing: 3px;
       line-height:1.1;
       color:#2d2a2a;
@@ -469,7 +469,7 @@
     .screen4 .form-subtitle{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1.5;
       color:#2d2a2a;
       max-width: 680px;
@@ -489,7 +489,7 @@
     .screen4 .form-label{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.2vw, 26px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color:#2d2a2a;
     }
     .screen4 .form-input{
@@ -502,7 +502,7 @@
       color:#2d2a2a;
       outline: none;
       transition: border-color 0.3s ease;
-      font-weight:300;
+      font-weight:700; /* Жирный */
     }
     .screen4 .form-input:focus{border-color:#2b8aaa}
 
@@ -520,7 +520,7 @@
     .screen4 .radio-option span{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(18px, 2.8vw, 22px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color:#2d2a2a;
     }
 
@@ -538,14 +538,14 @@
     .screen4 .checkbox-option span{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(18px, 2.8vw, 22px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color:#2d2a2a;
     }
 
     .screen4 .submit-btn{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.5vw, 28px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       color:#47a5c8;
       background:transparent;
       border:1px solid #df5aa5;
@@ -563,7 +563,7 @@
     .screen4 .contacts-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       letter-spacing: 3px;
       line-height:1.1;
       color:#2d2a2a;
@@ -573,7 +573,7 @@
     .screen4 .contacts-info{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       line-height:1.6;
       color:#2d2a2a;
     }
@@ -581,7 +581,7 @@
     .screen4 .contacts-phone{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(22px, 4vw, 34px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color:#2d2a2a;
       letter-spacing:0.5px;
     }
@@ -619,7 +619,7 @@
     .screen4 .waiting-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       letter-spacing: 3px;
       line-height:1.1;
       color:#2d2a2a;
@@ -628,7 +628,7 @@
     .screen4 .waiting-subtitle{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
-      font-weight:400;
+      font-weight:700; /* Жирный */
       letter-spacing: 3px;
       line-height:1.1;
       color:#2d2a2a;
@@ -665,14 +665,14 @@
     .timer-number{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(32px, 6.5vw, 52px);
-      font-weight:300;
+      font-weight:700; /* Жирный */
       color: #df5aa5;
       line-height: 1;
     }
     .timer-label-inside{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(12px, 2vw, 16px);
-      font-weight:200;
+      font-weight:700; /* Жирный */
       color: #999;
       letter-spacing: 0.3px;
       line-height: 1;
@@ -764,7 +764,7 @@
     .music-inline .rotate-text text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
-      font-weight: 200;
+      font-weight: 700; /* Жирный */
       letter-spacing: 2.5px;
       fill: #000;
     }
@@ -781,6 +781,7 @@
 
 <!-- ===== ЭКРАН 1 ===== -->
 <div class="screen1">
+  <!-- Видео автоматически проигрывается и не имеет элементов управления -->
   <video autoplay loop muted playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback">
     <source src="видео.mp4" type="video/mp4"/>
   </video>
@@ -828,7 +829,7 @@
             <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
           <!-- ровно три повторения, без лишних символов -->
-          <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
+          <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="700" font-family="'Cormorant Garamond', serif">
             <textPath href="#circlePathInline" startOffset="2%">
               • Включите музыку • Включите музыку • Включите музыку •
             </textPath>
@@ -997,7 +998,7 @@
 
   <div class="contacts-info animate-on-scroll">
     По всем вопросам обращайтесь:<br>
-    <span style="font-weight:400;">Владислав</span><br>
+    <span style="font-weight:700;">Владислав</span><br>
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#2d2a2a;">+375 29 220 77 77</a>
   </div>
 
@@ -1187,4 +1188,3 @@ musicBtnInline.addEventListener('click', function(e) {
 
 </body>
 </html>
-```
