@@ -662,7 +662,7 @@ body{font-family:Arial;overflow-x:hidden}
 
 <!-- ===== ЭКРАН 1 ===== -->
 <div class="screen1">
-  <video autoplay loop muted playsinline>
+  <video id="bgVideo" autoplay loop muted playsinline preload="auto">
     <source src="видео.mp4" type="video/mp4"/>
   </video>
   <div class="overlay"></div>
@@ -796,7 +796,7 @@ body{font-family:Arial;overflow-x:hidden}
     Пожалуйста, подтвердите присутствие до 15.08.
   </div>
 
-  <!-- ===== ИЗМЕНЕНИЕ: добавлен ваш ID Formspree ===== -->
+  <!-- ===== ФОРМА с вашим ID Formspree ===== -->
   <form class="form-container animate-on-scroll" action="https://formspree.io/f/xjgnkdga" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
@@ -925,6 +925,26 @@ body{font-family:Arial;overflow-x:hidden}
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
+// ===== ГАРАНТИРОВАННЫЙ ЗАПУСК ВИДЕО =====
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('bgVideo');
+  if (video) {
+    // Пробуем запустить видео сразу
+    video.play().catch(function(error) {
+      console.log('Автозапуск заблокирован браузером, запустим при взаимодействии');
+      // Если браузер блокирует автозапуск, запускаем при первом клике или касании
+      const startVideo = function() {
+        video.play();
+        document.removeEventListener('click', startVideo);
+        document.removeEventListener('touchstart', startVideo);
+      };
+      document.addEventListener('click', startVideo);
+      document.addEventListener('touchstart', startVideo);
+    });
+  }
+});
+
+// ===== FIREBASE ГОЛОСОВАНИЕ =====
 const firebaseConfig = {
   databaseURL: "https://gender-e7fab-default-rtdb.firebaseio.com/"
 };
@@ -1005,10 +1025,10 @@ function updateTimer() {
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  document.getElementById('days').textContent = days;
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
+  document.getElementById('days').textContent = String(days).padStart(2, '0');
+  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 
   document.getElementById('days-label').textContent = pluralize(days, ['день', 'дня', 'дней']);
   document.getElementById('hours-label').textContent = pluralize(hours, ['час', 'часа', 'часов']);
@@ -1019,7 +1039,7 @@ function updateTimer() {
 updateTimer();
 setInterval(updateTimer, 1000);
 
-// Анимация при скролле — простая, без задержек
+// ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
