@@ -1,780 +1,669 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-  <title>Gender Reveal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@200;300;400;500;600;700&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;overflow-x:hidden}
-    body{font-family:Arial;overflow-x:hidden;font-weight:700;}
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Gender Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Ms+Madi&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Arial;overflow-x:hidden}
 
-    /* ===== ЭКРАН 1: Girl or Boy ===== */
-    .screen1{
-      position:relative;
-      height:100vh;
-      height:100dvh;
-      width:100%;
-      overflow:hidden;
-      background:#000;
-    }
-    .screen1 video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      pointer-events:none;
-    }
-    .screen1 .overlay{
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.35);
-    }
-    .screen1 .star{
-      position:absolute;
-      width:20px;
-      height:20px;
-    }
-    .screen1 .star svg{
-      width:100%;
-      height:100%;
-    }
-    .screen1 .title{
-      position:absolute;
-      left:50%;
-      bottom:25%;
-      transform:translateX(-50%) rotate(-9deg);
-      font-family:'Ms Madi',cursive;
-      font-size:clamp(72px,10vw,140px);
-      color:#fff;
-      white-space:nowrap;
-      text-shadow:0 0 8px rgba(255,255,255,.15);
-      font-weight:100;
-      letter-spacing:10px;
-      -webkit-text-stroke:0.5px white;
-    }
-    .screen1 .arrow{
-      position:absolute;
-      left:50%;
-      bottom:25px;
-      transform:translateX(-50%);
-      animation:b 1.8s infinite;
-      cursor:pointer;
-      text-decoration:none;
-    }
-    .screen1 .arrow svg{
-      width:28px;
-      height:28px;
-      display:block;
-    }
-    @keyframes b{
-      0%,100%{transform:translateX(-50%) translateY(0)}
-      50%{transform:translateX(-50%) translateY(8px)}
-    }
+/* ===== ЭКРАН 1: Girl or Boy ===== */
+.screen1{
+  position:relative;
+  height:100vh;
+  height:100dvh;
+  width:100%;
+  overflow:hidden;
+  background:#000;
+}
+.screen1 video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.screen1 .overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+}
+.screen1 .star{
+  position:absolute;
+  width:20px;
+  height:20px;
+}
+.screen1 .star svg{
+  width:100%;
+  height:100%;
+}
+.screen1 .title{
+  position:absolute;
+  left:50%;
+  bottom:25%;
+  transform:translateX(-50%) rotate(-9deg);
+  font-family:'Ms Madi',cursive;
+  font-size:clamp(72px,10vw,140px);
+  color:#fff;
+  white-space:nowrap;
+  text-shadow:0 0 8px rgba(255,255,255,.15);
+  font-weight:100;
+  letter-spacing:10px;
+  -webkit-text-stroke:0.5px white;
+}
+.screen1 .arrow{
+  position:absolute;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%);
+  animation:b 1.8s infinite;
+  cursor:pointer;
+  text-decoration:none;
+}
+.screen1 .arrow svg{
+  width:28px;
+  height:28px;
+  display:block;
+}
+@keyframes b{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(8px)}
+}
 
-    /* ===== ЭКРАН 2: Приглашение ===== */
-    .screen2{
-      min-height:100vh;
-      min-height:100dvh;
-      width:100%;
-      background: radial-gradient(ellipse at 20% 30%, #ffd6e8 0%, transparent 50%),
-                  radial-gradient(ellipse at 80% 70%, #d4f0ff 0%, transparent 50%),
-                  radial-gradient(ellipse at 60% 20%, #ffe0ec 0%, transparent 40%),
-                  radial-gradient(ellipse at 30% 80%, #c8e8ff 0%, transparent 40%),
-                  radial-gradient(ellipse at 70% 50%, #ffc8de 0%, transparent 35%),
-                  radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 60%);
-      background-color: #f5f0f0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      padding: clamp(30px, 6vw, 55px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
-      justify-content: center;
-      gap: clamp(18px, 3vw, 34px);
-      overflow-x:hidden;
-    }
+/* ===== ЭКРАН 2: Приглашение ===== */
+.screen2{
+  min-height:100vh;
+  min-height:100dvh;
+  width:100%;
+  background: radial-gradient(ellipse at 20% 30%, #ffd6e8 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 70%, #d4f0ff 0%, transparent 50%),
+              radial-gradient(ellipse at 60% 20%, #ffe0ec 0%, transparent 40%),
+              radial-gradient(ellipse at 30% 80%, #c8e8ff 0%, transparent 40%),
+              radial-gradient(ellipse at 70% 50%, #ffc8de 0%, transparent 35%),
+              radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 60%);
+  background-color: #f5f0f0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: clamp(30px, 6vw, 55px) clamp(16px, 3vw, 24px) clamp(20px, 4vw, 35px);
+  justify-content: center;
+  gap: clamp(18px, 3vw, 34px);
+  overflow-x:hidden;
+}
 
-    .animate-on-scroll{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-      will-change: opacity, transform;
-    }
-    .animate-on-scroll.visible{
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Простая анимация появления */
+.animate-on-scroll{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+.animate-on-scroll.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .screen2 .title{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(42px, 9vw, 72px);
-      font-weight:700;
-      line-height:1.1;
-      color:#2d2a2a;
-      letter-spacing: 3px;
-      padding-top: clamp(20px, 4vw, 40px);
-    }
-    .screen2 .info{
-      font-family:'Cormorant Garamond';
-      font-size: clamp(18px, 3.5vw, 28px);
-      font-weight:700;
-      line-height:1.45;
-      padding: 0 10px;
-      color:#2d2a2a;
-    }
-    .screen2 .calendar-wrapper{
-      width:100%;
-      max-width:750px;
-      flex-shrink: 0;
-    }
-    .screen2 .month-title{
-      display:flex;
-      align-items:center;
-      gap: clamp(12px, 3vw, 25px);
-      justify-content:center;
-      font-family:'Cormorant Garamond';
-      font-size: clamp(36px, 8vw, 58px);
-      font-weight:700;
-      letter-spacing: 2px;
-      color:#2d2a2a;
-    }
-    .screen2 .month-title:before,
-    .screen2 .month-title:after{
-      content:"";
-      height:2px;
-      background:#2d2a2a;
-      flex:1;
-    }
-    .screen2 .calendar{
-      position:relative;
-      margin-top: clamp(10px, 2vw, 15px);
-      height: clamp(200px, 38vw, 310px);
-      border-top:2px solid #2d2a2a;
-      border-bottom:2px solid #2d2a2a;
-    }
-    .screen2 .days{
-      height:100%;
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-    }
-    .screen2 .cell{
-      border-right:2px solid #2d2a2a;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      font-family:'Cormorant Garamond';
-      padding: clamp(5px, 2vw, 12px);
-      position:relative;
-      z-index:2;
-    }
-    .screen2 .cell:last-child{border:none}
-    .screen2 .week{
-      font-size: clamp(16px, 3.5vw, 28px);
-      font-weight:700;
-      margin-bottom: clamp(10px, 2.5vw, 25px);
-      white-space: nowrap;
-      color:#2d2a2a;
-    }
-    .screen2 .number{
-      font-size: clamp(60px, 13vw, 110px);
-      font-weight:700;
-      color: #bbb;
-    }
-    .screen2 .middle .number{
-      color:#2d2a2a;
-      font-size: clamp(80px, 18vw, 160px);
-      font-weight:700;
-      line-height:1;
-    }
+.screen2 .title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(42px, 9vw, 72px);
+  font-weight:400;
+  line-height:1.1;
+  color:#111;
+  letter-spacing: 3px;
+  padding-top: clamp(20px, 4vw, 40px);
+}
+.screen2 .info{
+  font-family:'Cormorant Garamond';
+  font-size: clamp(18px, 3.5vw, 28px);
+  font-weight:600;
+  line-height:1.45;
+  padding: 0 10px;
+  color:#111;
+}
+.screen2 .calendar-wrapper{
+  width:100%;
+  max-width:750px;
+  flex-shrink: 0;
+}
+.screen2 .month-title{
+  display:flex;
+  align-items:center;
+  gap: clamp(12px, 3vw, 25px);
+  justify-content:center;
+  font-family:'Cormorant Garamond';
+  font-size: clamp(36px, 8vw, 58px);
+  font-weight:700;
+  letter-spacing: 2px;
+  color:#111;
+}
+.screen2 .month-title:before,
+.screen2 .month-title:after{
+  content:"";
+  height:2px;
+  background:#111;
+  flex:1;
+}
+.screen2 .calendar{
+  position:relative;
+  margin-top: clamp(10px, 2vw, 15px);
+  height: clamp(200px, 38vw, 310px);
+  border-top:2px solid #111;
+  border-bottom:2px solid #111;
+}
+.screen2 .days{
+  height:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+}
+.screen2 .cell{
+  border-right:2px solid #111;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:'Cormorant Garamond';
+  padding: clamp(5px, 2vw, 12px);
+  position:relative;
+  z-index:2;
+}
+.screen2 .cell:last-child{border:none}
+.screen2 .week{
+  font-size: clamp(16px, 3.5vw, 28px);
+  font-weight:600;
+  margin-bottom: clamp(10px, 2.5vw, 25px);
+  white-space: nowrap;
+  color:#111;
+}
+.screen2 .number{
+  font-size: clamp(60px, 13vw, 110px);
+  font-weight:700;
+  color: #bbb;
+}
+.screen2 .middle .number{
+  color:#000;
+  font-size: clamp(80px, 18vw, 160px);
+  font-weight:700;
+  line-height:1;
+}
 
-    .screen2 .photo-wrapper{
-      position:absolute;
-      width: clamp(240px, 44vw, 380px);
-      height: clamp(240px, 44vw, 380px);
-      left:50%;
-      top: 50%;
-      transform:translate(-50%, -50%);
-      pointer-events: none;
-      z-index:1;
-    }
-    .screen2 .photo-wrapper img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      animation: pulse-photo 2.5s ease-in-out infinite;
-      transform-origin: center center;
-    }
-    @keyframes pulse-photo {
-      0%,100%{transform:scale(1); opacity:0.8}
-      50%{transform:scale(1.06); opacity:1}
-    }
+/* ===== ФОТО КРУГ С ПУЛЬСАЦИЕЙ ===== */
+.screen2 .photo-wrapper{
+  position:absolute;
+  width: clamp(240px, 44vw, 380px);
+  height: clamp(240px, 44vw, 380px);
+  left:50%;
+  top: 50%;
+  transform:translate(-50%, -50%);
+  pointer-events: none;
+  z-index:1;
+}
+.screen2 .photo-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  animation: pulse-photo 2.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+@keyframes pulse-photo {
+  0%,100%{transform:scale(1); opacity:0.8}
+  50%{transform:scale(1.06); opacity:1}
+}
 
-    .screen2 .bottom{
-      font-family:'Cormorant Garamond';
-      font-size: clamp(18px, 3.5vw, 28px);
-      font-weight:700;
-      line-height:1.5;
-      padding: 0 10px;
-      color:#2d2a2a;
-    }
+.screen2 .bottom{
+  font-family:'Cormorant Garamond';
+  font-size: clamp(18px, 3.5vw, 28px);
+  font-weight:600;
+  line-height:1.5;
+  padding: 0 10px;
+  color:#111;
+}
 
-    .screen2 .time-block{
-      width: 100%;
-      max-width: 550px;
-      position: relative;
-      flex-shrink: 0;
-      margin-top: clamp(8px, 1.5vw, 15px);
-    }
-    .screen2 .decor-lines{
-      width: 100%;
-      height: clamp(300px, 48vw, 460px);
-      position: relative;
-    }
-    .screen2 .line{
-      position: absolute;
-      width: 100%;
-      left: 0;
-      height: auto;
-    }
-    .screen2 .line.top{top: 0;}
-    .screen2 .line.bottom{bottom: 0; transform: rotate(180deg);}
-    .screen2 .line path{
-      fill: none;
-      stroke: #8a7a7a;
-      stroke-width: 1.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .screen2 .time-text{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 2;
-    }
-    .screen2 .time-label{
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(24px, 4.5vw, 40px);
-      font-weight:700;
-      color: #2d2a2a;
-      line-height: 1.3;
-      margin-bottom: clamp(20px, 3.5vw, 32px);
-    }
-    .screen2 .time-value{
-      font-family: 'Ms Madi', cursive;
-      font-size: clamp(60px, 12vw, 120px);
-      line-height: 1;
-      letter-spacing: 5px;
-      font-weight:700;
-    }
-    .screen2 .time-value .blue{color: #00a9d8;}
-    .screen2 .time-value .pink{color: #df5aa5;}
+.screen2 .time-block{
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: clamp(8px, 1.5vw, 15px);
+}
+.screen2 .decor-lines{
+  width: 100%;
+  height: clamp(300px, 48vw, 460px);
+  position: relative;
+}
+.screen2 .line{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: auto;
+}
+.screen2 .line.top{top: 0;}
+.screen2 .line.bottom{bottom: 0; transform: rotate(180deg);}
+.screen2 .line path{
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.screen2 .time-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+.screen2 .time-label{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 4.5vw, 40px);
+  font-weight:600;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: clamp(20px, 3.5vw, 32px);
+}
+.screen2 .time-value{
+  font-family: 'Ms Madi', cursive;
+  font-size: clamp(60px, 12vw, 120px);
+  line-height: 1;
+  letter-spacing: 5px;
+}
+.screen2 .time-value .blue{color: #00a9d8;}
+.screen2 .time-value .pink{color: #df5aa5;}
 
-    .screen2 .location-block{
-      width: 100%;
-      max-width: 550px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: clamp(20px, 4vw, 40px);
-    }
-    .screen2 .location-title{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(42px, 9vw, 72px);
-      font-weight:700;
-      line-height:1.1;
-      letter-spacing: 3px;
-      color:#2d2a2a;
-    }
-    .screen2 .location-address{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(16px, 3vw, 24px);
-      font-weight:700;
-      line-height:1.6;
-      color:#2d2a2a;
-      padding: 0 10px;
-    }
-    .screen2 .location-name{
-      font-weight:700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: clamp(8px, 1.5vw, 14px);
-    }
-    .screen2 .location-details{
-      font-weight:700;
-    }
-    .screen2 .map-container{
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      max-width: 280px;
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .screen2 .map-container iframe{
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+.screen2 .location-block{
+  width: 100%;
+  max-width: 550px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 4vw, 40px);
+}
+.screen2 .location-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(42px, 9vw, 72px);
+  font-weight:400;
+  line-height:1.1;
+  letter-spacing: 3px;
+  color:#111;
+}
+.screen2 .location-address{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(16px, 3vw, 24px);
+  font-weight:600;
+  line-height:1.6;
+  color:#111;
+  padding: 0 10px;
+}
+.screen2 .location-name{
+  font-weight:700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: clamp(8px, 1.5vw, 14px);
+}
+.screen2 .location-details{
+  font-weight:600;
+}
+.screen2 .map-container{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.screen2 .map-container iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-    /* ===== ЭКРАН 3: Голосование ===== */
-    .screen3{
-      min-height: 40vh;
-      min-height: 40dvh;
-      width:100%;
-      background: radial-gradient(ellipse at 30% 40%, #ffb3d1 0%, transparent 55%),
-                  radial-gradient(ellipse at 70% 60%, #a3dfff 0%, transparent 50%),
-                  radial-gradient(ellipse at 50% 20%, #ffc8de 0%, transparent 45%),
-                  radial-gradient(ellipse at 40% 80%, #b3e5ff 0%, transparent 40%),
-                  radial-gradient(ellipse at 80% 30%, #ff9ec4 0%, transparent 35%);
-      background-color: #ffe0ec;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      padding: clamp(35px, 7vw, 60px) clamp(16px, 3vw, 24px);
-      justify-content: center;
-      overflow-x:hidden;
-    }
+/* ===== ЭКРАН 3: Голосование ===== */
+.screen3{
+  min-height: 40vh;
+  min-height: 40dvh;
+  width:100%;
+  background: radial-gradient(ellipse at 30% 40%, #ffb3d1 0%, transparent 55%),
+              radial-gradient(ellipse at 70% 60%, #a3dfff 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 20%, #ffc8de 0%, transparent 45%),
+              radial-gradient(ellipse at 40% 80%, #b3e5ff 0%, transparent 40%),
+              radial-gradient(ellipse at 80% 30%, #ff9ec4 0%, transparent 35%);
+  background-color: #ffe0ec;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: clamp(35px, 7vw, 60px) clamp(16px, 3vw, 24px);
+  justify-content: center;
+  overflow-x:hidden;
+}
 
-    .screen3 .vote-container{
-      background: #47a5c8;
-      border-radius: 22px;
-      padding: clamp(20px, 4vw, 35px) clamp(20px, 4vw, 35px);
-      max-width: 550px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: clamp(18px, 3vw, 30px);
-    }
+.screen3 .vote-container{
+  background: #47a5c8;
+  border-radius: 22px;
+  padding: clamp(20px, 4vw, 35px) clamp(20px, 4vw, 35px);
+  max-width: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 3vw, 30px);
+}
 
-    .screen3 .vote-title{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(22px, 4vw, 36px);
-      font-weight:700;
-      color: #fff;
-      line-height: 1.3;
-    }
-    .screen3 .vote-buttons{
-      display: flex;
-      gap: clamp(35px, 8vw, 80px);
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .screen3 .vote-btn{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: clamp(8px, 1.5vw, 12px);
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      transition: transform 0.25s ease;
-    }
-    .screen3 .vote-btn:hover{transform: scale(1.1);}
-    .screen3 .vote-btn:active{transform: scale(0.92);}
-    .screen3 .vote-photo{
-      width: clamp(80px, 16vw, 120px);
-      height: clamp(80px, 16vw, 120px);
-      border-radius: 50%;
-      overflow: hidden;
-    }
-    .screen3 .vote-photo img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .screen3 .vote-label{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(14px, 2.2vw, 20px);
-      font-weight:700;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .screen3 .vote-count{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(32px, 6vw, 50px);
-      font-weight:700;
-      color: #fff;
-      min-height: clamp(38px, 6.5vw, 58px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .screen3 .vote-count.show{
-      opacity: 1;
-    }
+.screen3 .vote-title{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight:700;
+  color: #fff;
+  line-height: 1.3;
+}
+.screen3 .vote-buttons{
+  display: flex;
+  gap: clamp(35px, 8vw, 80px);
+  justify-content: center;
+  align-items: flex-start;
+}
+.screen3 .vote-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: transform 0.25s ease;
+}
+.screen3 .vote-btn:hover{transform: scale(1.1);}
+.screen3 .vote-btn:active{transform: scale(0.92);}
+.screen3 .vote-photo{
+  width: clamp(80px, 16vw, 120px);
+  height: clamp(80px, 16vw, 120px);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.screen3 .vote-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.screen3 .vote-label{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(14px, 2.2vw, 20px);
+  font-weight:600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.screen3 .vote-count{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(32px, 6vw, 50px);
+  font-weight:700;
+  color: #fff;
+  min-height: clamp(38px, 6.5vw, 58px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.screen3 .vote-count.show{
+  opacity: 1;
+}
 
-    /* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
-    .shared-bg{
-      width:100%;
-      background: radial-gradient(ellipse at 25% 35%, #ffd6e8 0%, transparent 50%),
-                  radial-gradient(ellipse at 75% 65%, #d4f0ff 0%, transparent 50%),
-                  radial-gradient(ellipse at 60% 25%, #ffe0ec 0%, transparent 40%),
-                  radial-gradient(ellipse at 35% 75%, #c8e8ff 0%, transparent 40%),
-                  radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 55%);
-      background-color: #f5f0f0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      overflow-x:hidden;
-    }
+/* ===== ДЕТАЛИ + АНКЕТА + КОНТАКТЫ + ТАЙМЕР ===== */
+.shared-bg{
+  width:100%;
+  background: radial-gradient(ellipse at 25% 35%, #ffd6e8 0%, transparent 50%),
+              radial-gradient(ellipse at 75% 65%, #d4f0ff 0%, transparent 50%),
+              radial-gradient(ellipse at 60% 25%, #ffe0ec 0%, transparent 40%),
+              radial-gradient(ellipse at 35% 75%, #c8e8ff 0%, transparent 40%),
+              radial-gradient(ellipse at 50% 50%, #e8f4f8 0%, transparent 55%);
+  background-color: #f5f0f0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  overflow-x:hidden;
+}
 
-    .screen4{
-      padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
-      justify-content: center;
-      gap: clamp(30px, 5vw, 50px);
-    }
+.screen4{
+  padding: clamp(35px, 6vw, 55px) clamp(20px, 4vw, 35px) clamp(40px, 7vw, 60px);
+  justify-content: center;
+  gap: clamp(30px, 5vw, 50px);
+}
 
-    .screen4 .details-title{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(48px, 10vw, 78px);
-      font-weight:700;
-      letter-spacing: 3px;
-      line-height:1.1;
-      color:#2d2a2a;
-    }
+.screen4 .details-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  font-weight:400;
+  letter-spacing: 3px;
+  line-height:1.1;
+  color:#111;
+}
 
-    .screen4 .details-text{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:700;
-      line-height:1.7;
-      color:#2d2a2a;
-      max-width: 680px;
-      padding: 0 10px;
-    }
+.screen4 .details-text{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.8vw, 30px);
+  font-weight:500;
+  line-height:1.7;
+  color:#111;
+  max-width: 680px;
+  padding: 0 10px;
+}
 
-    .screen4 .form-title{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(48px, 10vw, 78px);
-      font-weight:700;
-      letter-spacing: 3px;
-      line-height:1.1;
-      color:#2d2a2a;
-    }
+.screen4 .form-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  font-weight:400;
+  letter-spacing: 3px;
+  line-height:1.1;
+  color:#111;
+}
 
-    .screen4 .form-subtitle{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:700;
-      line-height:1.5;
-      color:#2d2a2a;
-      max-width: 680px;
-      padding: 0 10px;
-    }
+.screen4 .form-subtitle{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.8vw, 30px);
+  font-weight:500;
+  line-height:1.5;
+  color:#111;
+  max-width: 680px;
+  padding: 0 10px;
+}
 
-    .screen4 .form-container{
-      width: 100%;
-      max-width: 580px;
-      display: flex;
-      flex-direction: column;
-      gap: clamp(16px, 2.8vw, 24px);
-      text-align: left;
-    }
+.screen4 .form-container{
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.8vw, 24px);
+  text-align: left;
+}
 
-    .screen4 .form-field{display:flex;flex-direction:column;gap:10px}
-    .screen4 .form-label{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.2vw, 26px);
-      font-weight:700;
-      color:#2d2a2a;
-    }
-    .screen4 .form-input{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(18px, 2.8vw, 22px);
-      padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
-      border: 1px solid #47a5c8;
-      border-radius: 14px;
-      background: transparent;
-      color:#2d2a2a;
-      outline: none;
-      transition: border-color 0.3s ease;
-      font-weight:700;
-    }
-    .screen4 .form-input:focus{border-color:#2b8aaa}
+.screen4 .form-field{display:flex;flex-direction:column;gap:10px}
+.screen4 .form-label{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.2vw, 26px);
+  font-weight:600;
+  color:#111;
+}
+.screen4 .form-input{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.8vw, 22px);
+  padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
+  border: 1.5px solid #47a5c8;
+  border-radius: 14px;
+  background: transparent;
+  color:#111;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.screen4 .form-input:focus{border-color:#2b8aaa}
 
-    .screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
-    .screen4 .radio-option{display:flex;align-items:center;gap:12px;cursor:pointer}
-    .screen4 .radio-option input[type="radio"]{
-      appearance:none;-webkit-appearance:none;
-      width:22px;height:22px;border:2px solid #47a5c8;border-radius:50%;
-      flex-shrink:0;position:relative;cursor:pointer;background:transparent;
-    }
-    .screen4 .radio-option input[type="radio"]:checked::after{
-      content:'';position:absolute;top:3px;left:3px;width:12px;height:12px;
-      border-radius:50%;background:#47a5c8;
-    }
-    .screen4 .radio-option span{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(18px, 2.8vw, 22px);
-      font-weight:700;
-      color:#2d2a2a;
-    }
+.screen4 .radio-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
+.screen4 .radio-option{display:flex;align-items:center;gap:12px;cursor:pointer}
+.screen4 .radio-option input[type="radio"]{
+  appearance:none;-webkit-appearance:none;
+  width:22px;height:22px;border:2px solid #47a5c8;border-radius:50%;
+  flex-shrink:0;position:relative;cursor:pointer;background:transparent;
+}
+.screen4 .radio-option input[type="radio"]:checked::after{
+  content:'';position:absolute;top:3px;left:3px;width:12px;height:12px;
+  border-radius:50%;background:#47a5c8;
+}
+.screen4 .radio-option span{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.8vw, 22px);color:#111;
+}
 
-    .screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
-    .screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
-    .screen4 .checkbox-option input[type="checkbox"]{
-      appearance:none;-webkit-appearance:none;
-      width:22px;height:22px;border:2px solid #47a5c8;border-radius:5px;
-      flex-shrink:0;position:relative;cursor:pointer;background:transparent;
-    }
-    .screen4 .checkbox-option input[type="checkbox"]:checked::after{
-      content:'';position:absolute;top:2px;left:6px;width:6px;height:12px;
-      border:solid #47a5c8;border-width:0 2px 2px 0;transform:rotate(45deg);
-    }
-    .screen4 .checkbox-option span{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(18px, 2.8vw, 22px);
-      font-weight:700;
-      color:#2d2a2a;
-    }
+.screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
+.screen4 .checkbox-option{display:flex;align-items:center;gap:12px;cursor:pointer}
+.screen4 .checkbox-option input[type="checkbox"]{
+  appearance:none;-webkit-appearance:none;
+  width:22px;height:22px;border:2px solid #47a5c8;border-radius:5px;
+  flex-shrink:0;position:relative;cursor:pointer;background:transparent;
+}
+.screen4 .checkbox-option input[type="checkbox"]:checked::after{
+  content:'';position:absolute;top:2px;left:6px;width:6px;height:12px;
+  border:solid #47a5c8;border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+.screen4 .checkbox-option span{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.8vw, 22px);color:#111;
+}
 
-    .screen4 .submit-btn{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.5vw, 28px);
-      font-weight:700;
-      color:#47a5c8;
-      background:transparent;
-      border:1px solid #df5aa5;
-      border-radius:50px;
-      padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
-      cursor:pointer;
-      transition:all 0.3s ease;
-      align-self:center;
-      margin-top:12px;
-    }
-    .screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
-    .screen4 .submit-btn:active{transform:scale(0.97)}
+.screen4 .submit-btn{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
+  background:transparent;border:1.5px solid #df5aa5;border-radius:50px;
+  padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
+  cursor:pointer;transition:all 0.3s ease;align-self:center;margin-top:12px;
+}
+.screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
+.screen4 .submit-btn:active{transform:scale(0.97)}
 
-    .screen4 .contacts-title{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(48px, 10vw, 78px);
-      font-weight:700;
-      letter-spacing: 3px;
-      line-height:1.1;
-      color:#2d2a2a;
-      margin-top: clamp(30px, 5vw, 50px);
-    }
+/* ===== КОНТАКТЫ ===== */
+.screen4 .contacts-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  font-weight:400;
+  letter-spacing: 3px;
+  line-height:1.1;
+  color:#111;
+  margin-top: clamp(30px, 5vw, 50px);
+}
 
-    .screen4 .contacts-info{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:700;
-      line-height:1.6;
-      color:#2d2a2a;
-    }
+.screen4 .contacts-info{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#111;
+}
 
-    .screen4 .contacts-phone{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight:700;
-      color:#2d2a2a;
-      letter-spacing:0.5px;
-    }
+.screen4 .contacts-phone{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#111;letter-spacing:0.5px;
+}
 
-    .stars-triangle-bottom{
-      position: relative;
-      width: clamp(140px, 24vw, 210px);
-      height: clamp(110px, 18vw, 150px);
-      margin-top: clamp(20px, 4vw, 36px);
-      margin-bottom: clamp(8px, 1.5vw, 14px);
-    }
+/* ===== ЗВЁЗДОЧКИ ===== */
+.stars-triangle-bottom{
+  position: relative;
+  width: clamp(140px, 24vw, 210px);
+  height: clamp(110px, 18vw, 150px);
+  margin-top: clamp(20px, 4vw, 36px);
+  margin-bottom: clamp(8px, 1.5vw, 14px);
+}
 
-    .star-5-final{
-      position: absolute;
-      width: clamp(30px, 5.5vw, 48px);
-      height: clamp(30px, 5.5vw, 48px);
-    }
-    .star-5-final.top-center{
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .star-5-final.mid-left{
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-    }
-    .star-5-final.bottom-right{
-      bottom: 0;
-      right: 28%;
-    }
+.star-5-final{
+  position: absolute;
+  width: clamp(30px, 5.5vw, 48px);
+  height: clamp(30px, 5.5vw, 48px);
+}
+.star-5-final.top-center{
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.star-5-final.mid-left{
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.star-5-final.bottom-right{
+  bottom: 0;
+  right: 28%;
+}
 
-    .screen4 .waiting-title{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(48px, 10vw, 78px);
-      font-weight:700;
-      letter-spacing: 3px;
-      line-height:1.1;
-      color:#2d2a2a;
-    }
+/* ===== ЖДЁМ ВАС ===== */
+.screen4 .waiting-title{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  font-weight:400;
+  letter-spacing: 3px;
+  line-height:1.1;
+  color:#111;
+}
 
-    .screen4 .waiting-subtitle{
-      font-family:'Great Vibes', cursive;
-      font-size: clamp(48px, 10vw, 78px);
-      font-weight:700;
-      letter-spacing: 3px;
-      line-height:1.1;
-      color:#2d2a2a;
-      margin-top: clamp(2px, 0.5vw, 6px);
-    }
+.screen4 .waiting-subtitle{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  font-weight:400;
+  letter-spacing: 3px;
+  line-height:1.1;
+  color:#111;
+  margin-top: clamp(2px, 0.5vw, 6px);
+}
 
-    .timer-block{
-      display: flex;
-      gap: clamp(16px, 3vw, 32px);
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: clamp(24px, 4vw, 40px);
-    }
+/* ===== ТАЙМЕР ===== */
+.timer-block{
+  display: flex;
+  gap: clamp(16px, 3vw, 32px);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: clamp(24px, 4vw, 40px);
+}
 
-    .timer-item{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: clamp(6px, 1vw, 12px);
-    }
-    .timer-circle{
-      width: clamp(75px, 15vw, 115px);
-      height: clamp(75px, 15vw, 115px);
-      border-radius: 50%;
-      border: 1.5px solid #47a5c8;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      gap: 3px;
-    }
-    .timer-number{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(32px, 6.5vw, 52px);
-      font-weight:700;
-      color: #df5aa5;
-      line-height: 1;
-    }
-    .timer-label-inside{
-      font-family:'Cormorant Garamond', serif;
-      font-size: clamp(12px, 2vw, 16px);
-      font-weight:700;
-      color: #999;
-      letter-spacing: 0.3px;
-      line-height: 1;
-    }
-
-    .music-inline {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      padding: 36px 0 44px 0;
-      width: 100%;
-    }
-    .music-inline .music-btn {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 1px solid #000;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(2px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 0;
-    }
-    .music-inline .music-btn:hover {
-      transform: scale(1.04);
-      border-color: #000;
-    }
-    .music-inline .music-btn:active {
-      transform: scale(0.92);
-    }
-    .music-inline .music-btn svg {
-      width: 36px;
-      height: 36px;
-      fill: none;
-      stroke: #000;
-      stroke-width: 1;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition: stroke 0.25s;
-    }
-    .music-inline .music-btn .slash {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-35deg);
-      width: 44px;
-      height: 1.5px;
-      background: #000;
-      border-radius: 1px;
-      pointer-events: none;
-    }
-    .music-inline .music-btn.muted {
-      border-color: #000;
-      background: rgba(255,255,255,0.1);
-    }
-    .music-inline .music-btn.muted svg {
-      stroke: #000;
-    }
-    .music-inline .music-btn.muted .slash {
-      display: block;
-      background: #000;
-    }
-    .music-inline .music-btn:not(.muted) .slash {
-      display: none;
-    }
-    .music-inline .rotate-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 175px;
-      height: 175px;
-      pointer-events: none;
-      animation: spin-text 16s linear infinite;
-    }
-    .music-inline .rotate-text svg {
-      width: 100%;
-      height: 100%;
-    }
-    .music-inline .rotate-text text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      fill: #000;
-    }
-    .music-inline .music-btn.muted .rotate-text text {
-      fill: #000;
-    }
-    @keyframes spin-text {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-  </style>
+.timer-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vw, 12px);
+}
+.timer-circle{
+  width: clamp(75px, 15vw, 115px);
+  height: clamp(75px, 15vw, 115px);
+  border-radius: 50%;
+  border: 2.5px solid #47a5c8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  gap: 3px;
+}
+.timer-number{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(32px, 6.5vw, 52px);
+  font-weight:700;
+  color: #df5aa5;
+  line-height: 1;
+}
+.timer-label-inside{
+  font-family:'Cormorant Garamond', serif;
+  font-size: clamp(12px, 2vw, 16px);
+  font-weight:300;
+  color: #999;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+</style>
 </head>
 <body>
 
 <!-- ===== ЭКРАН 1 ===== -->
 <div class="screen1">
-  <video id="mainVideo" autoplay muted loop playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback">
+  <video autoplay loop muted playsinline>
     <source src="видео.mp4" type="video/mp4"/>
-    Ваш браузер не поддерживает видео.
   </video>
   <div class="overlay"></div>
 
@@ -804,29 +693,6 @@
 <div class="screen2" id="screen2">
 
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
-
-  <div class="music-inline animate-on-scroll">
-    <button class="music-btn muted" id="musicBtnInline" aria-label="Включить музыку">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-      </svg>
-      <div class="slash"></div>
-      <div class="rotate-text">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
-          </defs>
-          <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="700" font-family="'Cormorant Garamond', serif">
-            <textPath href="#circlePathInline" startOffset="2%">
-              • Включите музыку • Включите музыку • Включите музыку •
-            </textPath>
-          </text>
-        </svg>
-      </div>
-    </button>
-  </div>
 
   <div class="info animate-on-scroll">
     Приглашаем Вас на наше трепетное и<br>
@@ -930,6 +796,7 @@
     Пожалуйста, подтвердите присутствие до 15.08.
   </div>
 
+  <!-- ===== ИЗМЕНЕНИЕ: добавлен ваш ID Formspree ===== -->
   <form class="form-container animate-on-scroll" action="https://formspree.io/f/xjgnkdga" method="POST">
     <div class="form-field">
       <label class="form-label">Фамилия и Имя</label>
@@ -987,40 +854,43 @@
 
   <div class="contacts-info animate-on-scroll">
     По всем вопросам обращайтесь:<br>
-    <span style="font-weight:700;">Владислав</span><br>
-    <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#2d2a2a;">+375 29 220 77 77</a>
+    <span style="font-weight:600;">Владислав</span><br>
+    <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#111;">+375 29 220 77 77</a>
   </div>
 
+  <!-- 3 звездочки -->
   <div class="stars-triangle-bottom animate-on-scroll">
     <svg class="star-5-final top-center" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s1r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="1.5" clip-path="url(#s1l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="1.5" clip-path="url(#s1r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s1l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s1r)"/>
     </svg>
     <svg class="star-5-final mid-left" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s2l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s2r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="1.5" clip-path="url(#s2l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="1.5" clip-path="url(#s2r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s2l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s2r)"/>
     </svg>
     <svg class="star-5-final bottom-right" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s3l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s3r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="1.5" clip-path="url(#s3l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="1.5" clip-path="url(#s3r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s3l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s3r)"/>
     </svg>
   </div>
 
+  <!-- Ждём Вас -->
   <div class="waiting-title animate-on-scroll">Ждём Вас</div>
   <div class="waiting-subtitle animate-on-scroll">через...</div>
 
+  <!-- Таймер -->
   <div class="timer-block animate-on-scroll">
     <div class="timer-item">
       <div class="timer-circle">
@@ -1055,34 +925,6 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// ===== ПРИНУДИТЕЛЬНОЕ ВОСПРОИЗВЕДЕНИЕ ВИДЕО =====
-document.addEventListener('DOMContentLoaded', function() {
-  const video = document.getElementById('mainVideo');
-  
-  // Функция запуска видео
-  const playVideo = function() {
-    video.play().catch(function(error) {
-      console.log('Автовоспроизведение заблокировано, ждём клика');
-      // Если видео не запустилось, запускаем по первому клику
-      document.addEventListener('click', function playOnClick() {
-        video.play();
-        document.removeEventListener('click', playOnClick);
-      }, { once: true });
-    });
-  };
-  
-  // Запускаем видео
-  playVideo();
-  
-  // Если видео поставили на паузу — перезапускаем
-  video.addEventListener('pause', function() {
-    setTimeout(function() {
-      video.play().catch(function() {});
-    }, 100);
-  });
-});
-
-// ===== ОСТАЛЬНЫЕ СКРИПТЫ =====
 const firebaseConfig = {
   databaseURL: "https://gender-e7fab-default-rtdb.firebaseio.com/"
 };
@@ -1177,7 +1019,7 @@ function updateTimer() {
 updateTimer();
 setInterval(updateTimer, 1000);
 
-// Анимация при скролле
+// Анимация при скролле — простая, без задержек
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1187,17 +1029,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-// ===== МУЗЫКА: переключатель для встроенной кнопки =====
-const musicBtnInline = document.getElementById('musicBtnInline');
-let isMutedInline = true;
-
-musicBtnInline.addEventListener('click', function(e) {
-  e.preventDefault();
-  isMutedInline = !isMutedInline;
-  this.classList.toggle('muted', isMutedInline);
-  this.setAttribute('aria-label', isMutedInline ? 'Включить музыку' : 'Выключить музыку');
-});
 </script>
 
 </body>
