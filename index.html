@@ -657,7 +657,7 @@
       line-height: 1;
     }
 
-    /* ===== НОВАЯ КНОПКА МУЗЫКИ (в потоке, между заголовком и календарём) ===== */
+    /* ===== КНОПКА МУЗЫКИ - ИСХОДНЫЙ ВАРИАНТ ===== */
     .music-inline {
       display: flex;
       justify-content: center;
@@ -668,33 +668,33 @@
     }
     .music-inline .music-btn {
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
-      border: 1px solid #000;
-      background: rgba(255,255,255,0.1);
+      border: 1.5px solid #000;
+      background: rgba(255,255,255,0.15);
       backdrop-filter: blur(2px);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.25s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 0;
     }
     .music-inline .music-btn:hover {
-      transform: scale(1.04);
+      transform: scale(1.05);
       border-color: #000;
     }
     .music-inline .music-btn:active {
       transform: scale(0.92);
     }
     .music-inline .music-btn svg {
-      width: 36px;
-      height: 36px;
+      width: 42px;
+      height: 42px;
       fill: none;
       stroke: #000;
-      stroke-width: 1;
+      stroke-width: 1.5;
       stroke-linecap: round;
       stroke-linejoin: round;
       transition: stroke 0.25s;
@@ -705,15 +705,15 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-35deg);
-      width: 44px;
-      height: 1.5px;
+      width: 52px;
+      height: 2px;
       background: #000;
-      border-radius: 1px;
+      border-radius: 2px;
       pointer-events: none;
     }
     .music-inline .music-btn.muted {
       border-color: #000;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.15);
     }
     .music-inline .music-btn.muted svg {
       stroke: #000;
@@ -725,14 +725,14 @@
     .music-inline .music-btn:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст — одинаковые отступы со всех сторон */
+    /* вращающийся текст — увеличенный размер, за пределами обводки */
     .music-inline .rotate-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      max-width: 190px;
+      max-width: 210px;
       aspect-ratio: 1/1;
       pointer-events: none;
       animation: spin-text 16s linear infinite;
@@ -743,9 +743,9 @@
     }
     .music-inline .rotate-text text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 12.5px;
+      font-size: 14px;
       font-weight: 200;
-      letter-spacing: 2.5px;
+      letter-spacing: 3px;
       fill: #000;
     }
     .music-inline .music-btn.muted .rotate-text text {
@@ -793,10 +793,10 @@
 
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
 
-  <!-- === НОВАЯ КНОПКА МУЗЫКИ (по центру, после заголовка) === -->
+  <!-- === КНОПКА МУЗЫКИ - ИСХОДНЫЙ ВАРИАНТ === -->
   <div class="music-inline animate-on-scroll">
     <button class="music-btn muted" id="musicBtnInline" aria-label="Включить музыку">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
         <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
@@ -807,7 +807,7 @@
           <defs>
             <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
-          <text font-size="12" letter-spacing="3" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
+          <text font-size="14" letter-spacing="3" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
             <textPath href="#circlePathInline" startOffset="1%">
               • Включите музыку • Включите музыку • Включите музыку
             </textPath>
