@@ -95,6 +95,7 @@
       overflow-x:hidden;
     }
 
+    /* Простая анимация появления */
     .animate-on-scroll{
       opacity: 0;
       transform: translateY(30px);
@@ -118,7 +119,7 @@
     .screen2 .info{
       font-family:'Cormorant Garamond';
       font-size: clamp(18px, 3.5vw, 28px);
-      font-weight:600;
+      font-weight:300;
       line-height:1.45;
       padding: 0 10px;
       color:#2d2a2a;
@@ -135,7 +136,7 @@
       justify-content:center;
       font-family:'Cormorant Garamond';
       font-size: clamp(36px, 8vw, 58px);
-      font-weight:700;
+      font-weight:500;
       letter-spacing: 2px;
       color:#2d2a2a;
     }
@@ -172,23 +173,24 @@
     .screen2 .cell:last-child{border:none}
     .screen2 .week{
       font-size: clamp(16px, 3.5vw, 28px);
-      font-weight:600;
+      font-weight:300;
       margin-bottom: clamp(10px, 2.5vw, 25px);
       white-space: nowrap;
       color:#2d2a2a;
     }
     .screen2 .number{
       font-size: clamp(60px, 13vw, 110px);
-      font-weight:700;
+      font-weight:300;
       color: #bbb;
     }
     .screen2 .middle .number{
       color:#2d2a2a;
       font-size: clamp(80px, 18vw, 160px);
-      font-weight:700;
+      font-weight:300;
       line-height:1;
     }
 
+    /* ===== ФОТО КРУГ С ПУЛЬСАЦИЕЙ ===== */
     .screen2 .photo-wrapper{
       position:absolute;
       width: clamp(240px, 44vw, 380px);
@@ -214,7 +216,7 @@
     .screen2 .bottom{
       font-family:'Cormorant Garamond';
       font-size: clamp(18px, 3.5vw, 28px);
-      font-weight:600;
+      font-weight:300;
       line-height:1.5;
       padding: 0 10px;
       color:#2d2a2a;
@@ -243,7 +245,7 @@
     .screen2 .line path{
       fill: none;
       stroke: #8a7a7a;
-      stroke-width: 1.8;
+      stroke-width: 1.2;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
@@ -258,7 +260,7 @@
     .screen2 .time-label{
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(24px, 4.5vw, 40px);
-      font-weight:600;
+      font-weight:300;
       color: #2d2a2a;
       line-height: 1.3;
       margin-bottom: clamp(20px, 3.5vw, 32px);
@@ -292,20 +294,20 @@
     .screen2 .location-address{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(16px, 3vw, 24px);
-      font-weight:600;
+      font-weight:300;
       line-height:1.6;
       color:#2d2a2a;
       padding: 0 10px;
     }
     .screen2 .location-name{
-      font-weight:700;
+      font-weight:400;
       text-transform: uppercase;
       letter-spacing: 1px;
       display: block;
       margin-bottom: clamp(8px, 1.5vw, 14px);
     }
     .screen2 .location-details{
-      font-weight:600;
+      font-weight:300;
     }
     .screen2 .map-container{
       width: 100%;
@@ -355,7 +357,7 @@
     .screen3 .vote-title{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(22px, 4vw, 36px);
-      font-weight:700;
+      font-weight:400;
       color: #fff;
       line-height: 1.3;
     }
@@ -393,7 +395,7 @@
     .screen3 .vote-label{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(14px, 2.2vw, 20px);
-      font-weight:600;
+      font-weight:400;
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -401,11 +403,11 @@
     .screen3 .vote-count{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(32px, 6vw, 50px);
-      font-weight:700;
+      font-weight:300;
       color: #fff;
       min-height: clamp(38px, 6.5vw, 58px);
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
     }
     .screen3 .vote-count.show{
       opacity: 1;
@@ -445,7 +447,7 @@
     .screen4 .details-text{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:500;
+      font-weight:300;
       line-height:1.7;
       color:#2d2a2a;
       max-width: 680px;
@@ -464,7 +466,7 @@
     .screen4 .form-subtitle{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.8vw, 30px);
-      font-weight:500;
+      font-weight:300;
       line-height:1.5;
       color:#2d2a2a;
       max-width: 680px;
@@ -484,19 +486,20 @@
     .screen4 .form-label{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(20px, 3.2vw, 26px);
-      font-weight:600;
+      font-weight:300;
       color:#2d2a2a;
     }
     .screen4 .form-input{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(18px, 2.8vw, 22px);
       padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px);
-      border: 1.5px solid #47a5c8;
+      border: 1px solid #47a5c8;
       border-radius: 14px;
       background: transparent;
       color:#2d2a2a;
       outline: none;
       transition: border-color 0.3s ease;
+      font-weight:300;
     }
     .screen4 .form-input:focus{border-color:#2b8aaa}
 
@@ -513,7 +516,9 @@
     }
     .screen4 .radio-option span{
       font-family:'Cormorant Garamond', serif;
-      font-size: clamp(18px, 2.8vw, 22px);color:#2d2a2a;
+      font-size: clamp(18px, 2.8vw, 22px);
+      font-weight:300;
+      color:#2d2a2a;
     }
 
     .screen4 .checkbox-group{display:flex;flex-direction:column;gap:clamp(10px,1.8vw,14px)}
@@ -529,19 +534,29 @@
     }
     .screen4 .checkbox-option span{
       font-family:'Cormorant Garamond', serif;
-      font-size: clamp(18px, 2.8vw, 22px);color:#2d2a2a;
+      font-size: clamp(18px, 2.8vw, 22px);
+      font-weight:300;
+      color:#2d2a2a;
     }
 
     .screen4 .submit-btn{
       font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.5vw, 28px);font-weight:700;color:#47a5c8;
-      background:transparent;border:1.5px solid #df5aa5;border-radius:50px;
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight:400;
+      color:#47a5c8;
+      background:transparent;
+      border:1px solid #df5aa5;
+      border-radius:50px;
       padding: clamp(14px, 2.5vw, 18px) clamp(35px, 6vw, 50px);
-      cursor:pointer;transition:all 0.3s ease;align-self:center;margin-top:12px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      align-self:center;
+      margin-top:12px;
     }
     .screen4 .submit-btn:hover{background:rgba(223,90,165,0.06);transform:scale(1.03)}
     .screen4 .submit-btn:active{transform:scale(0.97)}
 
+    /* ===== КОНТАКТЫ ===== */
     .screen4 .contacts-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
@@ -554,14 +569,21 @@
 
     .screen4 .contacts-info{
       font-family:'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.8vw, 30px);font-weight:500;line-height:1.6;color:#2d2a2a;
+      font-size: clamp(20px, 3.8vw, 30px);
+      font-weight:300;
+      line-height:1.6;
+      color:#2d2a2a;
     }
 
     .screen4 .contacts-phone{
       font-family:'Cormorant Garamond', serif;
-      font-size: clamp(22px, 4vw, 34px);font-weight:600;color:#2d2a2a;letter-spacing:0.5px;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight:300;
+      color:#2d2a2a;
+      letter-spacing:0.5px;
     }
 
+    /* ===== ЗВЁЗДОЧКИ ===== */
     .stars-triangle-bottom{
       position: relative;
       width: clamp(140px, 24vw, 210px);
@@ -590,6 +612,7 @@
       right: 28%;
     }
 
+    /* ===== ЖДЁМ ВАС ===== */
     .screen4 .waiting-title{
       font-family:'Great Vibes', cursive;
       font-size: clamp(48px, 10vw, 78px);
@@ -609,6 +632,7 @@
       margin-top: clamp(2px, 0.5vw, 6px);
     }
 
+    /* ===== ТАЙМЕР ===== */
     .timer-block{
       display: flex;
       gap: clamp(16px, 3vw, 32px);
@@ -627,7 +651,7 @@
       width: clamp(75px, 15vw, 115px);
       height: clamp(75px, 15vw, 115px);
       border-radius: 50%;
-      border: 2.5px solid #47a5c8;
+      border: 1.5px solid #47a5c8;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -638,111 +662,110 @@
     .timer-number{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(32px, 6.5vw, 52px);
-      font-weight:700;
+      font-weight:300;
       color: #df5aa5;
       line-height: 1;
     }
     .timer-label-inside{
       font-family:'Cormorant Garamond', serif;
       font-size: clamp(12px, 2vw, 16px);
-      font-weight:300;
+      font-weight:200;
       color: #999;
       letter-spacing: 0.3px;
       line-height: 1;
     }
 
-    /* ===== КНОПКА МУЗЫКИ — ПО ЦЕНТРУ ===== */
-    .music-center {
+    /* ===== НОВАЯ КНОПКА МУЗЫКИ (в потоке, между заголовком и календарём) ===== */
+    .music-inline {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px 0 25px 0;
+      margin: 0;
+      padding: 36px 0 44px 0;
       width: 100%;
     }
-    .music-btn-center {
+    .music-inline .music-btn {
       position: relative;
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      border: 1.5px solid #000;
-      background: rgba(255,255,255,0.15);
+      border: 1px solid #000;
+      background: rgba(255,255,255,0.1);
       backdrop-filter: blur(2px);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.25s ease;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       padding: 0;
     }
-    .music-btn-center:hover {
-      transform: scale(1.05);
+    .music-inline .music-btn:hover {
+      transform: scale(1.04);
       border-color: #000;
     }
-    .music-btn-center:active {
+    .music-inline .music-btn:active {
       transform: scale(0.92);
     }
-    .music-btn-center svg {
-      width: 38px;
-      height: 38px;
+    .music-inline .music-btn svg {
+      width: 36px;
+      height: 36px;
       fill: none;
       stroke: #000;
-      stroke-width: 1.5;
+      stroke-width: 1;
       stroke-linecap: round;
       stroke-linejoin: round;
       transition: stroke 0.25s;
     }
-    .music-btn-center .slash {
+    .music-inline .music-btn .slash {
       display: none;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-35deg);
-      width: 48px;
-      height: 2px;
+      width: 44px;
+      height: 1.5px;
       background: #000;
-      border-radius: 2px;
+      border-radius: 1px;
       pointer-events: none;
     }
-    /* по умолчанию — muted (перечеркнут) */
-    .music-btn-center.muted {
+    .music-inline .music-btn.muted {
       border-color: #000;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.1);
     }
-    .music-btn-center.muted svg {
+    .music-inline .music-btn.muted svg {
       stroke: #000;
     }
-    .music-btn-center.muted .slash {
+    .music-inline .music-btn.muted .slash {
       display: block;
       background: #000;
     }
-    .music-btn-center:not(.muted) .slash {
+    .music-inline .music-btn:not(.muted) .slash {
       display: none;
     }
-    /* вращающийся текст с точками */
-    .music-btn-center .rotate-text {
+    /* вращающийся текст — очень тонкий */
+    .music-inline .rotate-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      max-width: 190px;
-      aspect-ratio: 1/1;
+      width: 175px;
+      height: 175px;
       pointer-events: none;
       animation: spin-text 16s linear infinite;
     }
-    .music-btn-center .rotate-text svg {
+    .music-inline .rotate-text svg {
       width: 100%;
       height: 100%;
     }
-    .music-btn-center .rotate-text text {
+    .music-inline .rotate-text text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
       font-weight: 200;
       letter-spacing: 2.5px;
       fill: #000;
     }
-    .music-btn-center.muted .rotate-text text {
+    .music-inline .music-btn.muted .rotate-text text {
       fill: #000;
     }
     @keyframes spin-text {
@@ -787,10 +810,10 @@
 
   <div class="title animate-on-scroll">Дорогие и любимые!</div>
 
-  <!-- ===== КНОПКА МУЗЫКИ ПО ЦЕНТРУ ===== -->
-  <div class="music-center animate-on-scroll">
-    <button class="music-btn-center muted" id="musicBtnCenter" aria-label="Включить музыку">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- === НОВАЯ КНОПКА МУЗЫКИ (по центру, после заголовка) === -->
+  <div class="music-inline animate-on-scroll">
+    <button class="music-btn muted" id="musicBtnInline" aria-label="Включить музыку">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
         <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
@@ -799,11 +822,12 @@
       <div class="rotate-text">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <path id="circlePathCenter" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+            <path id="circlePathInline" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
           </defs>
+          <!-- ровно три повторения, без лишних символов -->
           <text font-size="13" letter-spacing="2.5" fill="#000" font-weight="200" font-family="'Cormorant Garamond', serif">
-            <textPath href="#circlePathCenter" startOffset="2%">
-              • Включите музыку • Включите музыку • Включите музыку
+            <textPath href="#circlePathInline" startOffset="2%">
+              • Включите музыку • Включите музыку • Включите музыку •
             </textPath>
           </text>
         </svg>
@@ -970,7 +994,7 @@
 
   <div class="contacts-info animate-on-scroll">
     По всем вопросам обращайтесь:<br>
-    <span style="font-weight:600;">Владислав</span><br>
+    <span style="font-weight:400;">Владислав</span><br>
     <a href="tel:+375292207777" class="contacts-phone" style="text-decoration:none;color:#2d2a2a;">+375 29 220 77 77</a>
   </div>
 
@@ -981,24 +1005,24 @@
         <clipPath id="s1l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s1r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s1l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s1r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="1.5" clip-path="url(#s1l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="1.5" clip-path="url(#s1r)"/>
     </svg>
     <svg class="star-5-final mid-left" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s2l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s2r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s2l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s2r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="1.5" clip-path="url(#s2l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="1.5" clip-path="url(#s2r)"/>
     </svg>
     <svg class="star-5-final bottom-right" viewBox="0 0 24 24">
       <defs>
         <clipPath id="s3l"><rect x="0" y="0" width="12" height="24"/></clipPath>
         <clipPath id="s3r"><rect x="12" y="0" width="12" height="24"/></clipPath>
       </defs>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="2" clip-path="url(#s3l)"/>
-      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="2" clip-path="url(#s3r)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#df5aa5" stroke-width="1.5" clip-path="url(#s3l)"/>
+      <polygon points="12,1 14.5,8.5 22,8.5 16,13.5 18.5,21 12,16 5.5,21 8,13.5 2,8.5 9.5,8.5" fill="none" stroke="#00a9d8" stroke-width="1.5" clip-path="url(#s3r)"/>
     </svg>
   </div>
 
@@ -1049,20 +1073,26 @@ const db = firebase.database();
 const votesRef = db.ref('votes');
 const MY_VOTE_KEY = 'gender_reveal_my_vote';
 
-// НЕ сбрасываем данные, а используем существующие или создаем с 0 только если их нет
-votesRef.once('value').then((snapshot) => {
-  if (!snapshot.exists()) {
-    votesRef.set({ girl: 0, boy: 0 });
-  }
-});
-
 votesRef.on('value', (snapshot) => {
   const data = snapshot.val() || { girl: 0, boy: 0 };
   document.getElementById('count-girl').textContent = data.girl || 0;
   document.getElementById('count-boy').textContent = data.boy || 0;
-  document.getElementById('count-girl').classList.add('show');
-  document.getElementById('count-boy').classList.add('show');
+  updateVoteVisibility();
 });
+
+function updateVoteVisibility() {
+  const myVote = localStorage.getItem(MY_VOTE_KEY);
+  const girlCount = document.getElementById('count-girl');
+  const boyCount = document.getElementById('count-boy');
+  
+  if (myVote) {
+    girlCount.classList.add('show');
+    boyCount.classList.add('show');
+  } else {
+    girlCount.classList.remove('show');
+    boyCount.classList.remove('show');
+  }
+}
 
 async function vote(type) {
   const snapshot = await votesRef.once('value');
@@ -1081,7 +1111,10 @@ async function vote(type) {
   }
 
   await votesRef.set(current);
+  updateVoteVisibility();
 }
+
+updateVoteVisibility();
 
 // ===== ТАЙМЕР =====
 const targetDate = new Date('2026-08-28T18:00:00');
@@ -1137,15 +1170,15 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-// ===== МУЗЫКА: переключатель для кнопки по центру =====
-const musicBtnCenter = document.getElementById('musicBtnCenter');
-let isMutedCenter = true; // по умолчанию выключена (перечеркнута)
+// ===== МУЗЫКА: переключатель для встроенной кнопки =====
+const musicBtnInline = document.getElementById('musicBtnInline');
+let isMutedInline = true;
 
-musicBtnCenter.addEventListener('click', function(e) {
+musicBtnInline.addEventListener('click', function(e) {
   e.preventDefault();
-  isMutedCenter = !isMutedCenter;
-  this.classList.toggle('muted', isMutedCenter);
-  this.setAttribute('aria-label', isMutedCenter ? 'Включить музыку' : 'Выключить музыку');
+  isMutedInline = !isMutedInline;
+  this.classList.toggle('muted', isMutedInline);
+  this.setAttribute('aria-label', isMutedInline ? 'Включить музыку' : 'Выключить музыку');
 });
 </script>
 
